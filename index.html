@@ -143,20 +143,18 @@
             text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
         }
 
-      /* 1. La cuadrícula rígida */
+      /* 1. El contenedor (Flexbox) */
         .resources-grid {
-            display: grid;
-            /* Crea 3 columnas iguales */
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            display: flex;
+            flex-wrap: wrap; /* Esto permite que las tarjetas pasen a la siguiente fila */
             gap: 25px;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            /* Obliga a todas las tarjetas de la fila a estirarse igual */
-            align-items: stretch; 
+            justify-content: center; /* Centra las tarjetas si sobra espacio */
         }
 
-        /* 2. El diseño de la tarjeta uniforme */
+        /* 2. La tarjeta con tamaño fijo */
         .resource-card {
             background-color: rgba(9, 18, 33, 0.6);
             border: 1px solid rgba(2, 54, 165, 0.3);
@@ -166,16 +164,31 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
             
-            /* Esto hace que todas las tarjetas de la misma fila midan lo mismo */
             display: flex;
             flex-direction: column;
-            height: 100%; 
+            
+            /* Definimos un ancho base para que todas sean iguales */
+            width: calc(33.333% - 25px); /* 3 columnas menos el gap */
+            min-width: 300px; /* Para que no se encojan de más */
+            box-sizing: border-box;
         }
 
         .resource-card:hover {
             border-color: var(--neon-red);
             box-shadow: 0 10px 30px rgba(230, 0, 59, 0.2);
             transform: translateY(-5px);
+        }
+
+        /* Ajuste para que se vea bien en móviles */
+        @media (max-width: 1000px) {
+            .resource-card {
+                width: calc(50% - 25px); /* 2 columnas */
+            }
+        }
+        @media (max-width: 650px) {
+            .resource-card {
+                width: 100%; /* 1 columna */
+            }
         }
 
         /* 3. Ajuste para que el texto no se vea mal si es poco */
