@@ -7,13 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
+        /* PALETA DE COLORES */
         :root {
-            --bg-dark: #050a14; /* Aún más oscuro para mayor contraste */
+            --bg-dark: #050a14;
             --text-bone: #F0ddca;
             --accent-blue: #0236a5;
             --neon-red: #E6003B;
         }
 
+        /* RESET BÁSICO */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body, html {
@@ -30,46 +32,18 @@
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Mezcla de tu azul oscuro con destellos del rojo neón en el centro */
             background: radial-gradient(circle at center, rgba(230,0,59,0.08) 0%, var(--bg-dark) 70%),
                         radial-gradient(rgba(230,0,59,0.15) 1px, transparent 1px);
-            background-size: 100% 100%, 8px 8px; /* El 8px 8px hace el efecto de puntitos */
+            background-size: 100% 100%, 8px 8px; 
             z-index: -2;
         }
 
-        /* EL ARTE GIGANTE A LA IZQUIERDA (Estilo Threshold) */
-        .bg-avatar {
-            position: fixed;
-            top: 10%;
-            left: -5%;
-            width: 45vw; /* Ocupa casi la mitad de la pantalla */
-            height: 90vh;
-            /* AQUÍ PONDRÁS LA IMAGEN DE TU AVATAR */
-            /* background-image: url('link-a-tu-imagen.png'); */
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: bottom left;
-            z-index: -1;
-            opacity: 0.8;
-            /* Placeholder temporal para que veas dónde va */
-            border: 2px dashed var(--neon-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .bg-avatar p {
-            font-family: 'Anton';
-            color: rgba(230,0,59,0.5);
-            font-size: 2rem;
-            transform: rotate(-10deg);
-        }
-
-        /* CONTENEDOR CENTRAL DEL VIDEO */
+        /* CONTENEDOR CENTRAL DEL VIDEO (HERO) */
         .main-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Centrado perfecto en pantalla */
+            height: 100vh; 
             position: relative;
             z-index: 10;
         }
@@ -101,7 +75,7 @@
             opacity: 0.5;
         }
 
-        /* MENÚ FLOTANTE MINIMALISTA (Estilo Píldora) */
+        /* MENÚ FLOTANTE MINIMALISTA */
         .nav-container {
             position: fixed;
             bottom: 40px;
@@ -137,7 +111,6 @@
             color: var(--neon-red);
         }
 
-        /* BOTÓN ESPECIAL NEURO EDIT */
         .btn-discord {
             background-color: var(--text-bone);
             color: var(--bg-dark) !important;
@@ -170,23 +143,106 @@
             text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
         }
 
+        /* ESTILOS DE LA CUADRÍCULA DE RECURSOS */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .resource-card {
+            background-color: rgba(9, 18, 33, 0.6);
+            border: 1px solid rgba(2, 54, 165, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .resource-card:hover {
+            border-color: var(--neon-red);
+            box-shadow: 0 10px 30px rgba(230, 0, 59, 0.15), inset 0 0 20px rgba(230, 0, 59, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .card-tag {
+            font-family: 'Anton';
+            font-size: 0.8rem;
+            color: var(--bg-dark);
+            background-color: var(--text-bone);
+            padding: 4px 12px;
+            border-radius: 20px;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .resource-card:hover .card-tag {
+            background-color: var(--neon-red);
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-bone);
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #888;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
-    <div class="bg-avatar">
-        <p>AQUÍ VA TU VTUBER GIGANTE</p>
-    </div>
-
     <div class="main-content" id="inicio">
         <div class="video-container">
-            <h2>DEMO REEL</h2>
-            </div>
+            <h2>DEMO REEL PENDING</h2>
+        </div>
     </div>
 
     <div class="content-section" id="recursos">
         <h2 class="section-title">RECURSOS</h2>
+        
+        <div class="resources-grid">
+            
+            <a href="https://www.101soundboards.com/" target="_blank" class="resource-card">
+                <span class="card-tag">EFECTOS</span>
+                <h3 class="card-title">Librería de Sonidos</h3>
+                <p class="card-desc">Página gratuita con cientos de efectos de sonido sin copyright para usar directo en Premiere.</p>
+            </a>
+
+            <a href="https://podcast.adobe.com/en/enhance " target="_blank" class="resource-card">
+                <span class="card-tag">AUDIO IA</span>
+                <h3 class="card-title">Adobe Enhance Speech</h3>
+                <p class="card-desc">Servicio web brutal impulsado por IA que limpia cualquier grabación de voz y la hace sonar como si hubieras grabado en un estudio profesional.</p>
+            </a>
+
+            <a href="https://www.downloadpirate.com/adobe/" target="_blank" class="resource-card">
+                <span class="card-tag">DESCARGAS</span>
+                <h3 class="card-title">El Tesoro del Editor</h3>
+                <p class="card-desc">Plataforma (DownloadPirate) imprescindible para encontrar recursos, plugins y herramientas vitales para tu flujo de trabajo en postproducción.</p>
+            </a>
+
+            <a href="https://www.remove.bg/es" target="_blank" class="resource-card">
+                <span class="card-tag">UTILIDAD</span>
+                <h3 class="card-title">Removedor de Fondo</h3>
+                <p class="card-desc">La mejor IA gratuita para quitar fondos a imágenes y crear PNGs al instante para tus miniaturas.</p>
+            </a>
+
         </div>
+    </div>
 
     <div class="nav-container">
         <div class="floating-pill">
