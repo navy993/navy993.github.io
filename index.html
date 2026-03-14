@@ -143,15 +143,15 @@
             text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
         }
 
-      /* 1. El contenedor (Flexbox) */
-        .resources-grid {
+     .resources-grid {
             display: flex;
-            flex-wrap: wrap; /* Esto permite que las tarjetas pasen a la siguiente fila */
+            flex-wrap: wrap; 
             gap: 25px;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            justify-content: center; /* Centra las tarjetas si sobra espacio */
+            /* CAMBIA ESTO: De center a flex-start */
+            justify-content: flex-start; 
         }
 
         /* 2. La tarjeta con tamaño fijo */
@@ -398,7 +398,7 @@
                 <p class="card-desc">Envío de archivos de hasta 50GB totalmente gratis. Una herramienta oculta que todo editor de video debe conocer.</p>
             </a>
 
-<a href="https://lab.houraiken.jp/" target="_blank" class="resource-card">
+<a href="https://lab.horaiken.jp/" target="_blank" class="resource-card">
                 <span class="card-tag">OBS / FILTROS</span>
                 <h3 class="card-title">Houraiken Lab</h3>
                 <p class="card-desc">Filtros visuales increíbles para OBS (Glitch, Iluminación Adaptativa y Estética Anime). Vital para que tu stream o grabaciones tengan un acabado visual "Aesthetic" de alto nivel.</p>
