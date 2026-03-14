@@ -143,19 +143,20 @@
             text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
         }
 
-      /* 1. La cuadrícula (Vuelve a ser automática pero sin huecos locos) */
+      /* 1. La cuadrícula rígida */
         .resources-grid {
             display: grid;
+            /* Crea 3 columnas iguales */
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            /* Esta es la clave para que no se estiren */
-            align-items: flex-start; 
+            /* Obliga a todas las tarjetas de la fila a estirarse igual */
+            align-items: stretch; 
         }
 
-        /* 2. El diseño de la tarjeta (Simple y efectivo) */
+        /* 2. El diseño de la tarjeta uniforme */
         .resource-card {
             background-color: rgba(9, 18, 33, 0.6);
             border: 1px solid rgba(2, 54, 165, 0.3);
@@ -164,16 +165,26 @@
             text-decoration: none;
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
+            
+            /* Esto hace que todas las tarjetas de la misma fila midan lo mismo */
             display: flex;
             flex-direction: column;
-            /* Quitamos el height: 100% que las inflaba */
-            height: auto; 
+            height: 100%; 
         }
 
         .resource-card:hover {
             border-color: var(--neon-red);
             box-shadow: 0 10px 30px rgba(230, 0, 59, 0.2);
             transform: translateY(-5px);
+        }
+
+        /* 3. Ajuste para que el texto no se vea mal si es poco */
+        .card-desc {
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.5;
+            /* Si hay poco texto, el espacio sobrante se queda abajo */
+            flex-grow: 1; 
         }
 
         /* 3. Las etiquetas (tags) */
