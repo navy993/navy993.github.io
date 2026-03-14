@@ -143,31 +143,34 @@
             text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
         }
 
-       /* ESTILOS DE LA CUADRÍCULA (Estilo Pinterest para que no queden huecos) */
+       /* ESTILOS DE LA CUADRÍCULA SIMÉTRICA */
         .resources-grid {
-            column-width: 320px;
-            column-gap: 30px;
+            display: grid;
+            /* Crea 3 columnas iguales en PC, y se ajusta solo en móvil */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            /* Alinea las filas para que todas midan lo mismo */
+            align-items: stretch; 
         }
 
         .resource-card {
             background-color: rgba(9, 18, 33, 0.6);
             border: 1px solid rgba(2, 54, 165, 0.3);
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px;
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(5px);
             
-            /* EL TRUCO PARA EL ORDEN PERFECTO */
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 30px;
-            break-inside: avoid;
+            /* Esto obliga a que todas las tarjetas de una fila midan lo mismo */
+            display: flex;
+            flex-direction: column;
+            height: 100%; 
         }
 
         .resource-card {
@@ -186,7 +189,7 @@
 
         .resource-card:hover {
             border-color: var(--neon-red);
-            box-shadow: 0 10px 30px rgba(230, 0, 59, 0.15), inset 0 0 20px rgba(230, 0, 59, 0.05);
+            box-shadow: 0 10px 30px rgba(230, 0, 59, 0.2);
             transform: translateY(-5px);
         }
 
@@ -215,10 +218,12 @@
             margin-bottom: 10px;
         }
 
+        /* Ajuste para que el texto no empuje la tarjeta hacia abajo de más */
         .card-desc {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #888;
-            line-height: 1.5;
+            line-height: 1.4;
+            margin-top: auto; /* Empuja el contenido hacia arriba si hay poco texto */
         }
     </style>
 </head>
