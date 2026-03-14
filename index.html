@@ -143,17 +143,17 @@
             text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
         }
 
-       /* ESTILOS DE LA CUADRÍCULA SIMÉTRICA */
+       /* CUADRÍCULA BLINDADA */
         .resources-grid {
             display: grid;
-            /* Crea 3 columnas iguales en PC, y se ajusta solo en móvil */
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            /* Crea columnas de 300px que se expanden si hay espacio */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            /* Alinea las filas para que todas midan lo mismo */
-            align-items: stretch; 
+            /* Alinea las tarjetas al principio de la fila para que no se estiren */
+            align-items: start; 
         }
 
         .resource-card {
@@ -163,14 +163,13 @@
             padding: 25px;
             text-decoration: none;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
             backdrop-filter: blur(5px);
             
-            /* Esto obliga a que todas las tarjetas de una fila midan lo mismo */
+            /* Altura fija mínima para que se vean ordenadas, pero no infinitas */
             display: flex;
             flex-direction: column;
-            height: 100%; 
+            min-height: 200px; 
+            height: auto;
         }
 
         .resource-card {
@@ -193,17 +192,17 @@
             transform: translateY(-5px);
         }
 
+        /* Forzamos a que las etiquetas no se deformen */
         .card-tag {
+            display: inline-block;
             font-family: 'Anton';
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--bg-dark);
             background-color: var(--text-bone);
             padding: 4px 12px;
             border-radius: 20px;
-            align-self: flex-start;
             margin-bottom: 15px;
-            letter-spacing: 1px;
-            transition: background-color 0.3s;
+            width: fit-content;
         }
 
         .resource-card:hover .card-tag {
