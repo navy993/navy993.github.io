@@ -743,23 +743,36 @@
         </div>
     </div>
 
-    <script>
+  <script>
         function filterData(category, element) {
             const cards = document.querySelectorAll('.resource-card');
             const buttons = document.querySelectorAll('.filter-btn');
             
-            // Actualizar estado de los botones
+            // 1. Reacción visual del botón
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
 
-            // Filtrar las tarjetas
+            // 2. Animación de las tarjetas
             cards.forEach(card => {
                 const cardCats = card.getAttribute('data-category');
-                if (category === 'all' || cardCats.includes(category)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
+                
+                // Primero las ocultamos visualmente para el efecto de salida
+                card.style.opacity = "0";
+                card.style.transform = "scale(0.95)";
+
+                setTimeout(() => {
+                    if (category === 'all' || cardCats.includes(category)) {
+                        card.classList.remove('hidden');
+                        
+                        // Volvemos a mostrar con transición suave
+                        setTimeout(() => {
+                            card.style.opacity = "1";
+                            card.style.transform = "scale(1)";
+                        }, 50);
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }, 200); 
             });
         }
     </script>
