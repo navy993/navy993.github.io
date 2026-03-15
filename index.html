@@ -218,13 +218,34 @@
     color: var(--neon-red);
     text-shadow: 0 0 8px var(--neon-red);
 }
-        .btn-discord {
-            background-color: #ffffff;
-            color: #050a14 !important;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 900 !important;
-        }
+       .btn-discord {
+    background-color: #E6003B !important; /* Tu color rojo Navvy */
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid white;
+    /* Animación de pulso */
+    animation: pulse-red 2s infinite;
+    transition: all 0.3s ease !important;
+}
+
+.btn-discord:hover {
+    transform: scale(1.1) rotate(-2deg);
+    background-color: white !important;
+    color: #E6003B !important;
+    box-shadow: 0 0 25px #E6003B;
+}
+
+/* Definición de la luz que parpadea */
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(230, 0, 59, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0); }
+}
 
         @media (max-width: 1000px) { .resource-card { width: calc(50% - 25px); } }
         @media (max-width: 650px) { .resource-card { width: 100%; } }
@@ -744,37 +765,41 @@
     </div>
 
   <script>
-        function filterData(category, element) {
-            const cards = document.querySelectorAll('.resource-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // 1. Reacción visual del botón
-            buttons.forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+       function filterData(category, element) {
+    const cards = document.querySelectorAll('.resource-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    buttons.forEach(btn => btn.classList.remove('active'));
+    element.classList.add('active');
 
-            // 2. Animación de las tarjetas
-            cards.forEach(card => {
-                const cardCats = card.getAttribute('data-category');
+    cards.forEach(card => {
+        const cardCats = card.getAttribute('data-category');
+        
+        // Efecto de salida
+        card.style.opacity = "0";
+        card.style.transform = "scale(0.9)";
+
+        setTimeout(() => {
+            if (category === 'all' || cardCats.includes(category)) {
+                card.classList.remove('hidden');
                 
-                // Primero las ocultamos visualmente para el efecto de salida
-                card.style.opacity = "0";
-                card.style.transform = "scale(0.95)";
-
                 setTimeout(() => {
-                    if (category === 'all' || cardCats.includes(category)) {
-                        card.classList.remove('hidden');
-                        
-                        // Volvemos a mostrar con transición suave
-                        setTimeout(() => {
-                            card.style.opacity = "1";
-                            card.style.transform = "scale(1)";
-                        }, 50);
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                }, 200); 
-            });
-        }
+                    card.style.opacity = "1";
+                    card.style.transform = "scale(1)";
+                    
+                    // LA CLAVE: Después de animar, quitamos los estilos en línea
+                    // para que el :hover del CSS vuelva a funcionar siempre.
+                    setTimeout(() => {
+                        card.style.opacity = "";
+                        card.style.transform = "";
+                    }, 400); 
+                }, 50);
+            } else {
+                card.classList.add('hidden');
+            }
+        }, 200); 
+    });
+}
     </script>
 </body>
 </html>
