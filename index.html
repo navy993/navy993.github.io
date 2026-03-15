@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* PALETA DE COLORES */
         :root {
             --bg-dark: #050a14;
             --text-bone: #F0ddca;
@@ -15,7 +14,6 @@
             --neon-red: #E6003B;
         }
 
-        /* RESET BÁSICO */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body, html {
@@ -24,10 +22,8 @@
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            height: 100%;
         }
 
-        /* TEXTURA HALFTONE AGRESIVA Y FONDO ROJO SUTIL */
         body::before {
             content: "";
             position: fixed;
@@ -38,111 +34,53 @@
             z-index: -2;
         }
 
-        /* CONTENEDOR CENTRAL DEL VIDEO (HERO) */
-        .main-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; 
-            position: relative;
-            z-index: 10;
-        }
-
-        .video-container {
-            width: 800px;
-            aspect-ratio: 16/9;
-            background-color: #000;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 15px rgba(230,0,59,0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .video-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 40px rgba(230,0,59,0.4);
-            border-color: var(--neon-red);
-        }
-
-        .video-container h2 {
-            font-family: 'Anton';
-            font-size: 3rem;
-            color: var(--text-bone);
-            letter-spacing: 2px;
-            opacity: 0.5;
-        }
-
-        /* MENÚ FLOTANTE MINIMALISTA */
-        .nav-container {
-            position: fixed;
-            bottom: 40px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 100;
-        }
-
-        .floating-pill {
-            background-color: rgba(9, 18, 33, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 10px 30px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            border: 1px solid rgba(240, 221, 202, 0.1);
-        }
-
-        .floating-pill a {
-            color: var(--text-bone);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-
-        .floating-pill a:hover {
-            color: var(--neon-red);
-        }
-
-        .btn-discord {
-            background-color: var(--text-bone);
-            color: var(--bg-dark) !important;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 900 !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .btn-discord:hover {
-            background-color: var(--neon-red);
-            color: white !important;
-            box-shadow: 0 0 15px var(--neon-red);
-        }
-
-        /* SECCIONES PARA SCROLL DE CONTENIDO */
         .content-section {
-            min-height: 100vh;
-            padding: 100px 50px;
+            padding: 80px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
         
         .section-title {
             font-family: 'Anton';
             font-size: 4rem;
             color: var(--text-bone);
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
         }
 
+        /* FILTROS */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 50px;
+            max-width: 1000px;
+        }
+
+        .filter-btn {
+            background: rgba(240, 221, 202, 0.05);
+            border: 1px solid rgba(240, 221, 202, 0.2);
+            color: var(--text-bone);
+            padding: 8px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--neon-red);
+            border-color: var(--neon-red);
+            color: white;
+            box-shadow: 0 0 15px var(--neon-red);
+        }
+
+        /* GRID */
         .resources-grid {
             display: flex;
             flex-wrap: wrap; 
@@ -159,7 +97,7 @@
             border-radius: 12px;
             padding: 25px;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             backdrop-filter: blur(5px);
             display: flex;
             flex-direction: column;
@@ -169,6 +107,8 @@
             margin-bottom: 10px;
         }
 
+        .resource-card.hidden { display: none; }
+
         .resource-card:hover {
             border-color: var(--neon-red);
             box-shadow: 0 10px 30px rgba(230, 0, 59, 0.2);
@@ -177,22 +117,17 @@
 
         .card-tag {
             font-family: 'Anton';
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--bg-dark);
             background-color: var(--text-bone);
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 3px 10px;
+            border-radius: 4px;
             align-self: flex-start;
             margin-bottom: 15px;
         }
 
-        .resource-card:hover .card-tag {
-            background-color: var(--neon-red);
-            color: white;
-        }
-
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: var(--text-bone);
             margin-bottom: 10px;
@@ -200,197 +135,210 @@
 
         .card-desc {
             font-size: 0.85rem;
-            color: #888;
+            color: #aaa;
             line-height: 1.4;
             margin-top: auto;
         }
 
-        @media (max-width: 1000px) {
-            .resource-card { width: calc(50% - 25px); }
-        }
-        @media (max-width: 650px) {
-            .resource-card { width: 100%; }
-        }
+        @media (max-width: 1000px) { .resource-card { width: calc(50% - 25px); } }
+        @media (max-width: 650px) { .resource-card { width: 100%; } }
     </style>
 </head>
 <body>
 
-    <div class="main-content" id="inicio">
-        <div class="video-container">
-            <h2>DEMO REEL PENDING</h2>
-        </div>
-    </div>
-
-    <div class="content-section" id="recursos">
+    <section class="content-section" id="recursos">
         <h2 class="section-title">RECURSOS</h2>
+
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterData('all', this)">Todos</button>
+            <button class="filter-btn" onclick="filterData('audio', this)">Audio</button>
+            <button class="filter-btn" onclick="filterData('ia', this)">IA</button>
+            <button class="filter-btn" onclick="filterData('streaming', this)">Streaming</button>
+            <button class="filter-btn" onclick="filterData('edicion', this)">Edición</button>
+            <button class="filter-btn" onclick="filterData('utilidad', this)">Utilidad</button>
+        </div>
         
-        <div class="resources-grid">
-            <a href="https://www.101soundboards.com/" target="_blank" class="resource-card">
+        <div class="resources-grid" id="grid">
+            
+            <a href="https://obsproject.com/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING</span>
+                <h3 class="card-title">OBS Studio</h3>
+                <p class="card-desc">El estándar para grabar y streamear con máxima calidad.</p>
+            </a>
+            <a href="https://www.audacityteam.org/" target="_blank" class="resource-card" data-category="audio">
+                <span class="card-tag">AUDIO</span>
+                <h3 class="card-title">Audacity</h3>
+                <p class="card-desc">Editor de audio gratuito para limpiar voces y efectos.</p>
+            </a>
+            <a href="https://brave.com/" target="_blank" class="resource-card" data-category="utilidad">
+                <span class="card-tag">UTILIDAD</span>
+                <h3 class="card-title">Brave Browser</h3>
+                <p class="card-desc">Navegador rápido, sin anuncios y que ahorra mucha RAM.</p>
+            </a>
+            <a href="https://streamelements.com/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING</span>
+                <h3 class="card-title">StreamElements</h3>
+                <p class="card-desc">Overlays y bots en la nube para no gastar recursos de tu PC.</p>
+            </a>
+            <a href="https://streamlabs.com/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING</span>
+                <h3 class="card-title">Streamlabs</h3>
+                <p class="card-desc">Widgets y alertas visuales para una configuración rápida.</p>
+            </a>
+            <a href="https://multistream.app/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING</span>
+                <h3 class="card-title">Stream Suite Multi</h3>
+                <p class="card-desc">Multistream para transmitir a varias plataformas a la vez.</p>
+            </a>
+
+            <a href="https://www.101soundboards.com/" target="_blank" class="resource-card" data-category="audio edicion">
                 <span class="card-tag">EFECTOS</span>
                 <h3 class="card-title">Librería de Sonidos</h3>
-                <p class="card-desc">Página gratuita con cientos de efectos de sonido sin copyright para usar directo en Premiere.</p>
+                <p class="card-desc">Sonidos sin copyright directos para Premiere.</p>
             </a>
-
-            <a href="https://podcast.adobe.com/en/enhance" target="_blank" class="resource-card">
+            <a href="https://podcast.adobe.com/en/enhance" target="_blank" class="resource-card" data-category="audio ia">
                 <span class="card-tag">AUDIO IA</span>
-                <h3 class="card-title">Adobe Enhance Speech</h3>
-                <p class="card-desc">IA que limpia grabaciones de voz y las hace sonar profesionales.</p>
+                <h3 class="card-title">Adobe Enhance</h3>
+                <p class="card-desc">Limpia voces con IA profesional.</p>
             </a>
-
-            <a href="https://www.downloadpirate.com/adobe/" target="_blank" class="resource-card">
+            <a href="https://www.downloadpirate.com/adobe/" target="_blank" class="resource-card" data-category="edicion utilidad">
                 <span class="card-tag">DESCARGAS</span>
                 <h3 class="card-title">El Tesoro del Editor</h3>
-                <p class="card-desc">Plugins y herramientas vitales para postproducción.</p>
+                <p class="card-desc">Plugins y herramientas vitales de postproducción.</p>
             </a>
-
-            <a href="https://www.remove.bg/es" target="_blank" class="resource-card">
+            <a href="https://www.remove.bg/es" target="_blank" class="resource-card" data-category="ia utilidad">
                 <span class="card-tag">UTILIDAD</span>
                 <h3 class="card-title">Removedor de Fondo</h3>
-                <p class="card-desc">IA gratuita para quitar fondos a imágenes al instante.</p>
+                <p class="card-desc">Quita fondos de imágenes al instante.</p>
             </a>
-
-            <a href="https://www.photopea.com/" target="_blank" class="resource-card">
+            <a href="https://www.photopea.com/" target="_blank" class="resource-card" data-category="edicion utilidad">
                 <span class="card-tag">DISEÑO</span>
                 <h3 class="card-title">Photopea</h3>
                 <p class="card-desc">Clon gratuito de Photoshop en el navegador.</p>
             </a>
-
-            <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card">
+            <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card" data-category="edicion utilidad">
                 <span class="card-tag">WORKFLOW</span>
                 <h3 class="card-title">DowP</h3>
                 <p class="card-desc">Descarga y optimiza clips antes de editar.</p>
             </a>
-
-            <a href="https://knightsoftheeditingtable.com/" target="_blank" class="resource-card">
+            <a href="https://knightsoftheeditingtable.com/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">PLUGINS</span>
                 <h3 class="card-title">Knights Table</h3>
-                <p class="card-desc">Extensiones legendarias para acelerar Premiere Pro.</p>
+                <p class="card-desc">Extensiones legendarias para Premiere Pro.</p>
             </a>
-
-            <a href="https://intro-hd.net/" target="_blank" class="resource-card">
+            <a href="https://intro-hd.net/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">PLANTILLAS</span>
                 <h3 class="card-title">Intro HD</h3>
-                <p class="card-desc">Librería gigante con plantillas gratuitas y scripts.</p>
+                <p class="card-desc">Librería de plantillas gratuitas y scripts.</p>
             </a>
-
-            <a href="https://satvrn.li/" target="_blank" class="resource-card">
+            <a href="https://satvrn.li/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">PACKS</span>
                 <h3 class="card-title">Satvrn Resources</h3>
-                <p class="card-desc">Repositorio de recursos visuales de edición.</p>
+                <p class="card-desc">Recursos visuales y suites de adobe.</p>
             </a>
-
-            <a href="https://sounds.spriters-resource.com/" target="_blank" class="resource-card">
+            <a href="https://sounds.spriters-resource.com/" target="_blank" class="resource-card" data-category="audio">
                 <span class="card-tag">AUDIO FX</span>
                 <h3 class="card-title">The Sounds Resource</h3>
-                <p class="card-desc">Efectos de sonido extraídos directamente de videojuegos.</p>
+                <p class="card-desc">Efectos de sonido de miles de videojuegos.</p>
             </a>
-
-            <a href="https://imageonline.co/" target="_blank" class="resource-card">
+            <a href="https://imageonline.co/" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">IA / IMAGEN</span>
                 <h3 class="card-title">ImageOnline.co</h3>
-                <p class="card-desc">Suite web para manipular imágenes y formatos.</p>
+                <p class="card-desc">Manipulación técnica de imágenes online.</p>
             </a>
-
-            <a href="https://www.krea.ai/" target="_blank" class="resource-card">
+            <a href="https://www.krea.ai/" target="_blank" class="resource-card" data-category="ia">
                 <span class="card-tag">IA / GENERATIVO</span>
                 <h3 class="card-title">Krea.ai</h3>
-                <p class="card-desc">Generación visual en tiempo real por IA.</p>
+                <p class="card-desc">Generación visual en tiempo real.</p>
             </a>
-
-            <a href="https://www.waifu2x.net/index.es.html" target="_blank" class="resource-card">
+            <a href="https://www.waifu2x.net/index.es.html" target="_blank" class="resource-card" data-category="ia utilidad">
                 <span class="card-tag">UPSCALE</span>
                 <h3 class="card-title">Waifu2x</h3>
-                <p class="card-desc">Escala imágenes eliminando ruido y pixelado.</p>
+                <p class="card-desc">Escala imágenes eliminando ruido.</p>
             </a>
-
-            <a href="https://www.fotor.com/es/features/ai-image-extender/" target="_blank" class="resource-card">
+            <a href="https://www.fotor.com/es/features/ai-image-extender/" target="_blank" class="resource-card" data-category="ia">
                 <span class="card-tag">IA / DISEÑO</span>
                 <h3 class="card-title">Fotor AI Extender</h3>
-                <p class="card-desc">Expansión de imágenes por IA para formatos verticales.</p>
+                <p class="card-desc">Expande fondos de imágenes con IA.</p>
             </a>
-
-            <a href="https://clipdrop.co/relight" target="_blank" class="resource-card">
+            <a href="https://clipdrop.co/relight" target="_blank" class="resource-card" data-category="ia utilidad">
                 <span class="card-tag">ILUMINACIÓN</span>
                 <h3 class="card-title">Clipdrop Relight</h3>
-                <p class="card-desc">Añade luces dinámicas a tus fotos después de tomarlas.</p>
+                <p class="card-desc">Relumina fotos con luces dinámicas IA.</p>
             </a>
-
-            <a href="https://replicate.com/nightmareai/real-esrgan" target="_blank" class="resource-card">
+            <a href="https://replicate.com/nightmareai/real-esrgan" target="_blank" class="resource-card" data-category="ia">
                 <span class="card-tag">UPSCALE PRO</span>
                 <h3 class="card-title">Real-ESRGAN</h3>
-                <p class="card-desc">Superresolución avanzada para recuperar detalles.</p>
+                <p class="card-desc">Superresolución avanzada por IA.</p>
             </a>
-
-            <a href="https://chatgpt.com/" target="_blank" class="resource-card">
+            <a href="https://chatgpt.com/" target="_blank" class="resource-card" data-category="ia utilidad">
                 <span class="card-tag">IA / TEXTO</span>
                 <h3 class="card-title">ChatGPT</h3>
-                <p class="card-desc">Asistente para guiones e ideas de contenido.</p>
+                <p class="card-desc">Asistente para guiones e ideas.</p>
             </a>
-
-            <a href="https://www.canva.com/" target="_blank" class="resource-card">
+            <a href="https://www.canva.com/" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">DISEÑO</span>
                 <h3 class="card-title">Canva</h3>
-                <p class="card-desc">Plataforma de diseño rápido con plantillas.</p>
+                <p class="card-desc">Diseño rápido basado en plantillas.</p>
             </a>
-
-            <a href="https://vocalremover.org/es/" target="_blank" class="resource-card">
+            <a href="https://vocalremover.org/es/" target="_blank" class="resource-card" data-category="audio ia">
                 <span class="card-tag">AUDIO / IA</span>
                 <h3 class="card-title">Vocal Remover</h3>
-                <p class="card-desc">Separa música de voz con precisión por IA.</p>
+                <p class="card-desc">Separa música y voz con precisión.</p>
             </a>
-
-            <a href="https://elevenlabs.io/" target="_blank" class="resource-card">
+            <a href="https://elevenlabs.io/" target="_blank" class="resource-card" data-category="audio ia">
                 <span class="card-tag">VOZ / IA</span>
                 <h3 class="card-title">ElevenLabs</h3>
-                <p class="card-desc">Narraciones ultra realistas y clonación de voz.</p>
+                <p class="card-desc">Narraciones ultra realistas con IA.</p>
             </a>
-
-            <a href="https://www.dzine.ai/" target="_blank" class="resource-card">
+            <a href="https://www.dzine.ai/" target="_blank" class="resource-card" data-category="ia edicion">
                 <span class="card-tag">IA / DISEÑO</span>
                 <h3 class="card-title">Dzine</h3>
-                <p class="card-desc">Diseño visual avanzado asistido por IA.</p>
+                <p class="card-desc">Edición visual avanzada con IA.</p>
             </a>
-
-            <a href="https://www.myairbridge.com/es/" target="_blank" class="resource-card">
+            <a href="https://www.myairbridge.com/es/" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">TRANSFER</span>
                 <h3 class="card-title">MyAirBridge</h3>
-                <p class="card-desc">Transferencia rápida de archivos pesados.</p>
+                <p class="card-desc">Transferencia masiva de archivos pesados.</p>
             </a>
-
-            <a href="https://ydray.com/es/" target="_blank" class="resource-card">
+            <a href="https://ydray.com/es/" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">TRANSFER</span>
                 <h3 class="card-title">Ydray</h3>
-                <p class="card-desc">Envío de archivos grandes con buena velocidad.</p>
+                <p class="card-desc">Envío de archivos grandes gratis.</p>
             </a>
-
-            <a href="https://wetransfer.com/" target="_blank" class="resource-card">
+            <a href="https://wetransfer.com/" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">TRANSFER</span>
                 <h3 class="card-title">WeTransfer</h3>
-                <p class="card-desc">Envío estándar de hasta 2GB gratis.</p>
+                <p class="card-desc">El estándar de envío de archivos de 2GB.</p>
             </a>
-
-            <a href="https://www.swisstransfer.com/es" target="_blank" class="resource-card">
+            <a href="https://www.swisstransfer.com/es" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">TRANSFER PRO</span>
                 <h3 class="card-title">SwissTransfer</h3>
-                <p class="card-desc">Envía hasta 50GB totalmente gratis.</p>
+                <p class="card-desc">Envío de hasta 50GB totalmente gratis.</p>
             </a>
-
-            <a href="https://lab.houraiken.jp/" target="_blank" class="resource-card">
+            <a href="https://lab.houraiken.jp/" target="_blank" class="resource-card" data-category="streaming">
                 <span class="card-tag">OBS / FILTROS</span>
                 <h3 class="card-title">Houraiken Lab</h3>
-                <p class="card-desc">Filtros visuales "Aesthetic" y anime para OBS.</p>
+                <p class="card-desc">Filtros Aesthetic y Anime para OBS.</p>
             </a>
         </div>
-    </div>
+    </section>
 
-    <div class="nav-container">
-        <div class="floating-pill">
-            <a href="#inicio">Inicio</a>
-            <a href="#recursos">Recursos</a>
-            <a href="#">Portafolio</a>
-            <a href="https://discord.gg/SDjSfmhhsH" target="_blank" class="btn-discord">Neuro Edit</a>
-        </div>
-    </div>
-
+    <script>
+        function filterData(category, element) {
+            const cards = document.querySelectorAll('.resource-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            cards.forEach(card => {
+                const cardCats = card.getAttribute('data-category');
+                if (category === 'all' || cardCats.includes(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
