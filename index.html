@@ -105,6 +105,7 @@
             background: var(--neon-red);
             border-color: var(--neon-red);
             color: white;
+            box-shadow: 0 0 15px var(--neon-red);
         }
 
         .resources-grid {
@@ -138,7 +139,7 @@
             font-family: 'Anton';
             font-size: 0.75rem;
             background-color: #ffffff;
-            color: var(--bg-dark);
+            color: #000;
             padding: 4px 12px;
             border-radius: 20px;
             align-self: flex-start;
@@ -175,7 +176,7 @@
             border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -193,16 +194,10 @@
 
         .btn-discord {
             background-color: #ffffff;
-            color: var(--bg-dark) !important;
+            color: #050a14 !important;
             padding: 8px 20px;
             border-radius: 30px;
             font-weight: 900 !important;
-        }
-
-        .btn-discord:hover {
-            background-color: var(--neon-red);
-            color: white !important;
-            box-shadow: 0 0 15px var(--neon-red);
         }
 
         @media (max-width: 1000px) { .resource-card { width: calc(50% - 25px); } }
@@ -210,16 +205,13 @@
     </style>
 </head>
 <body>
-
     <div class="main-content" id="inicio">
         <div class="video-container">
             <h2>DEMO REEL PENDING</h2>
         </div>
     </div>
-
     <div class="content-section" id="recursos">
         <h2 class="section-title">RECURSOS</h2>
-        
         <div class="filter-container">
             <button class="filter-btn active" onclick="filterData('all', this)">Todos</button>
             <button class="filter-btn" onclick="filterData('amv', this)">AMV</button>
@@ -232,64 +224,16 @@
             <button class="filter-btn" onclick="filterData('discord', this)">Discord</button>
             <button class="filter-btn" onclick="filterData('utilidad', this)">Utilidad</button>
         </div>
-<a href="https://www.tubebuddy.com/" target="_blank" class="resource-card" data-category="youtube">
-                <span class="card-tag">YOUTUBE / TOOLS</span>
-                <h3 class="card-title">TubeBuddy</h3>
-                <p class="card-desc">La extensión definitiva para creadores de contenido. Ofrece análisis de competencia, optimización de SEO avanzada y gestión de miniaturas para maximizar el crecimiento de tu canal.</p>
-            </a>
-            <a href="https://yout.com/" target="_blank" class="resource-card" data-category="utilidad youtube">
-                <span class="card-tag">DOWNLOAD / YT</span>
-                <h3 class="card-title">Yout.com</h3>
-                <p class="card-desc">La forma más rápida y limpia de convertir videos de YouTube a formatos MP3 o MP4 con alta fidelidad, ideal para rescatar material de referencia rápidamente.</p>
-            </a>
-            <a href="https://notube.lol/fr/youtube-app-318" target="_blank" class="resource-card" data-category="youtube utilidad">
-                <span class="card-tag">YOUTUBE / DOWNLOAD</span>
-                <h3 class="card-title">NoTube</h3>
-                <p class="card-desc">Convertidor multi-formato rápido y sencillo para descargar material de YouTube sin anuncios molestos ni las complicaciones de otros sitios tradicionales.</p>
-            </a>
-
-            <a href="https://file.pizza/" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">TRANSFER / P2P</span>
-                <h3 class="card-title">FilePizza</h3>
-                <p class="card-desc">Transferencia de archivos directamente entre navegadores utilizando tecnología P2P. Al no pasar por servidores intermedios, es increíblemente rápido y privado.</p>
-            </a>
-            <a href="https://cobalt.tools/" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / DOWNLOAD</span>
-                <h3 class="card-title">Cobalt.tools</h3>
-                <p class="card-desc">La herramienta definitiva y moderna para descargar videos de prácticamente cualquier red social sin anuncios, sin trackers y, lo más importante, sin marcas de agua.</p>
-            </a>
-            <a href="https://whimsical.com/" target="_blank" class="resource-card" data-category="utilidad diseño">
-                <span class="card-tag">DISEÑO / ORGANIZACIÓN</span>
-                <h3 class="card-title">Whimsical</h3>
-                <p class="card-desc">Herramienta visual para crear mapas mentales y diagramas de flujo. Esencial para organizar guiones complejos, estructuras de video largas o flujos de trabajo con clientes.</p>
-            </a>
-            <a href="https://wetransfer.com/" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">TRANSFER</span>
-                <h3 class="card-title">WeTransfer</h3>
-                <p class="card-desc">El estándar de la industria creativa para enviar archivos de hasta 2GB de forma gratuita, segura y con un diseño estético que genera confianza en el cliente.</p>
-            </a>
-            <a href="https://ydray.com/es/" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">TRANSFER</span>
-                <h3 class="card-title">Ydray</h3>
-                <p class="card-desc">Una alternativa sólida y confiable para el envío de archivos de gran tamaño sin complicaciones innecesarias y con una velocidad de subida muy optimizada para Chile.</p>
-            </a>
-            <a href="https://www.myairbridge.com/es/" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">TRANSFER MASIVO</span>
-                <h3 class="card-title">MyAirBridge</h3>
-                <p class="card-desc">Servicio profesional de transferencia de archivos masivos. Perfecto para mover carpetas enteras de material bruto de video entre editores y clientes sin pérdida de calidad.</p>
-            </a>
-        
         <div class="resources-grid" id="grid">
-
             <a href="https://animeclipsraw.fr/" target="_blank" class="resource-card" data-category="amv">
                 <span class="card-tag">AMV / RAWS</span>
                 <h3 class="card-title">AnimeClipsRaw</h3>
-                <p class="card-desc">Plataforma francesa con raws de anime en alta calidad, organizadas y listas para descargar sin subtítulos para tus mejores proyectos.</p>
+                <p class="card-desc">Plataforma francesa con raws de anime en alta calidad, organizadas y listas para descargar sin subtítulos para tus mejores proyectos de edición.</p>
             </a>
             <a href="https://animeclips.online/" target="_blank" class="resource-card" data-category="amv">
                 <span class="card-tag">AMV / CLIPS</span>
                 <h3 class="card-title">AnimeClips Online</h3>
-                <p class="card-desc">Buscador rápido de escenas específicas de anime para tus edits sin perder tiempo navegando capítulos completos de forma manual.</p>
+                <p class="card-desc">Buscador rápido de escenas específicas de anime para tus edits AMV sin perder tiempo navegando capítulos completos de forma manual.</p>
             </a>
             <a href="https://ringwitdatwixtor.com/" target="_blank" class="resource-card" data-category="amv edicion">
                 <span class="card-tag">AMV / TWIXTOR</span>
@@ -304,9 +248,13 @@
             <a href="https://moewalls.com/" target="_blank" class="resource-card" data-category="amv edicion">
                 <span class="card-tag">AMV / FONDO</span>
                 <h3 class="card-title">Moewalls</h3>
-                <p class="card-desc">Fondos animados y recursos visuales ideales para composiciones de AMV o fondos de pantalla con estética anime de alto nivel.</p>
+                <p class="card-desc">Fondos animados y recursos visuales ideales para composiciones de AMV o simplemente como fondos de pantalla con estética anime de alto nivel.</p>
             </a>
-
+            <a href="https://www.youtube.com/watch?v=L-D_1fB6eFk" target="_blank" class="resource-card" data-category="edicion amv">
+                <span class="card-tag">EDICIÓN / FX</span>
+                <h3 class="card-title">Efectos Especiales</h3>
+                <p class="card-desc">Guía visual para aplicar efectos de impacto que elevan el valor de producción de tus edits AMV y shitpost.</p>
+            </a>
             <a href="https://discord-avatar-maker.app/" target="_blank" class="resource-card" data-category="discord">
                 <span class="card-tag">DISCORD</span>
                 <h3 class="card-title">Discord Avatar Maker</h3>
@@ -320,7 +268,7 @@
             <a href="https://discords.com/emoji-list" target="_blank" class="resource-card" data-category="discord">
                 <span class="card-tag">DISCORD</span>
                 <h3 class="card-title">Discord Emoji List</h3>
-                <p class="card-desc">Una de las bibliotecas más grandes de emojis personalizados listos para subir a tu servidor y darle ese toque único de comunidad.</p>
+                <p class="card-desc">Una de las bibliotecas más grandes de emojis personalizados listos para subir a tu servidor y darle ese toque único a tu comunidad.</p>
             </a>
             <a href="https://emoji.gg/" target="_blank" class="resource-card" data-category="discord">
                 <span class="card-tag">DISCORD</span>
@@ -330,7 +278,7 @@
             <a href="https://emojiterra.com/" target="_blank" class="resource-card" data-category="discord utilidad">
                 <span class="card-tag">DISCORD</span>
                 <h3 class="card-title">EmojiTerra</h3>
-                <p class="card-desc">Diccionario completo de emojis con significados y copiado rápido para mantener tus canales de texto decorados y expresivos.</p>
+                <p class="card-desc">Diccionario completo de emojis con significados y copiado rápido para mantener tus canales de texto bien decorados y expresivos.</p>
             </a>
             <a href="https://discotools.xyz/es/icons-editor" target="_blank" class="resource-card" data-category="discord">
                 <span class="card-tag">DISCORD</span>
@@ -338,7 +286,7 @@
                 <p class="card-desc">Herramienta web para editar y crear iconos personalizados para canales y roles de Discord de forma intuitiva y profesional.</p>
             </a>
             <a href="https://www.youtube.com/watch?v=QRhdQywRIKk" target="_blank" class="resource-card" data-category="discord">
-                <span class="card-tag">DISCORD</span>
+                <span class="card-tag">DISCORD / TUTORIAL</span>
                 <h3 class="card-title">Tutorial de Roles</h3>
                 <p class="card-desc">Guía definitiva sobre cómo configurar roles y permisos de forma profesional para que tu servidor sea seguro y organizado.</p>
             </a>
@@ -350,26 +298,26 @@
             <a href="https://dsc.gg/" target="_blank" class="resource-card" data-category="discord">
                 <span class="card-tag">DISCORD</span>
                 <h3 class="card-title">DSC.GG</h3>
-                <p class="card-desc">El acortador de enlaces más usado para invitaciones de servidores de Discord. Crea links estéticos y fáciles de recordar para todos.</p>
+                <p class="card-desc">El acortador de enlaces más usado para invitaciones de servidores de Discord. Crea links estéticos y fáciles de recordar.</p>
             </a>
             <a href="https://www.youtube.com/watch?v=JlaZAj5lP5E" target="_blank" class="resource-card" data-category="discord">
-                <span class="card-tag">DISCORD</span>
+                <span class="card-tag">DISCORD / TUTORIAL</span>
                 <h3 class="card-title">Organización de Canales</h3>
                 <p class="card-desc">Aprende a estructurar categorías y canales para que tu comunidad sea navegable y estéticamente agradable para los usuarios.</p>
             </a>
             <a href="https://www.youtube.com/watch?v=MVxcc8boSLg" target="_blank" class="resource-card" data-category="discord">
-                <span class="card-tag">DISCORD</span>
+                <span class="card-tag">DISCORD / TUTORIAL</span>
                 <h3 class="card-title">Configuración de Bots</h3>
                 <p class="card-desc">Tutorial sobre los mejores bots de moderación y entretenimiento para potenciar la interacción en tu servidor de forma automática.</p>
             </a>
             <a href="https://www.youtube.com/watch?v=Nk3mUNnuoeM" target="_blank" class="resource-card" data-category="discord">
-                <span class="card-tag">DISCORD</span>
+                <span class="card-tag">DISCORD / TUTORIAL</span>
                 <h3 class="card-title">Diseño de Servidores</h3>
                 <p class="card-desc">Tips visuales para decorar tu servidor con banners, separadores y una estética profesional coherente que atraiga a más gente.</p>
             </a>
 
             <a href="https://www.pexels.com/es-es/" target="_blank" class="resource-card" data-category="diseño">
-                <span class="card-tag">DISEÑO</span>
+                <span class="card-tag">DISEÑO / STOCK</span>
                 <h3 class="card-title">Pexels</h3>
                 <p class="card-desc">La mejor biblioteca de videos y fotos de stock gratuitas y en alta resolución para usar como B-Roll en tus ediciones profesionales.</p>
             </a>
@@ -389,86 +337,211 @@
                 <p class="card-desc">Librería de fuentes gratuitas de alta calidad. Ideal para tipografías limpias y profesionales en tus diseños de miniaturas e interfaces.</p>
             </a>
             <a href="https://pngtree.com/" target="_blank" class="resource-card" data-category="diseño">
-                <span class="card-tag">DISEÑO</span>
+                <span class="card-tag">DISEÑO / PNG</span>
                 <h3 class="card-title">Pngtree</h3>
                 <p class="card-desc">Millones de recursos PNG, vectores y fondos gratuitos para tus miniaturas y capas de diseño avanzado en Photoshop.</p>
             </a>
             <a href="https://www.flaticon.com/" target="_blank" class="resource-card" data-category="diseño">
-                <span class="card-tag">DISEÑO</span>
+                <span class="card-tag">DISEÑO / ICONOS</span>
                 <h3 class="card-title">Flaticon</h3>
                 <p class="card-desc">La base de datos de iconos vectoriales más grande del mundo. Descarga iconos en cualquier formato para tus proyectos de video.</p>
             </a>
             <a href="https://undraw.co/illustrations" target="_blank" class="resource-card" data-category="diseño">
-                <span class="card-tag">DISEÑO</span>
+                <span class="card-tag">DISEÑO / ILUSTRACIÓN</span>
                 <h3 class="card-title">unDraw</h3>
                 <p class="card-desc">Ilustraciones vectoriales minimalistas y personalizables, ideales para sitios web o videos explicativos modernos y limpios.</p>
             </a>
+            <a href="https://auto.creavite.co/" target="_blank" class="resource-card" data-category="diseño discord">
+                <span class="card-tag">DISEÑO / BANNERS</span>
+                <h3 class="card-title">Creavite Auto</h3>
+                <p class="card-desc">Generador automático de banners y perfiles estéticos. Crea diseños en segundos de forma gratuita para tus redes sociales.</p>
+            </a>
+            <a href="https://fonts.google.com/icons" target="_blank" class="resource-card" data-category="diseño utilidad">
+                <span class="card-tag">DISEÑO / ICONOS</span>
+                <h3 class="card-title">Material Icons</h3>
+                <p class="card-desc">La biblioteca oficial de iconos de Google. Miles de vectores limpios para usar en interfaces o elementos gráficos de video.</p>
+            </a>
             <a href="https://meldstudio.co/" target="_blank" class="resource-card" data-category="streaming">
-                <span class="card-tag">STREAMING</span>
+                <span class="card-tag">STREAMING / BETA</span>
                 <h3 class="card-title">Meld Studio</h3>
-                <p class="card-desc">Nueva herramienta de streaming con interfaz moderna y gestión de escenas optimizada para creadores exigentes.</p>
+                <p class="card-desc">Nueva herramienta de streaming con interfaz moderna y gestión de escenas optimizada para creadores que buscan lo último en tecnología.</p>
             </a>
             <a href="https://obsproject.com/" target="_blank" class="resource-card" data-category="streaming">
                 <span class="card-tag">STREAMING</span>
                 <h3 class="card-title">OBS Studio</h3>
-                <p class="card-desc">El software estándar de oro para grabación y streaming. Indispensable para capturar contenido de alta calidad profesional.</p>
+                <p class="card-desc">El software estándar de oro para grabación y streaming. Indispensable para capturar contenido de alta calidad profesional en cualquier PC.</p>
             </a>
-            <a href="https://knightsoftheeditingtable.com/" target="_blank" class="resource-card" data-category="edicion">
-                <span class="card-tag">EDICIÓN</span>
-                <h3 class="card-title">Knights Table</h3>
-                <p class="card-desc">Extensiones legendarias para Premiere Pro. Automatizan procesos aburridos y aceleran tu velocidad de edición ridículamente.</p>
+            <a href="https://lab.houraiken.jp/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING / OBS</span>
+                <h3 class="card-title">Houraiken Lab</h3>
+                <p class="card-desc">Filtros visuales increíbles para OBS (Glitch, Iluminación Adaptativa). Vital para que tu stream tenga un acabado visual profesional y Aesthetic.</p>
             </a>
-            <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" class="resource-card" data-category="edicion">
-                <span class="card-tag">EDICIÓN</span>
-                <h3 class="card-title">DaVinci Resolve</h3>
-                <p class="card-desc">El estándar de corrección de color y postproducción de Hollywood. La versión gratuita es increíblemente completa y potente.</p>
+            <a href="https://streamelements.com/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING</span>
+                <h3 class="card-title">StreamElements</h3>
+                <p class="card-desc">La suite más completa para overlays basados en la nube. No consume recursos de tu PC y centraliza todo el control de tu stream en un solo lugar.</p>
             </a>
-            <a href="https://misterhorse.com/" target="_blank" class="resource-card" data-category="edicion">
-                <span class="card-tag">EDICIÓN</span>
-                <h3 class="card-title">Mister Horse</h3>
-                <p class="card-desc">Animation Composer para After Effects. El plugin que todo editor debe tener para animar capas y textos en cuestión de segundos.</p>
+            <a href="https://streamlabs.com/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING</span>
+                <h3 class="card-title">Streamlabs</h3>
+                <p class="card-desc">Herramientas intuitivas para alertas y widgets configurables visualmente. Ideal si buscas configurar tu stream de forma rápida y con buen diseño.</p>
             </a>
-            <a href="https://cinepacks.store/collections/free-packs" target="_blank" class="resource-card" data-category="edicion">
-                <span class="card-tag">EDICIÓN</span>
-                <h3 class="card-title">CinePacks Free</h3>
-                <p class="card-desc">Librería de overlays, transiciones y efectos de cine gratuitos para darle un look premium de película a tus videos AMV.</p>
+            <a href="https://multistream.app/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING</span>
+                <h3 class="card-title">Stream Suite Multi</h3>
+                <p class="card-desc">Transmite a múltiples plataformas al mismo tiempo sin necesidad de una PC de la NASA. Maximiza tu alcance real en Twitch, YouTube y Kick.</p>
+            </a>
+            <a href="https://casterlabs.co/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING / TOOLS</span>
+                <h3 class="card-title">Casterlabs</h3>
+                <p class="card-desc">Herramientas de personalización para tu stream, widgets de chat y alertas con un diseño moderno y minimalista para una transmisión limpia.</p>
+            </a>
+            <a href="https://www.speechchat.com/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING / CHAT</span>
+                <h3 class="card-title">SpeechChat</h3>
+                <p class="card-desc">Sistema de voz para el chat. Ideal para que el stream "lea" los mensajes de tus espectadores automáticamente mientras tú juegas o editas.</p>
             </a>
 
-            <a href="https://chatgpt.com/" target="_blank" class="resource-card" data-category="ia">
+            <a href="https://www.downloadpirate.com/adobe/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN</span>
+                <h3 class="card-title">El Tesoro del Editor</h3>
+                <p class="card-desc">Plataforma imprescindible para encontrar recursos, plugins y herramientas vitales para tu flujo de trabajo profesional en postproducción.</p>
+            </a>
+            <a href="https://www.photopea.com/" target="_blank" class="resource-card" data-category="edicion diseño">
+                <span class="card-tag">EDICIÓN / DISEÑO</span>
+                <h3 class="card-title">Photopea</h3>
+                <p class="card-desc">El clon perfecto y gratuito de Photoshop directo en tu navegador. Ideal para editar miniaturas rápidas sin tener que abrir programas pesados.</p>
+            </a>
+            <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card" data-category="edicion utilidad">
+                <span class="card-tag">EDICIÓN / WORKFLOW</span>
+                <h3 class="card-title">DowP</h3>
+                <p class="card-desc">Ultimate Downloader & Workflow. Herramienta brutal para descargar videos y optimizar clips antes de meterlos al editor, ahorrando tiempo.</p>
+            </a>
+            <a href="https://knightsoftheeditingtable.com/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / PLUGINS</span>
+                <h3 class="card-title">Knights Table</h3>
+                <p class="card-desc">Extensiones legendarias para Premiere Pro. Automatizan procesos aburridos y aceleran tu velocidad de edición de una forma totalmente ridícula.</p>
+            </a>
+            <a href="https://intro-hd.net/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / PLANTILLAS</span>
+                <h3 class="card-title">Intro HD</h3>
+                <p class="card-desc">Librería gigante con plantillas gratuitas, Motion Graphics y scripts para After Effects y Premiere. Para cuando necesitas un acabado premium rápido.</p>
+            </a>
+            <a href="https://satvrn.li/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / PACKS</span>
+                <h3 class="card-title">Satvrn Resources</h3>
+                <p class="card-desc">Repositorio de recursos de edición como el suite de adobe y mucho más para dar vida y estilo profesional a todas tus producciones AMV.</p>
+            </a>
+            <a href="https://transitionalhooks.com/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / HOOKS</span>
+                <h3 class="card-title">Transitional Hooks</h3>
+                <p class="card-desc">Librería de ganchos visuales y transiciones diseñadas para retener la atención del espectador en los primeros segundos de tus videos de impacto.</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=im1VwJWp3dU" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / TUTORIAL</span>
+                <h3 class="card-title">Secretos de Transiciones</h3>
+                <p class="card-desc">Video tutorial avanzado sobre cómo crear transiciones fluidas y profesionales en Premiere sin necesidad de utilizar plugins externos costosos.</p>
+            </a>
+            <a href="https://jitter.video/templates/" target="_blank" class="resource-card" data-category="edicion diseño">
+                <span class="card-tag">EDICIÓN / MOTION</span>
+                <h3 class="card-title">Jitter Templates</h3>
+                <p class="card-desc">Plantillas de animación increíbles para textos y elementos gráficos. Es básicamente el equivalente a Canva pero enfocado totalmente al Motion Graphics.</p>
+            </a>
+            <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" class="resource-card" data-category="edicion software">
+                <span class="card-tag">EDICIÓN / SOFTWARE</span>
+                <h3 class="card-title">DaVinci Resolve</h3>
+                <p class="card-desc">El estándar de corrección de color y postproducción de Hollywood. La versión gratuita es increíblemente completa y potente para cualquier editor.</p>
+            </a>
+            <a href="https://misterhorse.com/" target="_blank" class="resource-card" data-category="edicion software">
+                <span class="card-tag">EDICIÓN / AE</span>
+                <h3 class="card-title">Mister Horse</h3>
+                <p class="card-desc">Animation Composer para After Effects. El plugin que todo editor debe tener para animar capas y textos en cuestión de segundos de forma profesional.</p>
+            </a>
+            <a href="https://cinepacks.store/collections/free-packs" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / PACKS</span>
+                <h3 class="card-title">CinePacks Free</h3>
+                <p class="card-desc">Librería de overlays, transiciones y efectos de cine gratuitos para darle un look premium de película a tus videos de YouTube o AMV.</p>
+            </a>
+            <a href="https://www.behance.net/gallery/243790797/Curso-de-Edicion-en-ADOBE" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / CURSO</span>
+                <h3 class="card-title">Curso Edición Adobe</h3>
+                <p class="card-desc">Guía completa en Behance para dominar la suite de Adobe desde cero hasta alcanzar un nivel de edición profesional totalmente gratis.</p>
+            </a>
+            <a href="https://chatgpt.com/" target="_blank" class="resource-card" data-category="ia utilidad">
                 <span class="card-tag">IA</span>
                 <h3 class="card-title">ChatGPT</h3>
-                <p class="card-desc">Plataforma web de asistencia conversacional. Indispensable para guiones, ideas de contenido y optimización de flujos de trabajo.</p>
+                <p class="card-desc">Plataforma web de asistencia conversacional. Indispensable para guiones, ideas de contenido y optimización de flujos de trabajo diarios.</p>
             </a>
             <a href="https://claude.ai/" target="_blank" class="resource-card" data-category="ia">
                 <span class="card-tag">IA</span>
                 <h3 class="card-title">Claude AI</h3>
-                <p class="card-desc">Inteligencia artificial avanzada con un tono más humano y natural, ideal para redactar guiones o estructuras complejas de video.</p>
+                <p class="card-desc">Inteligencia artificial avanzada con un tono más humano y natural, ideal para redactar guiones o estructuras complejas de video informativo.</p>
             </a>
             <a href="https://www.perplexity.ai/" target="_blank" class="resource-card" data-category="ia">
                 <span class="card-tag">IA</span>
                 <h3 class="card-title">Perplexity</h3>
-                <p class="card-desc">Buscador con IA que cita fuentes reales. Indispensable para investigar datos verídicos para guiones documentales o informativos.</p>
+                <p class="card-desc">Buscador con IA que cita fuentes reales. Indispensable para investigar datos verídicos para guiones documentales o contenido educativo.</p>
             </a>
             <a href="https://clipdrop.co/" target="_blank" class="resource-card" data-category="ia diseño">
-                <span class="card-tag">IA</span>
+                <span class="card-tag">IA / IMAGEN</span>
                 <h3 class="card-title">ClipDrop</h3>
-                <p class="card-desc">Suite completa de IA para editar imágenes: relight dinámico, remoción de objetos y generación de texturas únicas para tus diseños.</p>
+                <p class="card-desc">Suite completa de IA para editar imágenes: relight dinámico, remoción de objetos y generación de texturas únicas para tus miniaturas.</p>
+            </a>
+            <a href="https://removal.ai/" target="_blank" class="resource-card" data-category="ia utilidad">
+                <span class="card-tag">IA / UTILIDAD</span>
+                <h3 class="card-title">Removal.ai</h3>
+                <p class="card-desc">Alternativa potente para eliminar fondos de imágenes automáticamente usando modelos de inteligencia artificial de última generación.</p>
+            </a>
+            <a href="https://www.unscreen.com/" target="_blank" class="resource-card" data-category="ia edicion">
+                <span class="card-tag">IA / VIDEO</span>
+                <h3 class="card-title">Unscreen</h3>
+                <p class="card-desc">Elimina el fondo de tus videos automáticamente de forma online sin necesidad de usar pantalla verde o procesos complejos de croma.</p>
+            </a>
+            <a href="https://pixlr.com/es/express/" target="_blank" class="resource-card" data-category="ia diseño">
+                <span class="card-tag">IA / EDITOR</span>
+                <h3 class="card-title">Pixlr Express</h3>
+                <p class="card-desc">Editor de fotos rápido con retoques inteligentes por IA para diseño ágil y filtros técnicos directamente desde tu navegador.</p>
             </a>
 
-            <a href="https://podcast.adobe.com/en/enhance" target="_blank" class="resource-card" data-category="audio ia">
+            <a href="https://www.101soundboards.com/" target="_blank" class="resource-card" data-category="audio edicion">
                 <span class="card-tag">AUDIO</span>
+                <h3 class="card-title">Librería de Sonidos</h3>
+                <p class="card-desc">Página gratuita con cientos de efectos de sonido sin copyright para usar directo en Premiere o tus directos de streaming.</p>
+            </a>
+            <a href="https://podcast.adobe.com/en/enhance" target="_blank" class="resource-card" data-category="audio ia">
+                <span class="card-tag">AUDIO / IA</span>
                 <h3 class="card-title">Adobe Enhance</h3>
-                <p class="card-desc">IA que limpia grabaciones de voz y las hace sonar como si hubieras grabado en un estudio profesional de alto nivel.</p>
+                <p class="card-desc">IA que limpia grabaciones de voz y las hace sonar como si hubieras grabado en un estudio profesional de alto nivel con un solo clic.</p>
             </a>
             <a href="https://vocalremover.org/es/" target="_blank" class="resource-card" data-category="audio ia">
-                <span class="card-tag">AUDIO</span>
+                <span class="card-tag">AUDIO / IA</span>
                 <h3 class="card-title">Vocal Remover</h3>
-                <p class="card-desc">Servicio de separación de audio. Separa música de voz con una precisión increíble para hacer remixes o limpiar audios sucios.</p>
+                <p class="card-desc">Servicio de separación de audio. Separa música de voz con una precisión increíble para hacer remixes o limpieza de audios de baja calidad.</p>
             </a>
             <a href="https://elevenlabs.io/" target="_blank" class="resource-card" data-category="audio ia">
-                <span class="card-tag">AUDIO</span>
+                <span class="card-tag">VOZ / IA</span>
                 <h3 class="card-title">ElevenLabs</h3>
-                <p class="card-desc">La mejor IA de generación de voz. Clonación y narraciones ultra realistas en múltiples idiomas para tus videos o Vtubers.</p>
+                <p class="card-desc">La mejor IA de generación de voz del mundo. Clonación y narraciones ultra realistas en múltiples idiomas para tus videos o Vtubers.</p>
+            </a>
+            <a href="https://www.prosoundeffects.com/soundq/" target="_blank" class="resource-card" data-category="audio">
+                <span class="card-tag">AUDIO / FX</span>
+                <h3 class="card-title">SoundQ</h3>
+                <p class="card-desc">Acceso a efectos de sonido de nivel profesional de Pro Sound Effects para elevar tu diseño sonoro al máximo nivel en cada proyecto.</p>
+            </a>
+            <a href="https://vtuber-nook.com/?category=BGM+%26+Sound+Effects" target="_blank" class="resource-card" data-category="audio streaming">
+                <span class="card-tag">AUDIO / BGM</span>
+                <h3 class="card-title">Vtuber Nook</h3>
+                <p class="card-desc">Música de fondo y efectos de sonido seleccionados especialmente para creadores de contenido y Vtubers que buscan calidad estética.</p>
+            </a>
+            <a href="https://www.audacityteam.org/" target="_blank" class="resource-card" data-category="audio software">
+                <span class="card-tag">AUDIO / SOFTWARE</span>
+                <h3 class="card-title">Audacity</h3>
+                <p class="card-desc">Editor de audio gratuito y potente. Perfecto para grabar voces, limpiar ruido de fondo y aplicar efectos rápidos con herramientas Pro.</p>
+            </a>
+            <a href="https://sounds.spriters-resource.com/" target="_blank" class="resource-card" data-category="audio">
+                <span class="card-tag">AUDIO / FX</span>
+                <h3 class="card-title">The Sounds Resource</h3>
+                <p class="card-desc">La biblioteca definitiva de efectos de sonido extraídos directamente de videojuegos clásicos y modernos para tus edits temáticos.</p>
             </a>
 
             <a href="https://rapidtags.io/" target="_blank" class="resource-card" data-category="youtube">
@@ -476,23 +549,172 @@
                 <h3 class="card-title">RapidTags</h3>
                 <p class="card-desc">Generador instantáneo de etiquetas para YouTube. Solo pegas el título y te da los tags que mejor posicionan tu contenido orgánicamente.</p>
             </a>
-            <a href="https://ahrefs.com/youtube-keyword-tool" target="_blank" class="resource-card" data-category="youtube">
+            <a href="https://www.tubebuddy.com/" target="_blank" class="resource-card" data-category="youtube">
                 <span class="card-tag">YOUTUBE</span>
+                <h3 class="card-title">TubeBuddy</h3>
+                <p class="card-desc">La extensión definitiva para creadores. Ofrece análisis de competencia, SEO y optimización de miniaturas profesional para crecer en YT.</p>
+            </a>
+            <a href="https://yout.com/" target="_blank" class="resource-card" data-category="youtube utilidad">
+                <span class="card-tag">YOUTUBE / DOWNLOAD</span>
+                <h3 class="card-title">Yout.com</h3>
+                <p class="card-desc">La forma más rápida y limpia de convertir videos de YouTube a formatos MP3 o MP4 con alta fidelidad para rescatar material de referencia.</p>
+            </a>
+            <a href="https://notube.lol/fr/youtube-app-318" target="_blank" class="resource-card" data-category="youtube utilidad">
+                <span class="card-tag">YOUTUBE / DOWNLOAD</span>
+                <h3 class="card-title">NoTube</h3>
+                <p class="card-desc">Descarga material de YouTube sin anuncios ni complicaciones extras. Convertidor multi-formato rápido y sencillo para editores.</p>
+            </a>
+            <a href="https://ahrefs.com/youtube-keyword-tool" target="_blank" class="resource-card" data-category="youtube">
+                <span class="card-tag">YOUTUBE / SEO</span>
                 <h3 class="card-title">Ahrefs SEO</h3>
-                <p class="card-desc">Analiza qué busca la gente realmente en YouTube para optimizar tus títulos y descripciones de forma analítica y efectiva.</p>
+                <p class="card-desc">Analiza qué busca la gente realmente en YouTube para optimizar tus títulos y descripciones de forma analítica y efectiva para el algoritmo.</p>
             </a>
             <a href="https://brave.com/" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD</span>
+                <span class="card-tag">UTILIDAD / BROWSER</span>
                 <h3 class="card-title">Brave Browser</h3>
-                <p class="card-desc">Navegador rápido que ahorra mucha RAM, bloquea anuncios y es ideal para editar online sin lag mientras tienes Premiere abierto.</p>
+                <p class="card-desc">Navegador rápido que ahorra mucha RAM, bloquea anuncios y es ideal para editar online sin lag mientras tienes programas pesados abiertos.</p>
+            </a>
+            <a href="https://cobalt.tools/" target="_blank" class="resource-card" data-category="utilidad">
+                <span class="card-tag">UTILIDAD</span>
+                <h3 class="card-title">Cobalt.tools</h3>
+                <p class="card-desc">Herramienta definitiva para descargar videos de redes sociales sin anuncios, sin trackers y sin las molestas marcas de agua de TikTok o IG.</p>
+            </a>
+            <a href="https://file.pizza/" target="_blank" class="resource-card" data-category="utilidad">
+                <span class="card-tag">TRANSFER / P2P</span>
+                <h3 class="card-title">FilePizza</h3>
+                <p class="card-desc">Transferencia de archivos P2P rápida y sin servidores intermedios. Privacidad total y velocidad máxima para mover material entre colegas.</p>
+            </a>
+            <a href="https://wetransfer.com/" target="_blank" class="resource-card" data-category="utilidad">
+                <span class="card-tag">TRANSFER</span>
+                <h3 class="card-title">WeTransfer</h3>
+                <p class="card-desc">El estándar de la industria para enviar archivos de hasta 2GB de forma gratuita, segura y directa al correo electrónico de tus clientes.</p>
             </a>
             <a href="https://www.swisstransfer.com/es" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">TRANSFER</span>
                 <h3 class="card-title">SwissTransfer</h3>
-                <p class="card-desc">Envío de archivos de hasta 50GB totalmente gratis para material pesado. Una herramienta oculta que todo editor serio debe conocer.</p>
+                <p class="card-desc">Envío de archivos de hasta 50GB totalmente gratis. Una herramienta oculta en internet que todo editor serio de video debe conocer y usar.</p>
+            </a>
+            <a href="https://ydray.com/es/" target="_blank" class="resource-card" data-category="utilidad">
+                <span class="card-tag">TRANSFER</span>
+                <h3 class="card-title">Ydray</h3>
+                <p class="card-desc">Alternativa sólida para el envío de archivos grandes sin complicaciones y con una muy buena velocidad de subida optimizada para el cono sur.</p>
+            </a>
+            <a href="https://www.myairbridge.com/es/" target="_blank" class="resource-card" data-category="utilidad">
+                <span class="card-tag">TRANSFER</span>
+                <h3 class="card-title">MyAirBridge</h3>
+                <p class="card-desc">Servicio profesional de transferencia de archivos masivos. Perfecto para mover carpetas enteras de material bruto de video pesado entre editores y clientes.</p>
+            </a>
+            <a href="https://www.downloadpirate.com/adobe/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN</span>
+                <h3 class="card-title">El Tesoro del Editor</h3>
+                <p class="card-desc">
+                    Plataforma imprescindible para encontrar recursos, plugins y herramientas vitales para tu flujo de trabajo profesional en postproducción.
+                    Es la base de datos más completa para mantener tus programas actualizados y con los mejores complementos.
+                </p>
             </a>
 
-        </div> </div> <div class="nav-container">
+            <a href="https://www.photopea.com/" target="_blank" class="resource-card" data-category="edicion diseño">
+                <span class="card-tag">EDICIÓN / DISEÑO</span>
+                <h3 class="card-title">Photopea</h3>
+                <p class="card-desc">
+                    El clon perfecto y gratuito de Photoshop directo en tu navegador. 
+                    Ideal para editar miniaturas rápidas o capas de diseño sin tener que abrir programas pesados que consumen RAM.
+                </p>
+            </a>
+
+            <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card" data-category="edicion utilidad">
+                <span class="card-tag">EDICIÓN / WORKFLOW</span>
+                <h3 class="card-title">DowP</h3>
+                <p class="card-desc">
+                    Ultimate Downloader & Workflow. Herramienta brutal para descargar videos y optimizar tus clips antes de meterlos al editor.
+                    Ahorra horas de transcodificación y descarga material de alta fidelidad.
+                </p>
+            </a>
+
+            <a href="https://knightsoftheeditingtable.com/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / PLUGINS</span>
+                <h3 class="card-title">Knights of the Table</h3>
+                <p class="card-desc">
+                    Extensiones legendarias para Premiere Pro. Automatizan procesos aburridos como el recorte de silencios 
+                    y aceleran tu velocidad de edición de una forma totalmente ridícula y profesional.
+                </p>
+            </a>
+
+            <a href="https://intro-hd.net/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / PLANTILLAS</span>
+                <h3 class="card-title">Intro HD</h3>
+                <p class="card-desc">
+                    Librería gigante con plantillas gratuitas, Motion Graphics y scripts para After Effects y Premiere Pro. 
+                    Perfecto para cuando necesitas un acabado premium y rápido en tus entregas.
+                </p>
+            </a>
+
+            <a href="https://satvrn.li/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / PACKS</span>
+                <h3 class="card-title">Satvrn Resources</h3>
+                <p class="card-desc">
+                    Repositorio masivo de recursos de edición que incluye la suite de Adobe y mucho más material técnico 
+                    para dar vida y un estilo único a todas tus producciones AMV y comerciales.
+                </p>
+            </a>
+
+            <a href="https://imageonline.co/" target="_blank" class="resource-card" data-category="utilidad diseño">
+                <span class="card-tag">UTILIDAD / IMAGEN</span>
+                <h3 class="card-title">ImageOnline.co</h3>
+                <p class="card-desc">
+                    Suite web completísima que permite manipular imágenes, cambiar formatos, comprimir y aplicar filtros técnicos 
+                    sin necesidad de instalar software pesado en tu computadora.
+                </p>
+            </a>
+
+            <a href="https://www.waifu2x.net/index.es.html" target="_blank" class="resource-card" data-category="ia utilidad">
+                <span class="card-tag">IA / UPSCALE</span>
+                <h3 class="card-title">Waifu2x</h3>
+                <p class="card-desc">
+                    El clásico indiscutible para escalar imágenes con ruido. Elimina el pixelado y aumenta la resolución 
+                    manteniendo los bordes limpios, esencial para usar frames de anime antiguos en edits modernos.
+                </p>
+            </a>
+
+            <a href="https://www.fotor.com/es/features/ai-image-extender/" target="_blank" class="resource-card" data-category="ia diseño">
+                <span class="card-tag">IA / DISEÑO</span>
+                <h3 class="card-title">Fotor AI Extender</h3>
+                <p class="card-desc">
+                    Expansión de imágenes por inteligencia artificial. Es extremadamente útil para cuando un fondo te queda corto 
+                    en formato vertical para TikTok, Reels o YouTube Shorts.
+                </p>
+            </a>
+
+            <a href="https://replicate.com/nightmareai/real-esrgan" target="_blank" class="resource-card" data-category="ia">
+                <span class="card-tag">IA / UPSCALE PRO</span>
+                <h3 class="card-title">Real-ESRGAN</h3>
+                <p class="card-desc">
+                    Modelo de superresolución de nivel avanzado. Recupera detalles perdidos en fotos antiguas o de baja calidad 
+                    con una precisión ridícula gracias a sus potentes algoritmos de IA.
+                </p>
+            </a>
+
+            <a href="https://www.canva.com/" target="_blank" class="resource-card" data-category="utilidad diseño">
+                <span class="card-tag">DISEÑO RÁPIDO</span>
+                <h3 class="card-title">Canva</h3>
+                <p class="card-desc">
+                    Plataforma de diseño rápido. Ideal para layouts base, presentaciones y recursos gráficos sencillos 
+                    cuando no es necesario abrir Photoshop para una tarea menor.
+                </p>
+            </a>
+
+            <a href="https://www.dzine.ai/" target="_blank" class="resource-card" data-category="ia edicion diseño">
+                <span class="card-tag">IA / DISEÑO</span>
+                <h3 class="card-title">Dzine</h3>
+                <p class="card-desc">
+                    Herramienta avanzada de diseño y edición visual asistida por IA. Permite transformar ideas abstractas 
+                    en gráficos terminados y listos para usar en tus proyectos de video.
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="nav-container">
         <div class="floating-pill">
             <a href="#inicio">Inicio</a>
             <a href="#recursos">Recursos</a>
@@ -505,8 +727,12 @@
         function filterData(category, element) {
             const cards = document.querySelectorAll('.resource-card');
             const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Actualizar estado de los botones
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
+
+            // Filtrar las tarjetas
             cards.forEach(card => {
                 const cardCats = card.getAttribute('data-category');
                 if (category === 'all' || cardCats.includes(category)) {
