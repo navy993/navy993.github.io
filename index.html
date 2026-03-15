@@ -143,18 +143,16 @@
             text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
         }
 
-     .resources-grid {
+        .resources-grid {
             display: flex;
             flex-wrap: wrap; 
             gap: 25px;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            /* CAMBIA ESTO: De center a flex-start */
             justify-content: flex-start; 
         }
 
-        /* 2. La tarjeta con tamaño fijo */
         .resource-card {
             background-color: rgba(9, 18, 33, 0.6);
             border: 1px solid rgba(2, 54, 165, 0.3);
@@ -163,14 +161,12 @@
             text-decoration: none;
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
-            
             display: flex;
             flex-direction: column;
-            
-            /* Definimos un ancho base para que todas sean iguales */
-            width: calc(33.333% - 25px); /* 3 columnas menos el gap */
-            min-width: 300px; /* Para que no se encojan de más */
+            width: calc(33.333% - 25px);
+            min-width: 300px;
             box-sizing: border-box;
+            margin-bottom: 10px;
         }
 
         .resource-card:hover {
@@ -179,28 +175,6 @@
             transform: translateY(-5px);
         }
 
-        /* Ajuste para que se vea bien en móviles */
-        @media (max-width: 1000px) {
-            .resource-card {
-                width: calc(50% - 25px); /* 2 columnas */
-            }
-        }
-        @media (max-width: 650px) {
-            .resource-card {
-                width: 100%; /* 1 columna */
-            }
-        }
-
-        /* 3. Ajuste para que el texto no se vea mal si es poco */
-        .card-desc {
-            font-size: 0.85rem;
-            color: #888;
-            line-height: 1.5;
-            /* Si hay poco texto, el espacio sobrante se queda abajo */
-            flex-grow: 1; 
-        }
-
-        /* 3. Las etiquetas (tags) */
         .card-tag {
             font-family: 'Anton';
             font-size: 0.75rem;
@@ -224,12 +198,18 @@
             margin-bottom: 10px;
         }
 
-        /* Ajuste para que el texto no empuje la tarjeta hacia abajo de más */
         .card-desc {
             font-size: 0.85rem;
             color: #888;
             line-height: 1.4;
-            margin-top: auto; /* Empuja el contenido hacia arriba si hay poco texto */
+            margin-top: auto;
+        }
+
+        @media (max-width: 1000px) {
+            .resource-card { width: calc(50% - 25px); }
+        }
+        @media (max-width: 650px) {
+            .resource-card { width: 100%; }
         }
     </style>
 </head>
@@ -245,166 +225,161 @@
         <h2 class="section-title">RECURSOS</h2>
         
         <div class="resources-grid">
-            
             <a href="https://www.101soundboards.com/" target="_blank" class="resource-card">
                 <span class="card-tag">EFECTOS</span>
                 <h3 class="card-title">Librería de Sonidos</h3>
                 <p class="card-desc">Página gratuita con cientos de efectos de sonido sin copyright para usar directo en Premiere.</p>
             </a>
 
-            <a href="https://podcast.adobe.com/en/enhance " target="_blank" class="resource-card">
+            <a href="https://podcast.adobe.com/en/enhance" target="_blank" class="resource-card">
                 <span class="card-tag">AUDIO IA</span>
                 <h3 class="card-title">Adobe Enhance Speech</h3>
-                <p class="card-desc">Servicio web brutal impulsado por IA que limpia cualquier grabación de voz y la hace sonar como si hubieras grabado en un estudio profesional.</p>
+                <p class="card-desc">IA que limpia grabaciones de voz y las hace sonar profesionales.</p>
             </a>
 
             <a href="https://www.downloadpirate.com/adobe/" target="_blank" class="resource-card">
                 <span class="card-tag">DESCARGAS</span>
                 <h3 class="card-title">El Tesoro del Editor</h3>
-                <p class="card-desc">Plataforma (DownloadPirate) imprescindible para encontrar recursos, plugins y herramientas vitales para tu flujo de trabajo en postproducción.</p>
+                <p class="card-desc">Plugins y herramientas vitales para postproducción.</p>
             </a>
 
             <a href="https://www.remove.bg/es" target="_blank" class="resource-card">
                 <span class="card-tag">UTILIDAD</span>
                 <h3 class="card-title">Removedor de Fondo</h3>
-                <p class="card-desc">La mejor IA gratuita para quitar fondos a imágenes y crear PNGs al instante para tus miniaturas.</p>
+                <p class="card-desc">IA gratuita para quitar fondos a imágenes al instante.</p>
             </a>
-            
-<div class="resources-grid">
-            
+
             <a href="https://www.photopea.com/" target="_blank" class="resource-card">
                 <span class="card-tag">DISEÑO</span>
                 <h3 class="card-title">Photopea</h3>
-                <p class="card-desc">El clon perfecto y gratuito de Photoshop directo en tu navegador. Ideal para editar miniaturas rápidas sin abrir programas pesados.</p>
+                <p class="card-desc">Clon gratuito de Photoshop en el navegador.</p>
             </a>
 
             <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card">
                 <span class="card-tag">WORKFLOW</span>
                 <h3 class="card-title">DowP</h3>
-                <p class="card-desc">Ultimate Downloader & Workflow. Herramienta brutal para descargar videos, recodificarlos y optimizar tus clips antes de meterlos al editor.</p>
+                <p class="card-desc">Descarga y optimiza clips antes de editar.</p>
             </a>
 
             <a href="https://knightsoftheeditingtable.com/" target="_blank" class="resource-card">
                 <span class="card-tag">PLUGINS</span>
-                <h3 class="card-title">Knights of the Editing Table</h3>
-                <p class="card-desc">Extensiones legendarias para Premiere Pro. Automatizan procesos aburridos y aceleran tu velocidad de edición de forma ridícula.</p>
+                <h3 class="card-title">Knights Table</h3>
+                <p class="card-desc">Extensiones legendarias para acelerar Premiere Pro.</p>
             </a>
 
             <a href="https://intro-hd.net/" target="_blank" class="resource-card">
                 <span class="card-tag">PLANTILLAS</span>
                 <h3 class="card-title">Intro HD</h3>
-                <p class="card-desc">Librería gigante con plantillas gratuitas, Motion Graphics y scripts para After Effects y Premiere. Para cuando necesitas algo rápido y premium.</p>
+                <p class="card-desc">Librería gigante con plantillas gratuitas y scripts.</p>
             </a>
 
             <a href="https://satvrn.li/" target="_blank" class="resource-card">
                 <span class="card-tag">PACKS</span>
                 <h3 class="card-title">Satvrn Resources</h3>
-                <p class="card-desc">Repositorio de recursos de edicion como el suite de adobe y mucho mas.</p>
+                <p class="card-desc">Repositorio de recursos visuales de edición.</p>
             </a>
 
             <a href="https://sounds.spriters-resource.com/" target="_blank" class="resource-card">
                 <span class="card-tag">AUDIO FX</span>
                 <h3 class="card-title">The Sounds Resource</h3>
-                <p class="card-desc">La biblioteca definitiva de efectos de sonido extraídos directamente de miles de videojuegos. Clave absoluta para darle vida al shitpost.</p>
+                <p class="card-desc">Efectos de sonido extraídos directamente de videojuegos.</p>
             </a>
 
-    <a href="https://imageonline.co/" target="_blank" class="resource-card">
+            <a href="https://imageonline.co/" target="_blank" class="resource-card">
                 <span class="card-tag">IA / IMAGEN</span>
                 <h3 class="card-title">ImageOnline.co</h3>
-                <p class="card-desc">Suite web completísima. Permite manipular imágenes, cambiar formatos y aplicar filtros técnicos sin instalar nada.</p>
+                <p class="card-desc">Suite web para manipular imágenes y formatos.</p>
             </a>
 
             <a href="https://www.krea.ai/" target="_blank" class="resource-card">
                 <span class="card-tag">IA / GENERATIVO</span>
                 <h3 class="card-title">Krea.ai</h3>
-                <p class="card-desc">Plataforma de generación visual en tiempo real. Brutal para crear referencias estéticas o texturas únicas para tus videos.</p>
+                <p class="card-desc">Generación visual en tiempo real por IA.</p>
             </a>
 
             <a href="https://www.waifu2x.net/index.es.html" target="_blank" class="resource-card">
                 <span class="card-tag">UPSCALE</span>
                 <h3 class="card-title">Waifu2x</h3>
-                <p class="card-desc">El clásico para escalar imágenes con ruido. Elimina el pixelado y aumenta la resolución manteniendo los bordes limpios.</p>
+                <p class="card-desc">Escala imágenes eliminando ruido y pixelado.</p>
             </a>
 
             <a href="https://www.fotor.com/es/features/ai-image-extender/" target="_blank" class="resource-card">
                 <span class="card-tag">IA / DISEÑO</span>
                 <h3 class="card-title">Fotor AI Extender</h3>
-                <p class="card-desc">Expansión de imágenes por IA. Útil para cuando un fondo te queda corto en formato vertical (TikTok/Shorts).</p>
+                <p class="card-desc">Expansión de imágenes por IA para formatos verticales.</p>
             </a>
 
             <a href="https://clipdrop.co/relight" target="_blank" class="resource-card">
                 <span class="card-tag">ILUMINACIÓN</span>
                 <h3 class="card-title">Clipdrop Relight</h3>
-                <p class="card-desc">Permite añadir y mover fuentes de luz en una foto después de haberla tomado. Clave para miniaturas de alto impacto.</p>
+                <p class="card-desc">Añade luces dinámicas a tus fotos después de tomarlas.</p>
             </a>
 
             <a href="https://replicate.com/nightmareai/real-esrgan" target="_blank" class="resource-card">
                 <span class="card-tag">UPSCALE PRO</span>
                 <h3 class="card-title">Real-ESRGAN</h3>
-                <p class="card-desc">Modelo de superresolución avanzado. Recupera detalles en fotos antiguas o de baja calidad con una precisión ridícula.</p>
+                <p class="card-desc">Superresolución avanzada para recuperar detalles.</p>
             </a>
 
-<a href="https://chatgpt.com/" target="_blank" class="resource-card">
+            <a href="https://chatgpt.com/" target="_blank" class="resource-card">
                 <span class="card-tag">IA / TEXTO</span>
                 <h3 class="card-title">ChatGPT</h3>
-                <p class="card-desc">Plataforma web de asistencia conversacional. Indispensable para guiones, ideas de contenido y optimización de flujos de trabajo.</p>
+                <p class="card-desc">Asistente para guiones e ideas de contenido.</p>
             </a>
 
             <a href="https://www.canva.com/" target="_blank" class="resource-card">
                 <span class="card-tag">DISEÑO</span>
                 <h3 class="card-title">Canva</h3>
-                <p class="card-desc">Plataforma de diseño rápido. Ideal para layouts base, presentaciones y recursos gráficos sencillos con miles de plantillas.</p>
+                <p class="card-desc">Plataforma de diseño rápido con plantillas.</p>
             </a>
 
             <a href="https://vocalremover.org/es/" target="_blank" class="resource-card">
                 <span class="card-tag">AUDIO / IA</span>
                 <h3 class="card-title">Vocal Remover</h3>
-                <p class="card-desc">Servicio de separación de audio. Separa música de voz con una precisión increíble para hacer remixes o limpiar audios.</p>
+                <p class="card-desc">Separa música de voz con precisión por IA.</p>
             </a>
 
-            <a href="https://elevenlabs.io/app/sign-in?redirect=%2Fapp%2Fspeech-synthesis%2Ftext-to-speech" target="_blank" class="resource-card">
+            <a href="https://elevenlabs.io/" target="_blank" class="resource-card">
                 <span class="card-tag">VOZ / IA</span>
                 <h3 class="card-title">ElevenLabs</h3>
-                <p class="card-desc">La mejor IA de generación de voz. Clonación y narraciones ultra realistas en múltiples idiomas y tonos.</p>
+                <p class="card-desc">Narraciones ultra realistas y clonación de voz.</p>
             </a>
 
             <a href="https://www.dzine.ai/" target="_blank" class="resource-card">
                 <span class="card-tag">IA / DISEÑO</span>
                 <h3 class="card-title">Dzine</h3>
-                <p class="card-desc">Herramienta avanzada de diseño y edición visual con IA. Permite transformar ideas en gráficos terminados rápidamente.</p>
+                <p class="card-desc">Diseño visual avanzado asistido por IA.</p>
             </a>
 
             <a href="https://www.myairbridge.com/es/" target="_blank" class="resource-card">
                 <span class="card-tag">TRANSFER</span>
                 <h3 class="card-title">MyAirBridge</h3>
-                <p class="card-desc">Servicio de transferencia de archivos masivos. Rápido y seguro para mover material bruto de video entre editores y clientes.</p>
+                <p class="card-desc">Transferencia rápida de archivos pesados.</p>
             </a>
 
             <a href="https://ydray.com/es/" target="_blank" class="resource-card">
                 <span class="card-tag">TRANSFER</span>
                 <h3 class="card-title">Ydray</h3>
-                <p class="card-desc">Alternativa sólida para el envío de archivos grandes sin complicaciones y con buena velocidad de subida.</p>
+                <p class="card-desc">Envío de archivos grandes con buena velocidad.</p>
             </a>
 
             <a href="https://wetransfer.com/" target="_blank" class="resource-card">
                 <span class="card-tag">TRANSFER</span>
                 <h3 class="card-title">WeTransfer</h3>
-                <p class="card-desc">El estándar de la industria para enviar archivos de hasta 2GB de forma gratuita y directa al correo del cliente.</p>
+                <p class="card-desc">Envío estándar de hasta 2GB gratis.</p>
             </a>
 
             <a href="https://www.swisstransfer.com/es" target="_blank" class="resource-card">
                 <span class="card-tag">TRANSFER PRO</span>
                 <h3 class="card-title">SwissTransfer</h3>
-                <p class="card-desc">Envío de archivos de hasta 50GB totalmente gratis. Una herramienta oculta que todo editor de video debe conocer.</p>
+                <p class="card-desc">Envía hasta 50GB totalmente gratis.</p>
             </a>
 
-<a href="https://lab.horaiken.jp/" target="_blank" class="resource-card">
+            <a href="https://lab.houraiken.jp/" target="_blank" class="resource-card">
                 <span class="card-tag">OBS / FILTROS</span>
                 <h3 class="card-title">Houraiken Lab</h3>
-                <p class="card-desc">Filtros visuales increíbles para OBS (Glitch, Iluminación Adaptativa y Estética Anime). Vital para que tu stream o grabaciones tengan un acabado visual "Aesthetic" de alto nivel.</p>
+                <p class="card-desc">Filtros visuales "Aesthetic" y anime para OBS.</p>
             </a>
-    
-        </div>
         </div>
     </div>
 
