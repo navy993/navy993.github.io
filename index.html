@@ -5,264 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navvy | Recursos & Edición</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-       @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Gloria+Hallelujah&family=Inter:wght@400;700;900&display=swap');
 
 :root {
-    /* La paleta de colores urbana/neón */
+    /* Paleta Urbana/Industrial Gachiakuta */
     --bg-dark: #0a0b10;
-    --bg-panel: rgba(15, 18, 25, 0.85);
-    --naranja-calido: #ff8c00;
-    --verde-toxico: #31b761;
-    --celeste-neon: #00f0ff;
-    --rojo-carmesi: #e6003b;
-    --text-main: #e0e0e0;
+    --bg-panel: rgba(15, 18, 25, 0.9);
+    --verde-toxico: #31b761; 
+    --celeste-neon: #00f0ff; 
+    --rojo-carmesi: #e6003b; 
+    --naranja-calido: #ff8c00; 
+    --text-white: #ffffff;
+    --text-grey: #a0aabf;
+    --fuente-garabato: 'Gloria Hallelujah', cursive;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body, html {
     background-color: var(--bg-dark);
-    color: var(--text-main);
+    color: var(--text-white);
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
     overflow-x: hidden;
     height: 100%;
 }
 
-/* Fondo con textura industrial/cuadrícula oscura */
+/* Fondo con cuadrícula industrial sutil */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     background: 
-        linear-gradient(rgba(10, 11, 16, 0.9), rgba(10, 11, 16, 0.9)),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(49, 183, 97, 0.03) 2px, rgba(49, 183, 97, 0.03) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(49, 183, 97, 0.03) 2px, rgba(49, 183, 97, 0.03) 4px);
+        radial-gradient(circle at center, rgba(15, 18, 25, 0.2) 0%, var(--bg-dark) 80%),
+        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255, 255, 255, 0.01) 1px, rgba(255, 255, 255, 0.01) 2px),
+        repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255, 255, 255, 0.01) 1px, rgba(255, 255, 255, 0.01) 2px);
     z-index: -2;
 }
 
 .main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-    position: relative;
-    z-index: 10;
+    display: flex; justify-content: center; align-items: center;
+    height: 100vh; position: relative; z-index: 10;
 }
 
-/* Contenedor principal con brillo rojo carmesí */
 .video-container {
-    width: 800px;
-    aspect-ratio: 16/9;
-    background-color: #000;
-    border-radius: 8px;
-    border: 2px solid var(--rojo-carmesi);
-    box-shadow: 0 0 20px rgba(230, 0, 59, 0.4), inset 0 0 15px rgba(230, 0, 59, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease;
+    width: 800px; aspect-ratio: 16/9; background-color: #000;
+    border: 3px solid var(--verde-toxico);
+    box-shadow: 0 0 15px rgba(49, 183, 97, 0.4);
+    display: flex; justify-content: center; align-items: center;
+    /* Forma irregular messy */
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    transform: rotate(-1deg);
 }
 
 .video-container h2 {
-    font-family: 'Anton';
-    font-size: 3rem;
-    color: var(--celeste-neon);
-    text-shadow: 0 0 10px var(--celeste-neon);
-    letter-spacing: 2px;
+    font-family: 'Anton'; font-size: 3rem; color: var(--text-white); opacity: 0.5;
 }
 
 .content-section {
-    padding: 100px 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    padding: 100px 50px; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
 }
 
-/* Títulos estilo marquesina neón (Celeste con borde rojo) */
+/* Título Neón Celeste con aura Navvy */
 .section-title {
-    font-family: 'Anton';
-    font-size: 4.5rem;
-    margin-bottom: 40px;
-    color: var(--celeste-neon);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    /* Efecto de doble neón como en la imagen */
-    text-shadow: 
-        -2px -2px 0 var(--rojo-carmesi),
-        2px -2px 0 var(--rojo-carmesi),
-        -2px 2px 0 var(--rojo-carmesi),
-        2px 2px 0 var(--rojo-carmesi),
-        0 0 15px var(--celeste-neon);
+    font-family: 'Anton'; font-size: 5rem; margin-bottom: 40px;
+    color: var(--celeste-neon); text-transform: uppercase; letter-spacing: 4px;
+    text-shadow: -2px -2px 0 var(--rojo-carmesi), 2px -2px 0 var(--rojo-carmesi), -2px 2px 0 var(--rojo-carmesi), 2px 2px 0 var(--rojo-carmesi), 0 0 15px var(--celeste-neon);
 }
 
 .filter-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-bottom: 50px;
-    max-width: 1200px;
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 50px; max-width: 1200px;
 }
 
-/* Botones de UI estilo consola clandestina */
+/* Botones estilo "Parche" */
 .filter-btn {
-    background: var(--bg-panel);
-    border: 1px solid var(--celeste-neon);
-    color: var(--celeste-neon);
-    padding: 10px 22px;
-    border-radius: 4px; /* Bordes más cuadrados, industriales */
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 5px rgba(0, 240, 255, 0.1);
+    background: var(--bg-panel); border: 2px solid var(--text-white); color: var(--text-white);
+    padding: 10px 22px; cursor: pointer;
+    font-family: var(--fuente-garabato); font-size: 1rem; font-weight: bold; text-transform: uppercase;
+    transition: all 0.2s ease; box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
 }
 
-.filter-btn:hover {
-    background: rgba(0, 240, 255, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-}
-
-.filter-btn.active {
-    background: var(--celeste-neon);
-    color: #000;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
-    transform: scale(1.05);
-}
+.filter-btn:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px) rotate(-1deg); }
+.filter-btn.active { background: var(--celeste-neon); color: #000; border-color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.5); transform: scale(1.05) rotate(1deg); }
 
 .resources-grid {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 25px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    justify-content: flex-start; 
+    display: flex; flex-wrap: wrap; gap: 25px; width: 100%; max-width: 1200px; margin: 0 auto; justify-content: flex-start; 
 }
 
-/* Tarjetas de recursos con el borde verde característico de la imagen */
+/* TARJETAS IRREGULARES */
 .resource-card {
-    background-color: var(--bg-panel);
-    border: 2px solid var(--verde-toxico);
-    border-radius: 6px;
-    padding: 25px;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    width: calc(33.333% - 25px);
-    min-width: 300px;
-    margin-bottom: 10px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    opacity: 1;
-    transform: scale(1);
-    /* Sombra verde sutil */
-    box-shadow: 0 0 10px rgba(49, 183, 97, 0.15);
+    background-color: var(--bg-panel); border: 2px solid var(--verde-toxico); padding: 25px; text-decoration: none;
+    display: flex; flex-direction: column; width: calc(33.333% - 25px); min-width: 300px; margin-bottom: 10px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 1;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+    /* Inclinación y forma desordenada */
+    transform: scale(1) rotate(-1deg); 
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+/* Alterar forma y rotación para desordenar */
+.resource-card:nth-child(even) {
+    transform: scale(1) rotate(1.5deg);
+    border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px;
 }
 
 .resource-card.hidden { display: none; }
-
 .resource-card:hover {
-    border-color: var(--celeste-neon);
-    background-color: rgba(15, 18, 25, 0.95);
-    transform: translateY(-8px) scale(1.02);
-    /* Al pasar el mouse, cambia a un brillo celeste y rojo */
-    box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2), 0 0 15px rgba(230, 0, 59, 0.2);
+    border-color: var(--celeste-neon); background-color: rgba(15, 18, 25, 0.98);
+    transform: translateY(-8px) scale(1.02) rotate(0deg); 
+    box-shadow: 8px 10px 0px rgba(0, 240, 255, 0.2);
 }
 
-/* Etiquetas en Naranja Cálido */
 .card-tag {
-    font-family: 'Anton';
-    font-size: 0.8rem;
-    background-color: var(--naranja-calido);
-    color: #000;
-    padding: 4px 12px;
-    border-radius: 2px;
-    align-self: flex-start;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    box-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
+    font-family: var(--fuente-garabato); font-size: 0.8rem; background-color: var(--naranja-calido); color: #000;
+    padding: 4px 15px; align-self: flex-start; margin-bottom: 15px; font-weight: bold; box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
 }
 
-.card-title {
-    font-family: 'Anton';
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    color: #ffffff;
-    text-transform: uppercase;
-}
+/* ESTILOS PREPARADOS PARA EL ICONO */
+.card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.card-icon { width: 32px; height: 32px; border-radius: 4px; object-fit: contain; flex-shrink: 0; background-color: rgba(255,255,255,0.05); }
 
-.card-desc {
-    font-size: 0.85rem;
-    color: #a0aabf;
-    line-height: 1.6;
-    margin-top: auto;
-}
+/* Adaptado para funcionar con o sin icono */
+.card-title { font-family: 'Anton'; font-size: 1.6rem; font-weight: 400; text-transform: uppercase; color: var(--text-white); letter-spacing: 1px; margin-bottom: 0; }
 
-.nav-container {
-    position: fixed;
-    bottom: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 100;
-}
+.card-desc { font-size: 0.85rem; color: var(--text-grey); line-height: 1.6; margin-top: auto; padding-top: 10px; }
 
-/* Barra de navegación inferior */
+.nav-container { position: fixed; bottom: 40px; width: 100%; display: flex; justify-content: center; z-index: 100; }
 .floating-pill {
-    background-color: var(--bg-panel);
-    backdrop-filter: blur(10px);
-    padding: 10px 30px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    border: 1px solid var(--verde-toxico);
-    box-shadow: 0 0 20px rgba(49, 183, 97, 0.2);
+    background-color: var(--bg-panel); backdrop-filter: blur(10px); padding: 10px 30px; display: flex; align-items: center; gap: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 2px solid var(--verde-toxico);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
 }
 
-.floating-pill a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.2s ease;
-}
+.floating-pill a { color: var(--text-white); text-decoration: none; font-family: var(--fuente-garabato); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; transition: all 0.2s; }
+.floating-pill a:hover { color: var(--celeste-neon); text-shadow: 0 0 8px var(--celeste-neon); }
 
-.floating-pill a:hover {
-    color: var(--celeste-neon);
-    text-shadow: 0 0 8px var(--celeste-neon);
-}
-
-/* Botón especial de Discord */
 .btn-discord {
-    background-color: transparent !important;
-    color: var(--rojo-carmesi) !important;
-    padding: 8px 20px;
-    border-radius: 4px;
-    border: 2px solid var(--rojo-carmesi) !important;
-    animation: pulse-red 2s infinite;
+    background-color: var(--rojo-carmesi) !important; color: white !important; padding: 8px 20px;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important; border: 2px solid white !important;
+    animation: pulse-red-messy 2s infinite;
 }
+.btn-discord:hover { transform: scale(1.1) rotate(-3deg); background-color: white !important; color: var(--rojo-carmesi) !important; }
 
-.btn-discord:hover {
-    background-color: var(--rojo-carmesi) !important;
-    color: #fff !important;
-    box-shadow: 0 0 20px var(--rojo-carmesi);
-    transform: scale(1.05);
-}
-
-@keyframes pulse-red {
-    0% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(230, 0, 59, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0); }
+@keyframes pulse-red-messy {
+    0% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0.6); transform: scale(1); }
+    70% { box-shadow: 0 0 0 12px rgba(230, 0, 59, 0); transform: scale(1.02) rotate(1deg); }
+    100% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0); transform: scale(1); }
 }
 
 @media (max-width: 1000px) { .resource-card { width: calc(50% - 25px); } }
@@ -783,41 +673,74 @@ body::before {
     </div>
 
   <script>
-       function filterData(category, element) {
-    const cards = document.querySelectorAll('.resource-card');
-    const buttons = document.querySelectorAll('.filter-btn');
-    
-    buttons.forEach(btn => btn.classList.remove('active'));
-    element.classList.add('active');
+        // --- 1. TU CÓDIGO DE FILTROS (Intacto) ---
+        function filterData(category, element) {
+            const cards = document.querySelectorAll('.resource-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
 
-    cards.forEach(card => {
-        const cardCats = card.getAttribute('data-category');
-        
-        // Efecto de salida
-        card.style.opacity = "0";
-        card.style.transform = "scale(0.9)";
+            cards.forEach(card => {
+                const cardCats = card.getAttribute('data-category');
+                card.style.opacity = "0";
+                card.style.transform = "scale(0.9) rotate(0deg)";
 
-        setTimeout(() => {
-            if (category === 'all' || cardCats.includes(category)) {
-                card.classList.remove('hidden');
-                
                 setTimeout(() => {
-                    card.style.opacity = "1";
-                    card.style.transform = "scale(1)";
+                    if (category === 'all' || cardCats.includes(category)) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => {
+                            card.style.opacity = "1";
+                            card.style.transform = "scale(1)"; 
+                            setTimeout(() => {
+                                card.style.opacity = "";
+                                card.style.transform = "";
+                            }, 400); 
+                        }, 50);
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }, 200); 
+            });
+        }
+
+        // --- 2. LA MAGIA DE LOS ICONOS AUTOMÁTICOS ---
+        document.addEventListener("DOMContentLoaded", function() {
+            // Buscamos todas las tarjetas
+            const cards = document.querySelectorAll('.resource-card');
+            
+            cards.forEach(card => {
+                // 1. Sacamos el link que ya tienes en la tarjeta
+                const link = card.getAttribute('href');
+                
+                // 2. Extraemos solo el dominio limpio (ej: "youtube.com" o "photopea.com")
+                let domain = "";
+                try { domain = new URL(link).hostname; } catch(e) {}
+                
+                // 3. Buscamos el título actual (el h3)
+                const titleElement = card.querySelector('.card-title');
+                
+                // Si la tarjeta tiene un título y un link válido...
+                if (titleElement && domain) {
+                    // 4. Creamos la "cajita" (div) para agrupar el icono y el título
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'card-header';
                     
-                    // LA CLAVE: Después de animar, quitamos los estilos en línea
-                    // para que el :hover del CSS vuelva a funcionar siempre.
-                    setTimeout(() => {
-                        card.style.opacity = "";
-                        card.style.transform = "";
-                    }, 400); 
-                }, 50);
-            } else {
-                card.classList.add('hidden');
-            }
-        }, 200); 
-    });
-}
+                    // 5. Creamos la imagen del icono de Google
+                    const iconImg = document.createElement('img');
+                    iconImg.src = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+                    iconImg.className = 'card-icon';
+                    iconImg.loading = 'lazy'; // Para que la página cargue rápido
+                    
+                    // 6. Metemos la cajita justo donde estaba el título original
+                    card.insertBefore(headerDiv, titleElement);
+                    
+                    // 7. Y metemos el icono y el título dentro de la nueva cajita
+                    headerDiv.appendChild(iconImg);
+                    headerDiv.appendChild(titleElement);
+                }
+            });
+        });
     </script>
 </body>
 </html>
