@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Gloria+Hallelujah&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta Urbana/Industrial Gachiakuta */
             --bg-dark: #0a0b10;
             --bg-panel: rgba(15, 18, 25, 0.9);
             --verde-toxico: #31b761; 
@@ -30,12 +29,10 @@
             height: 100%;
         }
 
-        /* Scrollbar Tóxico */
         ::-webkit-scrollbar { width: 12px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background-color: var(--verde-toxico); border-radius: 10px; border: 3px solid var(--bg-dark); }
 
-        /* Fondo con cuadrícula industrial sutil */
         body::before {
             content: "";
             position: fixed;
@@ -69,18 +66,52 @@
             padding: 100px 5vw; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
 
-        /* Título Neón Celeste */
         .section-title {
-            font-family: 'Anton'; font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 40px; text-align: center;
+            font-family: 'Anton'; font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 30px; text-align: center;
             color: var(--celeste-neon); text-transform: uppercase; letter-spacing: 4px;
             text-shadow: -2px -2px 0 var(--rojo-carmesi), 2px -2px 0 var(--rojo-carmesi), -2px 2px 0 var(--rojo-carmesi), 2px 2px 0 var(--rojo-carmesi), 0 0 15px var(--celeste-neon);
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 15px 25px;
+            background-color: var(--bg-panel);
+            border: 2px solid var(--verde-toxico);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            outline: none;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            transform: rotate(-0.5deg);
+        }
+
+        #searchInput::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            font-family: var(--fuente-garabato);
+            letter-spacing: 1px;
+        }
+
+        #searchInput:focus {
+            border-color: var(--celeste-neon);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), 4px 4px 0px rgba(0,0,0,0.5);
+            transform: scale(1.02) rotate(0deg);
         }
 
         .filter-container {
             display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 50px; max-width: 1200px;
         }
 
-        /* Botones Filtro Parche */
         .filter-btn {
             background: var(--bg-panel); border: 2px solid var(--text-white); color: var(--text-white);
             padding: 10px 22px; cursor: pointer;
@@ -91,20 +122,17 @@
         .filter-btn:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px) rotate(-1deg); }
         .filter-btn.active { background: var(--celeste-neon); color: #000; border-color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.5); transform: scale(1.05) rotate(1deg); }
 
-        /* GRID OPTIMIZADO PARA MÓVILES */
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px; width: 100%; max-width: 1200px; margin: 0 auto;
         }
 
-        /* TARJETAS CON ANIMACIÓN SCROLL */
         .resource-card {
             background-color: var(--bg-panel); border: 2px solid var(--verde-toxico); padding: 25px; text-decoration: none;
             display: flex; flex-direction: column; width: 100%;
             border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
             box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
-            /* Animación de entrada por Scroll */
             opacity: 0; transform: translateY(40px) rotate(-1deg);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease-out;
         }
@@ -112,9 +140,8 @@
         .resource-card.visible { opacity: 1; transform: translateY(0) rotate(-1deg); }
         .resource-card:nth-child(even).visible { transform: translateY(0) rotate(1.5deg); border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px; }
 
-        .resource-card.hidden { display: none; }
+        .resource-card.hidden { display: none !important; }
 
-        /* Hover Glitch Neón */
         .resource-card:hover {
             border-color: var(--celeste-neon); background-color: rgba(15, 18, 25, 0.98);
             transform: translateY(-8px) scale(1.02) rotate(0deg) !important; 
@@ -128,14 +155,12 @@
             border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
         }
 
-        /* Iconos automáticos */
         .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
         .card-icon { width: 32px; height: 32px; border-radius: 4px; object-fit: contain; flex-shrink: 0; background-color: rgba(255,255,255,0.05); }
 
         .card-title { font-family: 'Anton'; font-size: 1.6rem; font-weight: 400; text-transform: uppercase; color: var(--text-white); letter-spacing: 1px; margin-bottom: 0; }
         .card-desc { font-size: 0.85rem; color: var(--text-grey); line-height: 1.6; margin-top: auto; padding-top: 10px; }
 
-        /* NAVEGACIÓN MÓVIL OPTIMIZADA */
         .nav-container { position: fixed; bottom: 30px; width: 100%; display: flex; justify-content: center; z-index: 100; pointer-events: none; padding: 0 15px; }
         .floating-pill {
             background-color: var(--bg-panel); backdrop-filter: blur(10px); padding: 10px 30px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
@@ -175,17 +200,21 @@
     <div class="content-section" id="recursos">
         <h2 class="section-title">RECURSOS</h2>
         
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="BUSCAR PROGRAMA, IA, EFECTOS..." oninput="applyFilters()">
+        </div>
+
         <div class="filter-container">
-            <button class="filter-btn active" onclick="filterData('all', this)">Todos</button>
-            <button class="filter-btn" onclick="filterData('amv', this)">AMV</button>
-            <button class="filter-btn" onclick="filterData('edicion', this)">Edición</button>
-            <button class="filter-btn" onclick="filterData('audio', this)">Audio</button>
-            <button class="filter-btn" onclick="filterData('ia', this)">IA</button>
-            <button class="filter-btn" onclick="filterData('streaming', this)">Streaming</button>
-            <button class="filter-btn" onclick="filterData('diseño', this)">Diseño</button>
-            <button class="filter-btn" onclick="filterData('youtube', this)">YouTube</button>
-            <button class="filter-btn" onclick="filterData('discord', this)">Discord</button>
-            <button class="filter-btn" onclick="filterData('utilidad', this)">Utilidad</button>
+            <button class="filter-btn active" onclick="filterCategory('all', this)">Todos</button>
+            <button class="filter-btn" onclick="filterCategory('amv', this)">AMV</button>
+            <button class="filter-btn" onclick="filterCategory('edicion', this)">Edición</button>
+            <button class="filter-btn" onclick="filterCategory('audio', this)">Audio</button>
+            <button class="filter-btn" onclick="filterCategory('ia', this)">IA</button>
+            <button class="filter-btn" onclick="filterCategory('streaming', this)">Streaming</button>
+            <button class="filter-btn" onclick="filterCategory('diseño', this)">Diseño</button>
+            <button class="filter-btn" onclick="filterCategory('youtube', this)">YouTube</button>
+            <button class="filter-btn" onclick="filterCategory('discord', this)">Discord</button>
+            <button class="filter-btn" onclick="filterCategory('utilidad', this)">Utilidad</button>
         </div>
 
         <div class="resources-grid" id="grid">
@@ -612,42 +641,48 @@
     </div>
 
     <script>
-        // 1. FILTROS
-        function filterData(category, element) {
-            const cards = document.querySelectorAll('.resource-card');
-            const buttons = document.querySelectorAll('.filter-btn');
+        let currentCategory = 'all';
+
+        function filterCategory(category, element) {
+            currentCategory = category;
             
+            const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
+            
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const cards = document.querySelectorAll('.resource-card');
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
 
             cards.forEach(card => {
-                const cardCats = card.getAttribute('data-category');
+                const cardCats = card.getAttribute('data-category').toLowerCase();
+                const titleElement = card.querySelector('.card-title');
+                const descElement = card.querySelector('.card-desc');
                 
-                // Ocultar suave
-                card.style.opacity = "0";
-                card.style.transform = "scale(0.9)";
+                const title = titleElement ? titleElement.innerText.toLowerCase() : '';
+                const desc = descElement ? descElement.innerText.toLowerCase() : '';
+                
+                const matchCategory = currentCategory === 'all' || cardCats.includes(currentCategory);
+                const matchSearch = title.includes(searchText) || desc.includes(searchText);
 
-                setTimeout(() => {
-                    if (category === 'all' || cardCats.includes(category)) {
+                if (matchCategory && matchSearch) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
                         card.classList.remove('hidden');
-                        setTimeout(() => {
-                            card.style.opacity = "1";
-                            card.style.transform = "scale(1)";
-                            setTimeout(() => {
-                                card.style.opacity = "";
-                                card.style.transform = "";
-                            }, 400);
-                        }, 50);
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                }, 300);
+                        card.classList.add('visible');
+                    }, 10);
+                } else {
+                    card.style.display = 'none';
+                    card.classList.add('hidden');
+                    card.classList.remove('visible');
+                }
             });
         }
 
-        // 2. ICONOS + ANIMACIÓN SCROLL AL INICIAR
         document.addEventListener("DOMContentLoaded", function() {
-            // A. Añadir iconos automáticamente
             const cards = document.querySelectorAll('.resource-card');
             cards.forEach(card => {
                 const link = card.getAttribute('href');
@@ -669,13 +704,12 @@
                 }
             });
 
-            // B. Animación de revelado al hacer scroll
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         setTimeout(() => {
                             entry.target.classList.add('visible');
-                        }, 50); // Un pequeño retraso para que se vea suave
+                        }, 50); 
                         observer.unobserve(entry.target);
                     }
                 });
