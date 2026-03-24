@@ -4,161 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navvy | Recursos & Edición</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
- <style>
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gloria+Hallelujah&family=Inter:wght@400;700;900&display=swap');
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Gloria+Hallelujah&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta Urbana/Industrial Gachiakuta */
+            --bg-dark: #0a0b10;
+            --bg-panel: rgba(15, 18, 25, 0.9);
+            --verde-toxico: #31b761; 
+            --celeste-neon: #00f0ff; 
+            --rojo-carmesi: #e6003b; 
+            --naranja-calido: #ff8c00; 
+            --text-white: #ffffff;
+            --text-grey: #a0aabf;
+            --fuente-garabato: 'Gloria Hallelujah', cursive;
+        }
 
-:root {
-    /* Paleta Urbana/Industrial Gachiakuta */
-    --bg-dark: #0a0b10;
-    --bg-panel: rgba(15, 18, 25, 0.9);
-    --verde-toxico: #31b761; 
-    --celeste-neon: #00f0ff; 
-    --rojo-carmesi: #e6003b; 
-    --naranja-calido: #ff8c00; 
-    --text-white: #ffffff;
-    --text-grey: #a0aabf;
-    --fuente-garabato: 'Gloria Hallelujah', cursive;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+        body, html {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            height: 100%;
+        }
 
-body, html {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    height: 100%;
-}
+        /* Scrollbar Tóxico */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background-color: var(--verde-toxico); border-radius: 10px; border: 3px solid var(--bg-dark); }
 
-/* Fondo con cuadrícula industrial sutil */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: 
-        radial-gradient(circle at center, rgba(15, 18, 25, 0.2) 0%, var(--bg-dark) 80%),
-        repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255, 255, 255, 0.01) 1px, rgba(255, 255, 255, 0.01) 2px),
-        repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255, 255, 255, 0.01) 1px, rgba(255, 255, 255, 0.01) 2px);
-    z-index: -2;
-}
+        /* Fondo con cuadrícula industrial sutil */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at center, rgba(15, 18, 25, 0.2) 0%, var(--bg-dark) 80%),
+                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255, 255, 255, 0.01) 1px, rgba(255, 255, 255, 0.01) 2px),
+                repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255, 255, 255, 0.01) 1px, rgba(255, 255, 255, 0.01) 2px);
+            z-index: -2;
+        }
 
-.main-content {
-    display: flex; justify-content: center; align-items: center;
-    height: 100vh; position: relative; z-index: 10;
-}
+        .main-content {
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; position: relative; z-index: 10;
+        }
 
-.video-container {
-    width: 800px; aspect-ratio: 16/9; background-color: #000;
-    border: 3px solid var(--verde-toxico);
-    box-shadow: 0 0 15px rgba(49, 183, 97, 0.4);
-    display: flex; justify-content: center; align-items: center;
-    /* Forma irregular messy */
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-    transform: rotate(-1deg);
-}
+        .video-container {
+            width: 800px; max-width: 90%; aspect-ratio: 16/9; background-color: #000;
+            border: 3px solid var(--verde-toxico);
+            box-shadow: 0 0 15px rgba(49, 183, 97, 0.4);
+            display: flex; justify-content: center; align-items: center;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            transform: rotate(-1deg);
+        }
 
-.video-container h2 {
-    font-family: 'Anton'; font-size: 3rem; color: var(--text-white); opacity: 0.5;
-}
+        .video-container h2 {
+            font-family: 'Anton'; font-size: clamp(1.5rem, 5vw, 3rem); color: var(--text-white); opacity: 0.5;
+        }
 
-.content-section {
-    padding: 100px 50px; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
-}
+        .content-section {
+            padding: 100px 5vw; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+        }
 
-/* Título Neón Celeste con aura Navvy */
-.section-title {
-    font-family: 'Anton'; font-size: 5rem; margin-bottom: 40px;
-    color: var(--celeste-neon); text-transform: uppercase; letter-spacing: 4px;
-    text-shadow: -2px -2px 0 var(--rojo-carmesi), 2px -2px 0 var(--rojo-carmesi), -2px 2px 0 var(--rojo-carmesi), 2px 2px 0 var(--rojo-carmesi), 0 0 15px var(--celeste-neon);
-}
+        /* Título Neón Celeste */
+        .section-title {
+            font-family: 'Anton'; font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 40px; text-align: center;
+            color: var(--celeste-neon); text-transform: uppercase; letter-spacing: 4px;
+            text-shadow: -2px -2px 0 var(--rojo-carmesi), 2px -2px 0 var(--rojo-carmesi), -2px 2px 0 var(--rojo-carmesi), 2px 2px 0 var(--rojo-carmesi), 0 0 15px var(--celeste-neon);
+        }
 
-.filter-container {
-    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 50px; max-width: 1200px;
-}
+        .filter-container {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 50px; max-width: 1200px;
+        }
 
-/* Botones estilo "Parche" */
-.filter-btn {
-    background: var(--bg-panel); border: 2px solid var(--text-white); color: var(--text-white);
-    padding: 10px 22px; cursor: pointer;
-    font-family: var(--fuente-garabato); font-size: 1rem; font-weight: bold; text-transform: uppercase;
-    transition: all 0.2s ease; box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-}
+        /* Botones Filtro Parche */
+        .filter-btn {
+            background: var(--bg-panel); border: 2px solid var(--text-white); color: var(--text-white);
+            padding: 10px 22px; cursor: pointer;
+            font-family: var(--fuente-garabato); font-size: 1rem; font-weight: bold; text-transform: uppercase;
+            transition: all 0.2s ease; box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+        }
+        .filter-btn:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px) rotate(-1deg); }
+        .filter-btn.active { background: var(--celeste-neon); color: #000; border-color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.5); transform: scale(1.05) rotate(1deg); }
 
-.filter-btn:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px) rotate(-1deg); }
-.filter-btn.active { background: var(--celeste-neon); color: #000; border-color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.5); transform: scale(1.05) rotate(1deg); }
+        /* GRID OPTIMIZADO PARA MÓVILES */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px; width: 100%; max-width: 1200px; margin: 0 auto;
+        }
 
-.resources-grid {
-    display: flex; flex-wrap: wrap; gap: 25px; width: 100%; max-width: 1200px; margin: 0 auto; justify-content: flex-start; 
-}
+        /* TARJETAS CON ANIMACIÓN SCROLL */
+        .resource-card {
+            background-color: var(--bg-panel); border: 2px solid var(--verde-toxico); padding: 25px; text-decoration: none;
+            display: flex; flex-direction: column; width: 100%;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+            /* Animación de entrada por Scroll */
+            opacity: 0; transform: translateY(40px) rotate(-1deg);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease-out;
+        }
 
-/* TARJETAS IRREGULARES */
-.resource-card {
-    background-color: var(--bg-panel); border: 2px solid var(--verde-toxico); padding: 25px; text-decoration: none;
-    display: flex; flex-direction: column; width: calc(33.333% - 25px); min-width: 300px; margin-bottom: 10px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 1;
-    box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
-    /* Inclinación y forma desordenada */
-    transform: scale(1) rotate(-1deg); 
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-}
+        .resource-card.visible { opacity: 1; transform: translateY(0) rotate(-1deg); }
+        .resource-card:nth-child(even).visible { transform: translateY(0) rotate(1.5deg); border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px; }
 
-/* Alterar forma y rotación para desordenar */
-.resource-card:nth-child(even) {
-    transform: scale(1) rotate(1.5deg);
-    border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px;
-}
+        .resource-card.hidden { display: none; }
 
-.resource-card.hidden { display: none; }
-.resource-card:hover {
-    border-color: var(--celeste-neon); background-color: rgba(15, 18, 25, 0.98);
-    transform: translateY(-8px) scale(1.02) rotate(0deg); 
-    box-shadow: 8px 10px 0px rgba(0, 240, 255, 0.2);
-}
+        /* Hover Glitch Neón */
+        .resource-card:hover {
+            border-color: var(--celeste-neon); background-color: rgba(15, 18, 25, 0.98);
+            transform: translateY(-8px) scale(1.02) rotate(0deg) !important; 
+            box-shadow: 4px 4px 0px rgba(0, 240, 255, 0.5), -4px -4px 0px rgba(230, 0, 59, 0.5);
+            z-index: 2;
+        }
 
-.card-tag {
-    font-family: var(--fuente-garabato); font-size: 0.8rem; background-color: var(--naranja-calido); color: #000;
-    padding: 4px 15px; align-self: flex-start; margin-bottom: 15px; font-weight: bold; box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-}
+        .card-tag {
+            font-family: var(--fuente-garabato); font-size: 0.8rem; background-color: var(--naranja-calido); color: #000;
+            padding: 4px 15px; align-self: flex-start; margin-bottom: 15px; font-weight: bold; box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+        }
 
-/* ESTILOS PREPARADOS PARA EL ICONO */
-.card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.card-icon { width: 32px; height: 32px; border-radius: 4px; object-fit: contain; flex-shrink: 0; background-color: rgba(255,255,255,0.05); }
+        /* Iconos automáticos */
+        .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .card-icon { width: 32px; height: 32px; border-radius: 4px; object-fit: contain; flex-shrink: 0; background-color: rgba(255,255,255,0.05); }
 
-/* Adaptado para funcionar con o sin icono */
-.card-title { font-family: 'Anton'; font-size: 1.6rem; font-weight: 400; text-transform: uppercase; color: var(--text-white); letter-spacing: 1px; margin-bottom: 0; }
+        .card-title { font-family: 'Anton'; font-size: 1.6rem; font-weight: 400; text-transform: uppercase; color: var(--text-white); letter-spacing: 1px; margin-bottom: 0; }
+        .card-desc { font-size: 0.85rem; color: var(--text-grey); line-height: 1.6; margin-top: auto; padding-top: 10px; }
 
-.card-desc { font-size: 0.85rem; color: var(--text-grey); line-height: 1.6; margin-top: auto; padding-top: 10px; }
+        /* NAVEGACIÓN MÓVIL OPTIMIZADA */
+        .nav-container { position: fixed; bottom: 30px; width: 100%; display: flex; justify-content: center; z-index: 100; pointer-events: none; padding: 0 15px; }
+        .floating-pill {
+            background-color: var(--bg-panel); backdrop-filter: blur(10px); padding: 10px 30px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 2px solid var(--verde-toxico); pointer-events: auto;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; max-width: 100%;
+        }
 
-.nav-container { position: fixed; bottom: 40px; width: 100%; display: flex; justify-content: center; z-index: 100; }
-.floating-pill {
-    background-color: var(--bg-panel); backdrop-filter: blur(10px); padding: 10px 30px; display: flex; align-items: center; gap: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 2px solid var(--verde-toxico);
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-}
+        .floating-pill a { color: var(--text-white); text-decoration: none; font-family: var(--fuente-garabato); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; transition: all 0.2s; }
+        .floating-pill a:hover { color: var(--celeste-neon); text-shadow: 0 0 8px var(--celeste-neon); }
 
-.floating-pill a { color: var(--text-white); text-decoration: none; font-family: var(--fuente-garabato); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; transition: all 0.2s; }
-.floating-pill a:hover { color: var(--celeste-neon); text-shadow: 0 0 8px var(--celeste-neon); }
+        .btn-discord {
+            background-color: var(--rojo-carmesi) !important; color: white !important; padding: 6px 15px;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important; border: 2px solid white !important;
+            animation: pulse-red-messy 2s infinite;
+        }
+        .btn-discord:hover { transform: scale(1.1) rotate(-3deg); background-color: white !important; color: var(--rojo-carmesi) !important; }
 
-.btn-discord {
-    background-color: var(--rojo-carmesi) !important; color: white !important; padding: 8px 20px;
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important; border: 2px solid white !important;
-    animation: pulse-red-messy 2s infinite;
-}
-.btn-discord:hover { transform: scale(1.1) rotate(-3deg); background-color: white !important; color: var(--rojo-carmesi) !important; }
+        @keyframes pulse-red-messy {
+            0% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0.6); transform: scale(1); }
+            70% { box-shadow: 0 0 0 12px rgba(230, 0, 59, 0); transform: scale(1.02) rotate(1deg); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0); transform: scale(1); }
+        }
 
-@keyframes pulse-red-messy {
-    0% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0.6); transform: scale(1); }
-    70% { box-shadow: 0 0 0 12px rgba(230, 0, 59, 0); transform: scale(1.02) rotate(1deg); }
-    100% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0); transform: scale(1); }
-}
-
-@media (max-width: 1000px) { .resource-card { width: calc(50% - 25px); } }
-@media (max-width: 650px) { .resource-card { width: 100%; } }
-</style>
+        @media (max-width: 600px) {
+            .floating-pill { padding: 10px 15px; gap: 10px; }
+            .floating-pill a { font-size: 0.75rem; }
+        }
     </style>
 </head>
 <body>
@@ -167,8 +171,10 @@ body::before {
             <h2>DEMO REEL PENDING</h2>
         </div>
     </div>
+
     <div class="content-section" id="recursos">
         <h2 class="section-title">RECURSOS</h2>
+        
         <div class="filter-container">
             <button class="filter-btn active" onclick="filterData('all', this)">Todos</button>
             <button class="filter-btn" onclick="filterData('amv', this)">AMV</button>
@@ -181,6 +187,7 @@ body::before {
             <button class="filter-btn" onclick="filterData('discord', this)">Discord</button>
             <button class="filter-btn" onclick="filterData('utilidad', this)">Utilidad</button>
         </div>
+
         <div class="resources-grid" id="grid">
             <a href="https://animeclipsraw.fr/" target="_blank" class="resource-card" data-category="amv">
                 <span class="card-tag">AMV / RAWS</span>
@@ -272,7 +279,6 @@ body::before {
                 <h3 class="card-title">Diseño de Servidores</h3>
                 <p class="card-desc">Tips visuales para decorar tu servidor con banners, separadores y una estética profesional coherente que atraiga a más gente.</p>
             </a>
-
             <a href="https://www.pexels.com/es-es/" target="_blank" class="resource-card" data-category="diseño">
                 <span class="card-tag">DISEÑO / STOCK</span>
                 <h3 class="card-title">Pexels</h3>
@@ -343,7 +349,7 @@ body::before {
                 <h3 class="card-title">Streamlabs</h3>
                 <p class="card-desc">Herramientas intuitivas para alertas y widgets configurables visualmente. Ideal si buscas configurar tu stream de forma rápida y con buen diseño.</p>
             </a>
-            <a href="https://aitum.tv/" target="_blank" class="resource-card" data-category="streaming">
+            <a href="https://multistream.app/" target="_blank" class="resource-card" data-category="streaming">
                 <span class="card-tag">STREAMING</span>
                 <h3 class="card-title">Stream Suite Multi</h3>
                 <p class="card-desc">Transmite a múltiples plataformas al mismo tiempo sin necesidad de una PC de la NASA. Maximiza tu alcance real en Twitch, YouTube y Kick.</p>
@@ -408,7 +414,7 @@ body::before {
                 <h3 class="card-title">CinePacks Free</h3>
                 <p class="card-desc">Librería de overlays, transiciones y efectos de cine gratuitos para darle un look premium de película a tus videos de YouTube o AMV.</p>
             </a>
-             <a href="https://www.capcut.com/es-es/" target="_blank" class="resource-card" data-category="edicion">
+            <a href="https://www.capcut.com/es-es/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / SOFTWARE</span>
                 <h3 class="card-title">Capcut</h3>
                 <p class="card-desc">Programa de edicion de video basica para principiantes.</p>
@@ -453,7 +459,6 @@ body::before {
                 <h3 class="card-title">Pixlr Express</h3>
                 <p class="card-desc">Editor de fotos rápido con retoques inteligentes por IA para diseño ágil y filtros técnicos directamente desde tu navegador.</p>
             </a>
-
             <a href="https://www.101soundboards.com/" target="_blank" class="resource-card" data-category="audio edicion">
                 <span class="card-tag">AUDIO</span>
                 <h3 class="card-title">Librería de Sonidos</h3>
@@ -494,7 +499,6 @@ body::before {
                 <h3 class="card-title">The Sounds Resource</h3>
                 <p class="card-desc">La biblioteca definitiva de efectos de sonido extraídos directamente de videojuegos clásicos y modernos para tus edits temáticos.</p>
             </a>
-
             <a href="https://rapidtags.io/" target="_blank" class="resource-card" data-category="youtube">
                 <span class="card-tag">YOUTUBE</span>
                 <h3 class="card-title">RapidTags</h3>
@@ -557,110 +561,43 @@ body::before {
             </a>
             <a href="https://www.downloadpirate.com/adobe/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN</span>
-                <h3 class="card-title">Download Pirate</h3>
-                <p class="card-desc">
-                    Plataforma imprescindible para encontrar recursos, plugins y herramientas vitales para tu flujo de trabajo profesional en postproducción.
-                    Es la base de datos más completa para mantener tus programas actualizados y con los mejores complementos.
-                </p>
+                <h3 class="card-title">El Tesoro del Editor</h3>
+                <p class="card-desc">Plataforma imprescindible para encontrar recursos, plugins y herramientas vitales para tu flujo de trabajo profesional en postproducción.</p>
             </a>
-
-            <a href="https://www.photopea.com/" target="_blank" class="resource-card" data-category="edicion diseño">
-                <span class="card-tag">EDICIÓN / DISEÑO</span>
-                <h3 class="card-title">Photopea</h3>
-                <p class="card-desc">
-                    El clon perfecto y gratuito de Photoshop directo en tu navegador. 
-                    Ideal para editar miniaturas rápidas o capas de diseño sin tener que abrir programas pesados que consumen RAM.
-                </p>
-            </a>
-
-            <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card" data-category="edicion utilidad">
-                <span class="card-tag">EDICIÓN / WORKFLOW</span>
-                <h3 class="card-title">DowP</h3>
-                <p class="card-desc">
-                    Ultimate Downloader & Workflow. Herramienta brutal para descargar videos y optimizar tus clips antes de meterlos al editor.
-                    Ahorra horas de transcodificación y descarga material de alta fidelidad.
-                </p>
-            </a>
-
             <a href="https://knightsoftheeditingtable.com/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / PLUGINS</span>
                 <h3 class="card-title">Knights of the Table</h3>
-                <p class="card-desc">
-                    Extensiones legendarias para Premiere Pro. Automatizan procesos aburridos como el recorte de silencios 
-                    y aceleran tu velocidad de edición de una forma totalmente ridícula y profesional.
-                </p>
+                <p class="card-desc">Extensiones legendarias para Premiere Pro. Automatizan procesos aburridos como el recorte de silencios y aceleran tu velocidad de edición.</p>
             </a>
-
-            <a href="https://intro-hd.net/" target="_blank" class="resource-card" data-category="edicion">
-                <span class="card-tag">EDICIÓN / PLANTILLAS</span>
-                <h3 class="card-title">Intro HD</h3>
-                <p class="card-desc">
-                    Librería gigante con plantillas gratuitas, Motion Graphics y scripts para After Effects y Premiere Pro. 
-                    Perfecto para cuando necesitas un acabado premium y rápido en tus entregas.
-                </p>
-            </a>
-
-            <a href="https://satvrn.li/" target="_blank" class="resource-card" data-category="edicion">
-                <span class="card-tag">EDICIÓN / PACKS</span>
-                <h3 class="card-title">Satvrn Resources</h3>
-                <p class="card-desc">
-                    Repositorio masivo de recursos de edición que incluye la suite de Adobe y mucho más material técnico 
-                    para dar vida y un estilo único a todas tus producciones AMV y comerciales.
-                </p>
-            </a>
-
             <a href="https://imageonline.co/" target="_blank" class="resource-card" data-category="utilidad diseño">
                 <span class="card-tag">UTILIDAD / IMAGEN</span>
                 <h3 class="card-title">ImageOnline.co</h3>
-                <p class="card-desc">
-                    Suite web completísima que permite manipular imágenes, cambiar formatos, comprimir y aplicar filtros técnicos 
-                    sin necesidad de instalar software pesado en tu computadora.
-                </p>
+                <p class="card-desc">Suite web completísima que permite manipular imágenes, cambiar formatos, comprimir y aplicar filtros técnicos sin instalar software pesado.</p>
             </a>
-
             <a href="https://www.waifu2x.net/index.es.html" target="_blank" class="resource-card" data-category="ia utilidad">
                 <span class="card-tag">IA / UPSCALE</span>
                 <h3 class="card-title">Waifu2x</h3>
-                <p class="card-desc">
-                    El clásico indiscutible para escalar imágenes con ruido. Elimina el pixelado y aumenta la resolución 
-                    manteniendo los bordes limpios, esencial para usar frames de anime antiguos en edits modernos.
-                </p>
+                <p class="card-desc">El clásico indiscutible para escalar imágenes con ruido. Elimina el pixelado y aumenta la resolución manteniendo los bordes limpios.</p>
             </a>
-
             <a href="https://www.fotor.com/es/features/ai-image-extender/" target="_blank" class="resource-card" data-category="ia diseño">
                 <span class="card-tag">IA / DISEÑO</span>
                 <h3 class="card-title">Fotor AI Extender</h3>
-                <p class="card-desc">
-                    Expansión de imágenes por inteligencia artificial. Es extremadamente útil para cuando un fondo te queda corto 
-                    en formato vertical para TikTok, Reels o YouTube Shorts.
-                </p>
+                <p class="card-desc">Expansión de imágenes por inteligencia artificial. Es extremadamente útil para cuando un fondo te queda corto en formato vertical.</p>
             </a>
-
             <a href="https://replicate.com/nightmareai/real-esrgan" target="_blank" class="resource-card" data-category="ia">
                 <span class="card-tag">IA / UPSCALE PRO</span>
                 <h3 class="card-title">Real-ESRGAN</h3>
-                <p class="card-desc">
-                    Modelo de superresolución de nivel avanzado. Recupera detalles perdidos en fotos antiguas o de baja calidad 
-                    con una precisión ridícula gracias a sus potentes algoritmos de IA.
-                </p>
+                <p class="card-desc">Modelo de superresolución de nivel avanzado. Recupera detalles perdidos en fotos antiguas o de baja calidad con una precisión ridícula.</p>
             </a>
-
             <a href="https://www.canva.com/" target="_blank" class="resource-card" data-category="utilidad diseño">
                 <span class="card-tag">DISEÑO RÁPIDO</span>
                 <h3 class="card-title">Canva</h3>
-                <p class="card-desc">
-                    Plataforma de diseño rápido. Ideal para layouts base, presentaciones y recursos gráficos sencillos 
-                    cuando no es necesario abrir Photoshop para una tarea menor.
-                </p>
+                <p class="card-desc">Plataforma de diseño rápido. Ideal para layouts base, presentaciones y recursos gráficos sencillos cuando no es necesario abrir Photoshop.</p>
             </a>
-
             <a href="https://www.dzine.ai/" target="_blank" class="resource-card" data-category="ia edicion diseño">
                 <span class="card-tag">IA / DISEÑO</span>
                 <h3 class="card-title">Dzine</h3>
-                <p class="card-desc">
-                    Herramienta avanzada de diseño y edición visual asistida por IA. Permite transformar ideas abstractas 
-                    en gráficos terminados y listos para usar en tus proyectos de video.
-                </p>
+                <p class="card-desc">Herramienta avanzada de diseño y edición visual asistida por IA. Permite transformar ideas abstractas en gráficos terminados.</p>
             </a>
         </div>
     </div>
@@ -674,8 +611,8 @@ body::before {
         </div>
     </div>
 
-  <script>
-        // --- 1. TU CÓDIGO DE FILTROS (Intacto) ---
+    <script>
+        // 1. FILTROS
         function filterData(category, element) {
             const cards = document.querySelectorAll('.resource-card');
             const buttons = document.querySelectorAll('.filter-btn');
@@ -685,63 +622,66 @@ body::before {
 
             cards.forEach(card => {
                 const cardCats = card.getAttribute('data-category');
+                
+                // Ocultar suave
                 card.style.opacity = "0";
-                card.style.transform = "scale(0.9) rotate(0deg)";
+                card.style.transform = "scale(0.9)";
 
                 setTimeout(() => {
                     if (category === 'all' || cardCats.includes(category)) {
                         card.classList.remove('hidden');
                         setTimeout(() => {
                             card.style.opacity = "1";
-                            card.style.transform = "scale(1)"; 
+                            card.style.transform = "scale(1)";
                             setTimeout(() => {
                                 card.style.opacity = "";
                                 card.style.transform = "";
-                            }, 400); 
+                            }, 400);
                         }, 50);
                     } else {
                         card.classList.add('hidden');
                     }
-                }, 200); 
+                }, 300);
             });
         }
 
-        // --- 2. LA MAGIA DE LOS ICONOS AUTOMÁTICOS ---
+        // 2. ICONOS + ANIMACIÓN SCROLL AL INICIAR
         document.addEventListener("DOMContentLoaded", function() {
-            // Buscamos todas las tarjetas
+            // A. Añadir iconos automáticamente
             const cards = document.querySelectorAll('.resource-card');
-            
             cards.forEach(card => {
-                // 1. Sacamos el link que ya tienes en la tarjeta
                 const link = card.getAttribute('href');
-                
-                // 2. Extraemos solo el dominio limpio (ej: "youtube.com" o "photopea.com")
                 let domain = "";
                 try { domain = new URL(link).hostname; } catch(e) {}
-                
-                // 3. Buscamos el título actual (el h3)
                 const titleElement = card.querySelector('.card-title');
                 
-                // Si la tarjeta tiene un título y un link válido...
                 if (titleElement && domain) {
-                    // 4. Creamos la "cajita" (div) para agrupar el icono y el título
                     const headerDiv = document.createElement('div');
                     headerDiv.className = 'card-header';
-                    
-                    // 5. Creamos la imagen del icono de Google
                     const iconImg = document.createElement('img');
                     iconImg.src = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
                     iconImg.className = 'card-icon';
-                    iconImg.loading = 'lazy'; // Para que la página cargue rápido
+                    iconImg.loading = 'lazy';
                     
-                    // 6. Metemos la cajita justo donde estaba el título original
                     card.insertBefore(headerDiv, titleElement);
-                    
-                    // 7. Y metemos el icono y el título dentro de la nueva cajita
                     headerDiv.appendChild(iconImg);
                     headerDiv.appendChild(titleElement);
                 }
             });
+
+            // B. Animación de revelado al hacer scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 50); // Un pequeño retraso para que se vea suave
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
         });
     </script>
 </body>
