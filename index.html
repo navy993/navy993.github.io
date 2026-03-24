@@ -6,130 +6,151 @@
     <title>Navvy | Recursos & Edición</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-dark: #050a14;
-            --text-white: #ffffff;
-            --accent-blue: #0236a5;
-            --neon-red: #E6003B;
-        }
+       @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700;900&display=swap');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body, html {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            height: 100%;
-        }
+:root {
+    /* La paleta de colores urbana/neón */
+    --bg-dark: #0a0b10;
+    --bg-panel: rgba(15, 18, 25, 0.85);
+    --naranja-calido: #ff8c00;
+    --verde-toxico: #31b761;
+    --celeste-neon: #00f0ff;
+    --rojo-carmesi: #e6003b;
+    --text-main: #e0e0e0;
+}
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, rgba(230,0,59,0.08) 0%, var(--bg-dark) 70%),
-                        radial-gradient(rgba(230,0,59,0.15) 1px, transparent 1px);
-            background-size: 100% 100%, 8px 8px; 
-            z-index: -2;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .main-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; 
-            position: relative;
-            z-index: 10;
-        }
+body, html {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    height: 100%;
+}
 
-        .video-container {
-            width: 800px;
-            aspect-ratio: 16/9;
-            background-color: #000;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 15px rgba(230,0,59,0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s ease;
-        }
+/* Fondo con textura industrial/cuadrícula oscura */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: 
+        linear-gradient(rgba(10, 11, 16, 0.9), rgba(10, 11, 16, 0.9)),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(49, 183, 97, 0.03) 2px, rgba(49, 183, 97, 0.03) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(49, 183, 97, 0.03) 2px, rgba(49, 183, 97, 0.03) 4px);
+    z-index: -2;
+}
 
-        .video-container h2 {
-            font-family: 'Anton';
-            font-size: 3rem;
-            opacity: 0.5;
-            color: #ffffff;
-        }
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    position: relative;
+    z-index: 10;
+}
 
-        .content-section {
-            padding: 100px 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        .section-title {
-            font-family: 'Anton';
-            font-size: 4rem;
-            margin-bottom: 40px;
-            text-shadow: 4px 4px 0px rgba(2, 54, 165, 0.5);
-            color: #ffffff;
-        }
+/* Contenedor principal con brillo rojo carmesí */
+.video-container {
+    width: 800px;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    border-radius: 8px;
+    border: 2px solid var(--rojo-carmesi);
+    box-shadow: 0 0 20px rgba(230, 0, 59, 0.4), inset 0 0 15px rgba(230, 0, 59, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
 
-        .filter-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 50px;
-            max-width: 1200px;
-        }
+.video-container h2 {
+    font-family: 'Anton';
+    font-size: 3rem;
+    color: var(--celeste-neon);
+    text-shadow: 0 0 10px var(--celeste-neon);
+    letter-spacing: 2px;
+}
 
-        /* EFECTO EN LOS BOTONES DE FILTRO */
-.filter-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 700;
+.content-section {
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Títulos estilo marquesina neón (Celeste con borde rojo) */
+.section-title {
+    font-family: 'Anton';
+    font-size: 4.5rem;
+    margin-bottom: 40px;
+    color: var(--celeste-neon);
     text-transform: uppercase;
-    /* Animación fluida */
+    letter-spacing: 3px;
+    /* Efecto de doble neón como en la imagen */
+    text-shadow: 
+        -2px -2px 0 var(--rojo-carmesi),
+        2px -2px 0 var(--rojo-carmesi),
+        -2px 2px 0 var(--rojo-carmesi),
+        2px 2px 0 var(--rojo-carmesi),
+        0 0 15px var(--celeste-neon);
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 50px;
+    max-width: 1200px;
+}
+
+/* Botones de UI estilo consola clandestina */
+.filter-btn {
+    background: var(--bg-panel);
+    border: 1px solid var(--celeste-neon);
+    color: var(--celeste-neon);
+    padding: 10px 22px;
+    border-radius: 4px; /* Bordes más cuadrados, industriales */
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.1);
 }
+
 .filter-btn:hover {
-    background: rgba(230, 0, 59, 0.2); /* Un rojo sutil al pasar el mouse */
-    transform: translateY(-2px); /* Pequeño salto hacia arriba */
-    border-color: var(--neon-red);
-}
-        .filter-btn.active {
-    background: var(--neon-red);
-    border-color: var(--neon-red);
-    color: white;
-    box-shadow: 0 0 20px rgba(230, 0, 59, 0.4);
-    transform: scale(1.05); /* Se hace un pelín más grande al estar activo */
+    background: rgba(0, 240, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
-        .resources-grid {
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 25px;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            justify-content: flex-start; 
-        }
+.filter-btn.active {
+    background: var(--celeste-neon);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    transform: scale(1.05);
+}
 
-        /* REACCIONES DE LAS TARJETAS */
+.resources-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: flex-start; 
+}
+
+/* Tarjetas de recursos con el borde verde característico de la imagen */
 .resource-card {
-    background-color: rgba(9, 18, 33, 0.6);
-    border: 1px solid rgba(2, 54, 165, 0.3);
-    border-radius: 12px;
+    background-color: var(--bg-panel);
+    border: 2px solid var(--verde-toxico);
+    border-radius: 6px;
     padding: 25px;
     text-decoration: none;
     display: flex;
@@ -137,118 +158,115 @@
     width: calc(33.333% - 25px);
     min-width: 300px;
     margin-bottom: 10px;
-    
-    /* La clave de la fluidez */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 1;
     transform: scale(1);
+    /* Sombra verde sutil */
+    box-shadow: 0 0 10px rgba(49, 183, 97, 0.15);
 }
 
-       /* Animación de desaparición para el filtro */
-.resource-card.hidden {
-    display: none; /* Mantener para que el grid se reordene */
+.resource-card.hidden { display: none; }
+
+.resource-card:hover {
+    border-color: var(--celeste-neon);
+    background-color: rgba(15, 18, 25, 0.95);
+    transform: translateY(-8px) scale(1.02);
+    /* Al pasar el mouse, cambia a un brillo celeste y rojo */
+    box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2), 0 0 15px rgba(230, 0, 59, 0.2);
 }
-        .resource-card:hover {
-    border-color: var(--neon-red);
-    background-color: rgba(9, 18, 33, 0.8);
-    transform: translateY(-10px) scale(1.02); /* Sube y se agranda un poco */
-    box-shadow: 0 15px 35px rgba(230, 0, 59, 0.15), 0 0 15px rgba(2, 54, 165, 0.1);
+
+/* Etiquetas en Naranja Cálido */
+.card-tag {
+    font-family: 'Anton';
+    font-size: 0.8rem;
+    background-color: var(--naranja-calido);
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 2px;
+    align-self: flex-start;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.5);
 }
 
-        .card-tag {
-            font-family: 'Anton';
-            font-size: 0.75rem;
-            background-color: #ffffff;
-            color: #000;
-            padding: 4px 12px;
-            border-radius: 20px;
-            align-self: flex-start;
-            margin-bottom: 15px;
-        }
+.card-title {
+    font-family: 'Anton';
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
 
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
+.card-desc {
+    font-size: 0.85rem;
+    color: #a0aabf;
+    line-height: 1.6;
+    margin-top: auto;
+}
 
-        .card-desc {
-            font-size: 0.85rem;
-            color: #ffffff;
-            line-height: 1.5;
-            margin-top: auto;
-        }
+.nav-container {
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
 
-        .nav-container {
-            position: fixed;
-            bottom: 40px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 100;
-        }
+/* Barra de navegación inferior */
+.floating-pill {
+    background-color: var(--bg-panel);
+    backdrop-filter: blur(10px);
+    padding: 10px 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid var(--verde-toxico);
+    box-shadow: 0 0 20px rgba(49, 183, 97, 0.2);
+}
 
-        .floating-pill {
-            background-color: rgba(9, 18, 33, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 10px 30px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .floating-pill a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-
-/* Estilo para el menú flotante */
 .floating-pill a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: all 0.2s ease;
 }
- .floating-pill a:hover {
-    color: var(--neon-red);
-    text-shadow: 0 0 8px var(--neon-red);
+
+.floating-pill a:hover {
+    color: var(--celeste-neon);
+    text-shadow: 0 0 8px var(--celeste-neon);
 }
-       .btn-discord {
-    background-color: #E6003B !important; /* Tu color rojo Navvy */
-    color: white !important;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-weight: 900 !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    border: 2px solid white;
-    /* Animación de pulso */
+
+/* Botón especial de Discord */
+.btn-discord {
+    background-color: transparent !important;
+    color: var(--rojo-carmesi) !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    border: 2px solid var(--rojo-carmesi) !important;
     animation: pulse-red 2s infinite;
-    transition: all 0.3s ease !important;
 }
 
 .btn-discord:hover {
-    transform: scale(1.1) rotate(-2deg);
-    background-color: white !important;
-    color: #E6003B !important;
-    box-shadow: 0 0 25px #E6003B;
+    background-color: var(--rojo-carmesi) !important;
+    color: #fff !important;
+    box-shadow: 0 0 20px var(--rojo-carmesi);
+    transform: scale(1.05);
 }
 
-/* Definición de la luz que parpadea */
 @keyframes pulse-red {
-    0% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(230, 0, 59, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(230, 0, 59, 0); }
     100% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0); }
 }
 
-        @media (max-width: 1000px) { .resource-card { width: calc(50% - 25px); } }
-        @media (max-width: 650px) { .resource-card { width: 100%; } }
+@media (max-width: 1000px) { .resource-card { width: calc(50% - 25px); } }
+@media (max-width: 650px) { .resource-card { width: 100%; } }
     </style>
 </head>
 <body>
