@@ -1,4 +1,4 @@
-PE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@ PE html>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Gloria+Hallelujah&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Paleta Urbana/Industrial Gachiakuta */
             --bg-dark: #0a0b10;
             --bg-panel: rgba(15, 18, 25, 0.9);
             --verde-toxico: #31b761; 
@@ -16,6 +17,10 @@ PE html>
             --text-white: #ffffff;
             --text-grey: #a0aabf;
             --fuente-garabato: 'Gloria Hallelujah', cursive;
+            
+            /* OPTIMIZACIÓN: Variables para las formas irregulares (ahorra código) */
+            --forma-parche-1: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            --forma-parche-2: 15px 225px 15px 255px / 225px 15px 255px 15px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,10 +34,12 @@ PE html>
             height: 100%;
         }
 
+        /* Scrollbar Tóxico */
         ::-webkit-scrollbar { width: 12px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background-color: var(--verde-toxico); border-radius: 10px; border: 3px solid var(--bg-dark); }
 
+        /* Fondo con cuadrícula industrial sutil */
         body::before {
             content: "";
             position: fixed;
@@ -54,7 +61,7 @@ PE html>
             border: 3px solid var(--verde-toxico);
             box-shadow: 0 0 15px rgba(49, 183, 97, 0.4);
             display: flex; justify-content: center; align-items: center;
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            border-radius: var(--forma-parche-1);
             transform: rotate(-1deg);
         }
 
@@ -66,82 +73,72 @@ PE html>
             padding: 100px 5vw; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
 
+        /* Título Neón Celeste */
         .section-title {
             font-family: 'Anton'; font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 30px; text-align: center;
             color: var(--celeste-neon); text-transform: uppercase; letter-spacing: 4px;
             text-shadow: -2px -2px 0 var(--rojo-carmesi), 2px -2px 0 var(--rojo-carmesi), -2px 2px 0 var(--rojo-carmesi), 2px 2px 0 var(--rojo-carmesi), 0 0 15px var(--celeste-neon);
         }
 
+        /* BARRA DE BÚSQUEDA */
         .search-container {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
+            width: 100%; max-width: 600px; margin-bottom: 30px; display: flex; justify-content: center;
         }
 
         #searchInput {
-            width: 100%;
-            padding: 15px 25px;
-            background-color: var(--bg-panel);
-            border: 2px solid var(--verde-toxico);
-            color: var(--text-white);
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-            outline: none;
-            box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-            transform: rotate(-0.5deg);
+            width: 100%; padding: 15px 25px; background-color: var(--bg-panel);
+            border: 2px solid var(--verde-toxico); color: var(--text-white);
+            font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: bold;
+            border-radius: var(--forma-parche-1); outline: none;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.5); transition: all 0.3s ease; transform: rotate(-0.5deg);
         }
 
-        #searchInput::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-            font-family: var(--fuente-garabato);
-            letter-spacing: 1px;
-        }
-
-        #searchInput:focus {
-            border-color: var(--celeste-neon);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), 4px 4px 0px rgba(0,0,0,0.5);
-            transform: scale(1.02) rotate(0deg);
-        }
+        #searchInput::placeholder { color: rgba(255, 255, 255, 0.4); font-family: var(--fuente-garabato); letter-spacing: 1px; }
+        #searchInput:focus { border-color: var(--celeste-neon); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), 4px 4px 0px rgba(0,0,0,0.5); transform: scale(1.02) rotate(0deg); }
 
         .filter-container {
             display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 50px; max-width: 1200px;
         }
 
+        /* Botones Filtro Parche */
         .filter-btn {
             background: var(--bg-panel); border: 2px solid var(--text-white); color: var(--text-white);
             padding: 10px 22px; cursor: pointer;
             font-family: var(--fuente-garabato); font-size: 1rem; font-weight: bold; text-transform: uppercase;
             transition: all 0.2s ease; box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            border-radius: var(--forma-parche-1);
         }
         .filter-btn:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px) rotate(-1deg); }
         .filter-btn.active { background: var(--celeste-neon); color: #000; border-color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.5); transform: scale(1.05) rotate(1deg); }
 
+        /* GRID OPTIMIZADO PARA MÓVILES */
         .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px; width: 100%; max-width: 1200px; margin: 0 auto;
         }
 
+        /* Mensaje de Sin Resultados */
+        #no-results {
+            display: none; grid-column: 1 / -1; text-align: center; padding: 40px;
+            font-family: var(--fuente-garabato); font-size: 1.5rem; color: var(--text-grey);
+            background: var(--bg-panel); border: 2px dashed var(--rojo-carmesi); border-radius: var(--forma-parche-1);
+        }
+
+        /* TARJETAS CON ANIMACIÓN SCROLL */
         .resource-card {
             background-color: var(--bg-panel); border: 2px solid var(--verde-toxico); padding: 25px; text-decoration: none;
             display: flex; flex-direction: column; width: 100%;
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            border-radius: var(--forma-parche-1);
             box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
             opacity: 0; transform: translateY(40px) rotate(-1deg);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease-out;
         }
 
         .resource-card.visible { opacity: 1; transform: translateY(0) rotate(-1deg); }
-        .resource-card:nth-child(even).visible { transform: translateY(0) rotate(1.5deg); border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px; }
-
+        .resource-card:nth-child(even).visible { transform: translateY(0) rotate(1.5deg); border-radius: var(--forma-parche-2); }
         .resource-card.hidden { display: none !important; }
 
+        /* Hover Glitch Neón */
         .resource-card:hover {
             border-color: var(--celeste-neon); background-color: rgba(15, 18, 25, 0.98);
             transform: translateY(-8px) scale(1.02) rotate(0deg) !important; 
@@ -152,20 +149,22 @@ PE html>
         .card-tag {
             font-family: var(--fuente-garabato); font-size: 0.8rem; background-color: var(--naranja-calido); color: #000;
             padding: 4px 15px; align-self: flex-start; margin-bottom: 15px; font-weight: bold; box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            border-radius: var(--forma-parche-1);
         }
 
+        /* Iconos automáticos */
         .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
         .card-icon { width: 32px; height: 32px; border-radius: 4px; object-fit: contain; flex-shrink: 0; background-color: rgba(255,255,255,0.05); }
 
         .card-title { font-family: 'Anton'; font-size: 1.6rem; font-weight: 400; text-transform: uppercase; color: var(--text-white); letter-spacing: 1px; margin-bottom: 0; }
         .card-desc { font-size: 0.85rem; color: var(--text-grey); line-height: 1.6; margin-top: auto; padding-top: 10px; }
 
+        /* NAVEGACIÓN MÓVIL OPTIMIZADA */
         .nav-container { position: fixed; bottom: 30px; width: 100%; display: flex; justify-content: center; z-index: 100; pointer-events: none; padding: 0 15px; }
         .floating-pill {
             background-color: var(--bg-panel); backdrop-filter: blur(10px); padding: 10px 30px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8); border: 2px solid var(--verde-toxico); pointer-events: auto;
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; max-width: 100%;
+            border-radius: var(--forma-parche-1); max-width: 100%;
         }
 
         .floating-pill a { color: var(--text-white); text-decoration: none; font-family: var(--fuente-garabato); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; transition: all 0.2s; }
@@ -173,7 +172,7 @@ PE html>
 
         .btn-discord {
             background-color: var(--rojo-carmesi) !important; color: white !important; padding: 6px 15px;
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important; border: 2px solid white !important;
+            border-radius: var(--forma-parche-1) !important; border: 2px solid white !important;
             animation: pulse-red-messy 2s infinite;
         }
         .btn-discord:hover { transform: scale(1.1) rotate(-3deg); background-color: white !important; color: var(--rojo-carmesi) !important; }
@@ -184,9 +183,20 @@ PE html>
             100% { box-shadow: 0 0 0 0 rgba(230, 0, 59, 0); transform: scale(1); }
         }
 
+        /* Botón Volver Arriba */
+        .back-to-top {
+            position: fixed; bottom: 100px; right: 30px; background: var(--verde-toxico); color: #000;
+            border: 2px solid #000; width: 50px; height: 50px; border-radius: var(--forma-parche-1);
+            font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: all 0.3s ease; box-shadow: 4px 4px 0 rgba(0,0,0,0.5); z-index: 99;
+        }
+        .back-to-top.show { opacity: 1; pointer-events: auto; transform: rotate(-5deg); }
+        .back-to-top:hover { background: var(--celeste-neon); transform: scale(1.1) rotate(0deg); }
+
         @media (max-width: 600px) {
             .floating-pill { padding: 10px 15px; gap: 10px; }
             .floating-pill a { font-size: 0.75rem; }
+            .back-to-top { bottom: 120px; right: 15px; width: 40px; height: 40px; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -218,6 +228,11 @@ PE html>
         </div>
 
         <div class="resources-grid" id="grid">
+            
+            <div id="no-results">
+                No se encontraron recursos con esa búsqueda... 💀
+            </div>
+
             <a href="https://animeclipsraw.fr/" target="_blank" class="resource-card" data-category="amv">
                 <span class="card-tag">AMV / RAWS</span>
                 <h3 class="card-title">AnimeClipsRaw</h3>
@@ -418,7 +433,7 @@ PE html>
                 <h3 class="card-title">Transitional Hooks</h3>
                 <p class="card-desc">Librería de ganchos visuales y transiciones diseñadas para retener la atención del espectador en los primeros segundos de tus videos de impacto.</p>
             </a>
-              <a href="https://upscayl.org/" target="_blank" class="resource-card" data-category="utilidad diseño">
+            <a href="https://upscayl.org/" target="_blank" class="resource-card" data-category="utilidad diseño">
                 <span class="card-tag">EDICIÓN / SOFTWARE / IA</span>
                 <h3 class="card-title">Upscayl</h3>
                 <p class="card-desc">Plataforma de rescalador de imagenes una de las mejores que conozco.</p>
@@ -636,6 +651,8 @@ PE html>
         </div>
     </div>
 
+    <button id="backToTop" class="back-to-top" onclick="window.scrollTo(0,0)" aria-label="Volver arriba">↑</button>
+
     <div class="nav-container">
         <div class="floating-pill">
             <a href="#inicio">Inicio</a>
@@ -648,19 +665,20 @@ PE html>
     <script>
         let currentCategory = 'all';
 
+        // 1. Filtrar por Botones
         function filterCategory(category, element) {
             currentCategory = category;
-            
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
-            
             applyFilters();
         }
 
+        // 2. Aplicar Búsqueda y Categoría
         function applyFilters() {
             const cards = document.querySelectorAll('.resource-card');
             const searchText = document.getElementById('searchInput').value.toLowerCase();
+            let visibleCount = 0;
 
             cards.forEach(card => {
                 const cardCats = card.getAttribute('data-category').toLowerCase();
@@ -679,15 +697,24 @@ PE html>
                         card.classList.remove('hidden');
                         card.classList.add('visible');
                     }, 10);
+                    visibleCount++;
                 } else {
-                    card.style.display = 'none';
                     card.classList.add('hidden');
                     card.classList.remove('visible');
+                    setTimeout(() => {
+                        if (card.classList.contains('hidden')) card.style.display = 'none';
+                    }, 300);
                 }
             });
+
+            // Mostrar estado vacío si no hay resultados
+            document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
         }
 
+        // 3. LOGICA AL CARGAR: Iconos, Animación Cascada y Botón de Subir
         document.addEventListener("DOMContentLoaded", function() {
+            
+            // A. Añadir iconos automáticamente (Mejorado con etiqueta 'alt')
             const cards = document.querySelectorAll('.resource-card');
             cards.forEach(card => {
                 const link = card.getAttribute('href');
@@ -702,6 +729,7 @@ PE html>
                     iconImg.src = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
                     iconImg.className = 'card-icon';
                     iconImg.loading = 'lazy';
+                    iconImg.alt = `Icono de ${titleElement.innerText}`; // Accesibilidad mejorada
                     
                     card.insertBefore(headerDiv, titleElement);
                     headerDiv.appendChild(iconImg);
@@ -709,18 +737,33 @@ PE html>
                 }
             });
 
+            // B. Animación suave al hacer scroll (Efecto Cascada real)
+            let delay = 0;
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         setTimeout(() => {
                             entry.target.classList.add('visible');
-                        }, 50); 
+                        }, delay);
+                        delay += 100; // Va sumando 100ms a cada tarjeta para crear la cascada
                         observer.unobserve(entry.target);
                     }
                 });
+                // Resetear el delay después de procesar el lote
+                setTimeout(() => delay = 0, 100); 
             }, { threshold: 0.1 });
 
             cards.forEach(card => observer.observe(card));
+
+            // C. Mostrar/Ocultar botón de Volver Arriba
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
         });
     </script>
 </body>
