@@ -122,45 +122,54 @@
         .filter-btn:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px) rotate(-1deg); }
         .filter-btn.active { background: var(--celeste-neon); color: #000; border-color: #000; box-shadow: 4px 4px 0px rgba(0,0,0,0.5); transform: scale(1.05) rotate(1deg); }
 
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px; width: 100%; max-width: 1200px; margin: 0 auto;
-        }
+       .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 20px;
+}
 
-        .resource-card {
-            background-color: var(--bg-panel); border: 2px solid var(--verde-toxico); padding: 25px; text-decoration: none;
-            display: flex; flex-direction: column; width: 100%;
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
-            opacity: 0; transform: translateY(40px) rotate(-1deg);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease-out;
-        }
-
+     .resource-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f4f4f4; /* Cambia según tu tema */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+}
         .resource-card.visible { opacity: 1; transform: translateY(0) rotate(-1deg); }
         .resource-card:nth-child(even).visible { transform: translateY(0) rotate(1.5deg); border-radius: 15px 225px 15px 255px / 225px 15px 255px 15px; }
 
         .resource-card.hidden { display: none !important; }
 
-        .resource-card:hover {
-            border-color: var(--celeste-neon); background-color: rgba(15, 18, 25, 0.98);
-            transform: translateY(-8px) scale(1.02) rotate(0deg) !important; 
-            box-shadow: 4px 4px 0px rgba(0, 240, 255, 0.5), -4px -4px 0px rgba(230, 0, 59, 0.5);
-            z-index: 2;
-        }
+       .resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
 
-        .card-tag {
-            font-family: var(--fuente-garabato); font-size: 0.8rem; background-color: var(--naranja-calido); color: #000;
-            padding: 4px 15px; align-self: flex-start; margin-bottom: 15px; font-weight: bold; box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-        }
-
+      .card-tag {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #007bff; /* Color de énfasis */
+    margin-bottom: 10px;
+}
         .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
         .card-icon { width: 32px; height: 32px; border-radius: 4px; object-fit: contain; flex-shrink: 0; background-color: rgba(255,255,255,0.05); }
 
-        .card-title { font-family: 'Anton'; font-size: 1.6rem; font-weight: 400; text-transform: uppercase; color: var(--text-white); letter-spacing: 1px; margin-bottom: 0; }
-        .card-desc { font-size: 0.85rem; color: var(--text-grey); line-height: 1.6; margin-top: auto; padding-top: 10px; }
-
+.card-title {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+}        
+.card-desc {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #555;
+}
         .nav-container { position: fixed; bottom: 30px; width: 100%; display: flex; justify-content: center; z-index: 100; pointer-events: none; padding: 0 15px; }
         .floating-pill {
             background-color: var(--bg-panel); backdrop-filter: blur(10px); padding: 10px 30px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
@@ -393,39 +402,49 @@
                 <h3 class="card-title">SpeechChat</h3>
                 <p class="card-desc">Sistema de voz para el chat. Ideal para que el stream "lea" los mensajes de tus espectadores automáticamente mientras tú juegas o editas.</p>
             </a>
-            <a href="https://www.photopea.com/" target="_blank" class="resource-card" data-category="edicion diseño">
-                <span class="card-tag">EDICIÓN / DISEÑO</span>
+              <li class="resource-item">
+            <a href="https://www.photopea.com/" target="_blank" class="resource-card" data-category="edicion-diseno">
+                <<span>class="card-tag">EDICIÓN / DISEÑO</span>
                 <h3 class="card-title">Photopea</h3>
-                <p class="card-desc">El clon perfecto y gratuito de Photoshop directo en tu navegador. Ideal para editar miniaturas rápidas sin tener que abrir programas pesados.</p>
+                <p class="card-desc">El clon gratuito de Photoshop directo en tu navegador. Ideal para miniaturas rápidas.</p>
             </a>
-            <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card" data-category="edicion utilidad">
+        </li>
+
+    </ul>
+</section>
+            <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card" data-category="edicion-utility">
                 <span class="card-tag">EDICIÓN / WORKFLOW</span>
                 <h3 class="card-title">DowP</h3>
-                <p class="card-desc">Ultimate Downloader & Workflow. Herramienta brutal para descargar videos y optimizar clips antes de meterlos al editor, ahorrando tiempo.</p>
+                <p class="card-desc">Ultimate Downloader & Workflow. Herramienta brutal para descargar videos y optimizar clips antes de meterlos al editor.</p>
             </a>
+         <li class="resource-item">
             <a href="https://intro-hd.net/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / PLANTILLAS</span>
                 <h3 class="card-title">Intro HD</h3>
-                <p class="card-desc">Librería gigante con plantillas gratuitas, Motion Graphics y scripts para After Effects y Premiere. Para cuando necesitas un acabado premium rápido.</p>
+                <p class="card-desc">Librería gigante con plantillas gratuitas, Motion Graphics y scripts para After Effects y Premiere.</p>
             </a>
+        <li class="resource-item">
             <a href="https://satvrn.li/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / PACKS</span>
                 <h3 class="card-title">Satvrn Resources</h3>
-                <p class="card-desc">Repositorio de recursos de edición como el suite de adobe y mucho más para dar vida y estilo profesional a todas tus producciones AMV.</p>
+                <p class="card-desc">Repositorio de recursos de edición como el suite de adobe para dar un estilo profesional a tus producciones AMV.</p>
             </a>
-            <a href="https://transitionalhooks.com/" target="_blank" class="resource-card" data-category="edicion">
+        <li class="resource-item">
+            < .a href="https://transitionalhooks.com/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / HOOKS</span>
                 <h3 class="card-title">Transitional Hooks</h3>
-                <p class="card-desc">Librería de ganchos visuales y transiciones diseñadas para retener la atención del espectador en los primeros segundos de tus videos de impacto.</p>
+                <p class="card-desc">Librería de ganchos visuales y transiciones diseñadas para retener la atención en los primeros segundos.</p>
             </a>
-              <a href="https://upscayl.org/" target="_blank" class="resource-card" data-category="utilidad diseño">
+        <li class="resource-item">
+            <a href="https://upscayl.org/" target="_blank" class="resource-card" data-category="utilidad-diseno">
                 <span class="card-tag">EDICIÓN / SOFTWARE / IA</span>
                 <h3 class="card-title">Upscayl</h3>
-                <p class="card-desc">Plataforma de rescalador de imagenes una de las mejores que conozco.</p>
+                <p class="card-desc">Plataforma de rescalador de imágenes de alta calidad.</p>
             </a>
+        </li>
             <a href="https://www.youtube.com/watch?v=im1VwJWp3dU" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / TUTORIAL</span>
-                <h3 class="card-title">Secretos de Transiciones</h3>
+                <h3 class="card-title">DowloadPirate</h3>
                 <p class="card-desc">Video tutorial avanzado sobre cómo crear transiciones fluidas y profesionales en Premiere sin necesidad de utilizar plugins externos costosos.</p>
             </a>
             <a href="https://jitter.video/templates/" target="_blank" class="resource-card" data-category="edicion diseño">
