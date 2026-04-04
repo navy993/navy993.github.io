@@ -93,7 +93,7 @@
             box-shadow: 4px 4px 0px rgba(0,0,0,0.5); transition: all 0.3s ease; transform: rotate(-0.5deg);
         }
 
-        #searchInput::placeholder { color: rgba(255, 255, 255, 0.4); font-family: var(--fuente-garabato); letter-spacing: 1px; }
+        #searchInput::placeholder { color: rgba(255, 255, 255, 0.4); font-family: var(--fuente-garabato); letter-spacing: 1px; text-transform: uppercase; }
         #searchInput:focus { border-color: var(--celeste-neon); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), 4px 4px 0px rgba(0,0,0,0.5); transform: scale(1.02) rotate(0deg); }
 
         .filter-container {
@@ -146,10 +146,21 @@
             z-index: 2;
         }
 
+        /* ETIQUETAS MEJORADAS */
         .card-tag {
             font-family: var(--fuente-garabato); font-size: 0.8rem; background-color: var(--naranja-calido); color: #000;
             padding: 4px 15px; align-self: flex-start; margin-bottom: 15px; font-weight: bold; box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
             border-radius: var(--forma-parche-1);
+            transition: all 0.3s ease;
+        }
+
+        /* Highlight para cuando la etiqueta coincide con el filtro */
+        .card-tag.tag-highlight {
+            background-color: var(--celeste-neon);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+            transform: scale(1.08) rotate(-2deg);
+            border: 2px solid #000;
         }
 
         /* Iconos automáticos */
@@ -211,7 +222,7 @@
         <h2 class="section-title">RECURSOS</h2>
         
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="BUSCAR PROGRAMA, IA, EFECTOS..." oninput="applyFilters()">
+            <input type="text" id="searchInput" placeholder="Buscar por programa, categoría, autor..." oninput="applyFilters()">
         </div>
 
         <div class="filter-container">
@@ -434,7 +445,7 @@
                 <p class="card-desc">Librería de ganchos visuales y transiciones diseñadas para retener la atención del espectador en los primeros segundos de tus videos de impacto.</p>
             </a>
             <a href="https://upscayl.org/" target="_blank" class="resource-card" data-category="utilidad diseño">
-                <span class="card-tag">EDICIÓN / SOFTWARE / IA</span>
+                <span class="card-tag">EDICIÓN / SOFTWARE</span>
                 <h3 class="card-title">Upscayl</h3>
                 <p class="card-desc">Plataforma de rescalador de imagenes una de las mejores que conozco.</p>
             </a>
@@ -674,22 +685,29 @@
             applyFilters();
         }
 
-        // 2. Aplicar Búsqueda y Categoría
+        // 2. Lógica Estricta de Búsqueda y Categorías
         function applyFilters() {
             const cards = document.querySelectorAll('.resource-card');
-            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const searchText = document.getElementById('searchInput').value.toLowerCase().trim();
             let visibleCount = 0;
 
             cards.forEach(card => {
-                const cardCats = card.getAttribute('data-category').toLowerCase();
+                // NUEVO: Separar las categorías por espacio para evitar cruces (match exacto)
+                const cardCatsArray = card.getAttribute('data-category').toLowerCase().split(' ');
+                
                 const titleElement = card.querySelector('.card-title');
                 const descElement = card.querySelector('.card-desc');
+                const tagElement = card.querySelector('.card-tag');
                 
                 const title = titleElement ? titleElement.innerText.toLowerCase() : '';
                 const desc = descElement ? descElement.innerText.toLowerCase() : '';
+                const tagText = tagElement ? tagElement.innerText.toLowerCase() : ''; // Buscar en tag
                 
-                const matchCategory = currentCategory === 'all' || cardCats.includes(currentCategory);
-                const matchSearch = title.includes(searchText) || desc.includes(searchText);
+                // Chequear match EXACTO de categoría
+                const matchCategory = currentCategory === 'all' || cardCatsArray.includes(currentCategory);
+                
+                // Chequear texto en título, descripción O la etiqueta amarilla
+                const matchSearch = searchText === '' || title.includes(searchText) || desc.includes(searchText) || tagText.includes(searchText);
 
                 if (matchCategory && matchSearch) {
                     card.style.display = 'flex';
@@ -698,9 +716,18 @@
                         card.classList.add('visible');
                     }, 10);
                     visibleCount++;
+
+                    // NUEVO: Highlight visual de la etiqueta si coincide con la categoría clickeada
+                    if (currentCategory !== 'all' && cardCatsArray.includes(currentCategory)) {
+                        tagElement.classList.add('tag-highlight');
+                    } else {
+                        tagElement.classList.remove('tag-highlight');
+                    }
+
                 } else {
                     card.classList.add('hidden');
                     card.classList.remove('visible');
+                    if (tagElement) tagElement.classList.remove('tag-highlight');
                     setTimeout(() => {
                         if (card.classList.contains('hidden')) card.style.display = 'none';
                     }, 300);
@@ -714,7 +741,7 @@
         // 3. LOGICA AL CARGAR: Iconos, Animación Cascada y Botón de Subir
         document.addEventListener("DOMContentLoaded", function() {
             
-            // A. Añadir iconos automáticamente (Mejorado con etiqueta 'alt')
+            // A. Añadir iconos automáticamente 
             const cards = document.querySelectorAll('.resource-card');
             cards.forEach(card => {
                 const link = card.getAttribute('href');
@@ -729,7 +756,7 @@
                     iconImg.src = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
                     iconImg.className = 'card-icon';
                     iconImg.loading = 'lazy';
-                    iconImg.alt = `Icono de ${titleElement.innerText}`; // Accesibilidad mejorada
+                    iconImg.alt = `Icono de ${titleElement.innerText}`; 
                     
                     card.insertBefore(headerDiv, titleElement);
                     headerDiv.appendChild(iconImg);
@@ -737,7 +764,7 @@
                 }
             });
 
-            // B. Animación suave al hacer scroll (Efecto Cascada real)
+            // B. Animación suave al hacer scroll
             let delay = 0;
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -745,11 +772,10 @@
                         setTimeout(() => {
                             entry.target.classList.add('visible');
                         }, delay);
-                        delay += 100; // Va sumando 100ms a cada tarjeta para crear la cascada
+                        delay += 100;
                         observer.unobserve(entry.target);
                     }
                 });
-                // Resetear el delay después de procesar el lote
                 setTimeout(() => delay = 0, 100); 
             }, { threshold: 0.1 });
 
