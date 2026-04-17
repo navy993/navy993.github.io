@@ -18,7 +18,7 @@
             --text-grey: #a0aabf;
             --fuente-garabato: 'Gloria Hallelujah', cursive;
             
-            /* OPTIMIZACIÓN: Variables para las formas irregulares (ahorra código) */
+            /* Variables para las formas irregulares */
             --forma-parche-1: 255px 15px 225px 15px / 15px 225px 15px 255px;
             --forma-parche-2: 15px 225px 15px 255px / 225px 15px 255px 15px;
         }
@@ -51,26 +51,8 @@
             z-index: -2;
         }
 
-        .main-content {
-            display: flex; justify-content: center; align-items: center;
-            height: 100vh; position: relative; z-index: 10;
-        }
-
-        .video-container {
-            width: 800px; max-width: 90%; aspect-ratio: 16/9; background-color: #000;
-            border: 3px solid var(--verde-toxico);
-            box-shadow: 0 0 15px rgba(49, 183, 97, 0.4);
-            display: flex; justify-content: center; align-items: center;
-            border-radius: var(--forma-parche-1);
-            transform: rotate(-1deg);
-        }
-
-        .video-container h2 {
-            font-family: 'Anton'; font-size: clamp(1.5rem, 5vw, 3rem); color: var(--text-white); opacity: 0.5;
-        }
-
         .content-section {
-            padding: 100px 5vw; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            padding: 80px 5vw 120px 5vw; display: flex; flex-direction: column; align-items: center; min-height: 100vh; position: relative; z-index: 10;
         }
 
         /* Título Neón Celeste */
@@ -154,20 +136,16 @@
             transition: all 0.3s ease;
         }
 
-        /* Highlight para cuando la etiqueta coincide con el filtro */
         .card-tag.tag-highlight {
-            background-color: var(--celeste-neon);
-            color: #000;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
-            transform: scale(1.08) rotate(-2deg);
-            border: 2px solid #000;
+            background-color: var(--celeste-neon); color: #000; box-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+            transform: scale(1.08) rotate(-2deg); border: 2px solid #000;
         }
 
         /* Iconos automáticos */
         .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
         .card-icon { width: 32px; height: 32px; border-radius: 4px; object-fit: contain; flex-shrink: 0; background-color: rgba(255,255,255,0.05); }
 
-        .card-title { font-family: 'Anton'; font-size: 1.6rem; font-weight: 400; text-transform: uppercase; color: var(--text-white); letter-spacing: 1px; margin-bottom: 0; }
+        .card-title { font-family: 'Anton'; font-size: 1.6rem; font-weight: 400; text-transform: uppercase; color: var(--text-white); letter-spacing: 1px; margin-bottom: 0; line-height: 1.1; }
         .card-desc { font-size: 0.85rem; color: var(--text-grey); line-height: 1.6; margin-top: auto; padding-top: 10px; }
 
         /* NAVEGACIÓN MÓVIL OPTIMIZADA */
@@ -212,11 +190,6 @@
     </style>
 </head>
 <body>
-    <div class="main-content" id="inicio">
-        <div class="video-container">
-            <h2>DEMO REEL PENDING</h2>
-        </div>
-    </div>
 
     <div class="content-section" id="recursos">
         <h2 class="section-title">RECURSOS</h2>
@@ -364,6 +337,11 @@
                 <h3 class="card-title">Flaticon</h3>
                 <p class="card-desc">La base de datos de iconos vectoriales más grande del mundo. Descarga iconos en cualquier formato para tus proyectos de video.</p>
             </a>
+            <a href="https://undraw.co/illustrations" target="_blank" class="resource-card" data-category="diseño">
+                <span class="card-tag">DISEÑO / ILUSTRACIÓN</span>
+                <h3 class="card-title">unDraw</h3>
+                <p class="card-desc">Ilustraciones vectoriales minimalistas y personalizables, ideales para sitios web o videos explicativos modernos y limpios.</p>
+            </a>
             <a href="https://auto.creavite.co/" target="_blank" class="resource-card" data-category="diseño discord">
                 <span class="card-tag">DISEÑO / BANNERS</span>
                 <h3 class="card-title">Creavite Auto</h3>
@@ -378,6 +356,11 @@
                 <span class="card-tag">STREAMING / BETA</span>
                 <h3 class="card-title">Meld Studio</h3>
                 <p class="card-desc">Nueva herramienta de streaming con interfaz moderna y gestión de escenas optimizada para creadores que buscan lo último en tecnología.</p>
+            </a>
+            <a href="https://obsproject.com/" target="_blank" class="resource-card" data-category="streaming">
+                <span class="card-tag">STREAMING</span>
+                <h3 class="card-title">OBS Studio</h3>
+                <p class="card-desc">El software estándar de oro para grabación y streaming. Indispensable para capturar contenido de alta calidad profesional en cualquier PC.</p>
             </a>
             <a href="https://lab.houraiken.jp/" target="_blank" class="resource-card" data-category="streaming">
                 <span class="card-tag">STREAMING / OBS</span>
@@ -409,6 +392,11 @@
                 <h3 class="card-title">SpeechChat</h3>
                 <p class="card-desc">Sistema de voz para el chat. Ideal para que el stream "lea" los mensajes de tus espectadores automáticamente mientras tú juegas o editas.</p>
             </a>
+            <a href="https://www.photopea.com/" target="_blank" class="resource-card" data-category="edicion diseño">
+                <span class="card-tag">EDICIÓN / DISEÑO</span>
+                <h3 class="card-title">Photopea</h3>
+                <p class="card-desc">El clon perfecto y gratuito de Photoshop directo en tu navegador. Ideal para editar miniaturas rápidas sin tener que abrir programas pesados.</p>
+            </a>
             <a href="https://marckdp.github.io/DowP/" target="_blank" class="resource-card" data-category="edicion utilidad">
                 <span class="card-tag">EDICIÓN / WORKFLOW</span>
                 <h3 class="card-title">DowP</h3>
@@ -429,10 +417,10 @@
                 <h3 class="card-title">Transitional Hooks</h3>
                 <p class="card-desc">Librería de ganchos visuales y transiciones diseñadas para retener la atención del espectador en los primeros segundos de tus videos de impacto.</p>
             </a>
-            <a href="https://upscayl.org/" target="_blank" class="resource-card" data-category="utilidad diseño">
+            <a href="https://upscayl.org/" target="_blank" class="resource-card" data-category="utilidad diseño ia">
                 <span class="card-tag">EDICIÓN / IA</span>
                 <h3 class="card-title">Upscayl</h3>
-                <p class="card-desc">Plataforma de rescalador de imagenes una de las mejores que conozco.</p>
+                <p class="card-desc">Plataforma de rescalador de imagenes una de las mejores y más precisas opciones gratuitas que existen.</p>
             </a>
             <a href="https://www.youtube.com/watch?v=im1VwJWp3dU" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / TUTORIAL</span>
@@ -459,10 +447,10 @@
                 <h3 class="card-title">CinePacks Free</h3>
                 <p class="card-desc">Librería de overlays, transiciones y efectos de cine gratuitos para darle un look premium de película a tus videos de YouTube o AMV.</p>
             </a>
-            <a href="https://www.capcut.com/es-es/" target="_blank" class="resource-card" data-category="edicion">
+            <a href="https://www.capcut.com/es-es/" target="_blank" class="resource-card" data-category="edicion software">
                 <span class="card-tag">EDICIÓN / SOFTWARE</span>
                 <h3 class="card-title">Capcut</h3>
-                <p class="card-desc">Programa de edicion de video basica para principiantes.</p>
+                <p class="card-desc">Programa de edición de video esencial y versátil, ideal para principiantes y formatos verticales de redes sociales.</p>
             </a>
             <a href="https://www.behance.net/gallery/243790797/Curso-de-Edicion-en-ADOBE" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / CURSO</span>
@@ -513,6 +501,11 @@
                 <span class="card-tag">AUDIO / IA</span>
                 <h3 class="card-title">Adobe Enhance</h3>
                 <p class="card-desc">IA que limpia grabaciones de voz y las hace sonar como si hubieras grabado en un estudio profesional de alto nivel con un solo clic.</p>
+            </a>
+            <a href="https://vocalremover.org/es/" target="_blank" class="resource-card" data-category="audio ia">
+                <span class="card-tag">AUDIO / IA</span>
+                <h3 class="card-title">Vocal Remover</h3>
+                <p class="card-desc">Servicio de separación de audio. Separa música de voz con una precisión increíble para hacer remixes o limpieza de audios de baja calidad.</p>
             </a>
             <a href="https://elevenlabs.io/" target="_blank" class="resource-card" data-category="audio ia">
                 <span class="card-tag">VOZ / IA</span>
@@ -569,6 +562,11 @@
                 <h3 class="card-title">Brave Browser</h3>
                 <p class="card-desc">Navegador rápido que ahorra mucha RAM, bloquea anuncios y es ideal para editar online sin lag mientras tienes programas pesados abiertos.</p>
             </a>
+            <a href="https://cobalt.tools/" target="_blank" class="resource-card" data-category="utilidad youtube">
+                <span class="card-tag">UTILIDAD / DOWNLOADER</span>
+                <h3 class="card-title">Cobalt.tools</h3>
+                <p class="card-desc">Herramienta definitiva para descargar videos de redes sociales sin anuncios, sin trackers y sin las molestas marcas de agua de TikTok o IG.</p>
+            </a>
             <a href="https://file.pizza/" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">TRANSFER / P2P</span>
                 <h3 class="card-title">FilePizza</h3>
@@ -596,7 +594,7 @@
             </a>
             <a href="https://www.downloadpirate.com/adobe/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN</span>
-                <h3 class="card-title">El Tesoro del Editor</h3>
+                <h3 class="card-title">DownloadPirate</h3>
                 <p class="card-desc">Plataforma imprescindible para encontrar recursos, plugins y herramientas vitales para tu flujo de trabajo profesional en postproducción.</p>
             </a>
             <a href="https://knightsoftheeditingtable.com/" target="_blank" class="resource-card" data-category="edicion">
@@ -635,201 +633,330 @@
                 <p class="card-desc">Herramienta avanzada de diseño y edición visual asistida por IA. Permite transformar ideas abstractas en gráficos terminados.</p>
             </a>
 
+            <a href="https://www.instagram.com/jjk.comps/?hl=en" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / JJK</span>
+                <h3 class="card-title">JJK Comps (IG)</h3>
+                <p class="card-desc">Colección directa de clips y escenas listas para editar enfocadas exclusivamente en Jujutsu Kaisen.</p>
+            </a>
+            <a href="https://www.instagram.com/jujutsukaisencomps/?hl=en" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / JJK</span>
+                <h3 class="card-title">Jujutsu Kaisen Comps</h3>
+                <p class="card-desc">Otra cuenta clave de Instagram con packs de escenas limpias de Jujutsu Kaisen para tus AMVs.</p>
+            </a>
+            <a href="https://www.instagram.com/jujutsu.comp/" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / JJK</span>
+                <h3 class="card-title">Jujutsu.Comp</h3>
+                <p class="card-desc">Clips seleccionados de altísima calidad sin subtítulos centrados en el universo de Jujutsu Kaisen.</p>
+            </a>
+            <a href="https://tinyurl.com/k22zm56x" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / JJK</span>
+                <h3 class="card-title">JJK Mega Pack</h3>
+                <p class="card-desc">Enlace de compilación directa con escenas masivas de Jujutsu Kaisen listas para descarga.</p>
+            </a>
+
+            <a href="https://www.instagram.com/demonslayercomps/" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / DEMON SLAYER</span>
+                <h3 class="card-title">Demon Slayer Comps</h3>
+                <p class="card-desc">La mejor cuenta de Instagram para encontrar clips puros y sin subtítulos de Kimetsu no Yaiba.</p>
+            </a>
+
+            <a href="https://www.instagram.com/haikyuu.comps/?hl=en" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / HAIKYUU</span>
+                <h3 class="card-title">Haikyuu Comps</h3>
+                <p class="card-desc">Compilaciones de escenas de vóley y momentos épicos de Haikyuu listos para meter a la línea de tiempo.</p>
+            </a>
+            <a href="https://www.instagram.com/hqcompz/" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / HAIKYUU</span>
+                <h3 class="card-title">HQ Compz</h3>
+                <p class="card-desc">Repositorio de clips en Instagram dedicado a escenas dinámicas y crudas del anime Haikyuu.</p>
+            </a>
+
+            <a href="https://www.instagram.com/genshincomps/" target="_blank" class="resource-card" data-category="amv diseño">
+                <span class="card-tag">AMV / GENSHIN</span>
+                <h3 class="card-title">Genshin Comps</h3>
+                <p class="card-desc">Clips cinematográficos y animaciones de personajes de Genshin Impact perfectos para edits.</p>
+            </a>
+            <a href="https://www.instagram.com/impactcomps/" target="_blank" class="resource-card" data-category="amv diseño">
+                <span class="card-tag">AMV / GENSHIN</span>
+                <h3 class="card-title">Impact Comps</h3>
+                <p class="card-desc">Otra cuenta esencial para encontrar metraje limpio y de alta resolución del universo de Genshin.</p>
+            </a>
+
+            <a href="https://www.instagram.com/aotscenepacks/?hl=en" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / AOT</span>
+                <h3 class="card-title">AOT Scenepacks</h3>
+                <p class="card-desc">Escenas crudas y momentos clave de Attack on Titan listos para descargar y editar sin problemas.</p>
+            </a>
+            <a href="https://www.instagram.com/mishaleckis/" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / AOT</span>
+                <h3 class="card-title">Mishaleckis (AOT)</h3>
+                <p class="card-desc">Cuenta enfocada en scenepacks y compilaciones de Shingeki no Kyojin en alta calidad.</p>
+            </a>
+            <a href="https://www.instagram.com/aots4comps/?hl=en" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / AOT</span>
+                <h3 class="card-title">AOT S4 Comps</h3>
+                <p class="card-desc">Clips exclusivos y escenas de la temporada 4 de Attack on Titan perfectos para proyectos pesados.</p>
+            </a>
+            <a href="https://docs.google.com/document/d/1-9FrSC153IDgvQbwCa8faeNueGlt_wajPiG_s40rS8U/edit?mode=html" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / DOCS</span>
+                <h3 class="card-title">AOT Master Docs</h3>
+                <p class="card-desc">Documento gigante con un directorio de enlaces y scenepacks definitivos de Attack on Titan.</p>
+            </a>
+
+            <a href="https://mega.nz/file/bGZC1CKS#zf0r-ogks9fRVfKRoVUYsn1-bSnVlcKIuHjGcE4dQSU" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / OVERLAYS</span>
+                <h3 class="card-title">Mega Pack 500+</h3>
+                <p class="card-desc">Carpeta inmensa alojada en Mega con más de 500 overlays listos para arrastrar a tus composiciones.</p>
+            </a>
+            <a href="https://mega.nz/folder/DN9SzDSa#f1Orh92CrWm1Qi3ATqPzzQ" target="_blank" class="resource-card" data-category="edicion diseño">
+                <span class="card-tag">EDICIÓN / INK</span>
+                <h3 class="card-title">Ink Overlays</h3>
+                <p class="card-desc">Colección de transiciones y efectos de tinta (ink splats) ideales para estilos visuales agresivos.</p>
+            </a>
+            <a href="https://mega.nz/folder/tuZ2gS7S#aUXPQ6zQkg9mo54_azCz7Q" target="_blank" class="resource-card" data-category="edicion diseño">
+                <span class="card-tag">EDICIÓN / OVERLAYS</span>
+                <h3 class="card-title">One-Line Overlays</h3>
+                <p class="card-desc">Pack de overlays minimalistas de una sola línea para darle un toque estilizado a tus ediciones de video.</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=oMEFaKxiStQ" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / FX</span>
+                <h3 class="card-title">Overlays YT Pack</h3>
+                <p class="card-desc">Video repositorio con recursos y overlays visuales mostrados en acción y listos para su descarga gratuita.</p>
+            </a>
+
+            <a href="https://www.youtube.com/playlist?list=PLNBTeNALL4VHSVpp6gagocZWs3OWi-viw" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / FILM</span>
+                <h3 class="card-title">150 Film Overlays</h3>
+                <p class="card-desc">Playlist de YouTube con más de 150 efectos cinematográficos como light leaks, quemaduras y marcos.</p>
+            </a>
+            <a href="https://cinepacks.store/products/free-film-matte-fx-sample-pack" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / MATTES</span>
+                <h3 class="card-title">Free Film Mattes</h3>
+                <p class="card-desc">Pack de muestra de CinePacks con marcos de película (mattes) para darle un aspecto cinematográfico real a tu clip.</p>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLPGOuMcTpAw21K3Kd_Wn5nBMRQbXf_ctB" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / LEAKS</span>
+                <h3 class="card-title">Light Leaks Pack 1</h3>
+                <p class="card-desc">Colección de filtraciones de luz (Light Leaks) para transiciones suaves y orgánicas en Premiere o After Effects.</p>
+            </a>
+            <a href="https://www.youtube.com/watch?v=ORa5wLF6Hr0" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / LEAKS</span>
+                <h3 class="card-title">Light Leaks Nervy</h3>
+                <p class="card-desc">Pack de Light Leaks de alta calidad creado por Nervy, ideal para darle calidez visual a tus proyectos.</p>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PL4XEfVXbx_7sLF9UsQBfncI0f9c0OY4K9" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / LEAKS</span>
+                <h3 class="card-title">Light Leaks Pack 2</h3>
+                <p class="card-desc">Otra excelente lista de reproducción de YouTube repleta de Light Leaks gratuitos listos para usar en modo "Pantalla".</p>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PL4aw5olk0ua57_THlVqGPKmNfRAJ6WJhu" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / BURNS</span>
+                <h3 class="card-title">Film Burns</h3>
+                <p class="card-desc">Efectos de quemaduras de película clásicos para transiciones agresivas y texturas vintage en tus edits.</p>
+            </a>
+            <a href="https://www.youtube.com/playlist?list=PLj6XzcqwRpN4Gmb-f-Z8XHP54aTX9VmJZ" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / VINTAGE</span>
+                <h3 class="card-title">Old Film Overlays</h3>
+                <p class="card-desc">Playlist dedicada exclusivamente a superposiciones de película antigua, polvo y rayones para look retro.</p>
+            </a>
+
+            <a href="https://scenepacks.com/" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / SCENEPACKS</span>
+                <h3 class="card-title">ScenePacks.com</h3>
+                <p class="card-desc">El portal principal para buscar y descargar paquetes de escenas organizadas de casi cualquier anime o serie.</p>
+            </a>
+            <a href="https://docs.google.com/document/d/1o84vfxq9WwWKhBZG0L3IJk4T-RlUENMRcgDkfzVwYms/edit" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / DOCS</span>
+                <h3 class="card-title">Directorio de Cuentas</h3>
+                <p class="card-desc">Documento masivo con cuentas de Scene Packs y compilaciones organizadas para editores de AMV.</p>
+            </a>
+            <a href="https://tinyurl.com/yc85ut7t" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / LISTA</span>
+                <h3 class="card-title">Animanga Comps</h3>
+                <p class="card-desc">Enlace directo a una lista maestra curada de cuentas que suben compilaciones de anime y manga.</p>
+            </a>
+            <a href="https://www.instagram.com/comp.squad/" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / IG</span>
+                <h3 class="card-title">Comp.Squad</h3>
+                <p class="card-desc">Cuenta dedicada a recopilar y compartir los mejores clips y raws de la comunidad para edición.</p>
+            </a>
+            <a href="https://www.instagram.com/zamruno/" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / IG</span>
+                <h3 class="card-title">Zamruno</h3>
+                <p class="card-desc">Perfil esencial que provee material limpio y de alta calidad para tus proyectos de animación japonesa.</p>
+            </a>
+            <a href="https://www.instagram.com/killulcomps/?hl=en" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / IG</span>
+                <h3 class="card-title">Killulcomps</h3>
+                <p class="card-desc">Otra cuenta fantástica en Instagram repleta de scenepacks crudos listos para descargar.</p>
+            </a>
+            <a href="https://www.instagram.com/hakcomps/?hl=en" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / IG</span>
+                <h3 class="card-title">Hakcomps</h3>
+                <p class="card-desc">Clips de animes variados sin marcas de agua ni subtítulos. Oro puro para cualquier editor AMV.</p>
+            </a>
+            <a href="https://tinyurl.com/4sp6tuy2" target="_blank" class="resource-card" data-category="amv">
+                <span class="card-tag">AMV / RECURSOS</span>
+                <h3 class="card-title">Mega Lista AMV</h3>
+                <p class="card-desc">Enlace secreto hacia un repositorio extenso con aún más material y carpetas de clips clasificados.</p>
+            </a>
+
+            <a href="https://www.youtube.com/@yxxnzc" target="_blank" class="resource-card" data-category="amv edicion">
+                <span class="card-tag">AMV / TWIXTOR</span>
+                <h3 class="card-title">Twixtor: yxxnzc</h3>
+                <p class="card-desc">Canal de YouTube dedicado a subir clips de anime procesados con Twixtor para cámaras lentas súper fluidas.</p>
+            </a>
+            <a href="https://www.youtube.com/@vewerue" target="_blank" class="resource-card" data-category="amv edicion">
+                <span class="card-tag">AMV / TWIXTOR</span>
+                <h3 class="card-title">Twixtor: vewerue</h3>
+                <p class="card-desc">Repositorio en video de escenas de acción ya renderizadas a 60fps con interpolación Twixtor.</p>
+            </a>
+            <a href="https://www.instagram.com/juicytwixtor/" target="_blank" class="resource-card" data-category="amv edicion">
+                <span class="card-tag">AMV / TWIXTOR</span>
+                <h3 class="card-title">JuicyTwixtor</h3>
+                <p class="card-desc">Cuenta de Instagram que provee descargas directas de clips lentos y fluidos para encajar en tus drops musicales.</p>
+            </a>
+
+            <a href="https://fontmeme.com/" target="_blank" class="resource-card" data-category="diseño">
+                <span class="card-tag">DISEÑO / FONTS</span>
+                <h3 class="card-title">FontMeme</h3>
+                <p class="card-desc">Identifica tipografías usadas en cultura pop (juegos, películas) y genera textos con estilos idénticos al instante.</p>
+            </a>
+
+            <a href="https://www.instagram.com/scenepackmutuals/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / SCENEPACKS</span>
+                <h3 class="card-title">Scenepack Mutuals</h3>
+                <p class="card-desc">Cuenta clave de Instagram para encontrar escenas limpias de series de TV y películas comerciales.</p>
+            </a>
+            <a href="https://www.instagram.com/scenepacksbaby/" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / SCENEPACKS</span>
+                <h3 class="card-title">Scenepacks Baby</h3>
+                <p class="card-desc">Packs de escenas populares de cultura pop, actores y películas listos para fan-edits.</p>
+            </a>
+            <a href="https://www.instagram.com/c.scenepacks/?hl=en" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / SCENEPACKS</span>
+                <h3 class="card-title">C.Scenepacks</h3>
+                <p class="card-desc">Excelente perfil de Instagram dedicado a subir clips crudos de live-action para editores de video.</p>
+            </a>
+            <a href="https://www.instagram.com/e.uqoras/?hl=en" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / SCENEPACKS</span>
+                <h3 class="card-title">e.uqoras</h3>
+                <p class="card-desc">Colección de escenas cinematográficas y momentos dramáticos de series subidos en altísima resolución.</p>
+            </a>
+            <a href="https://www.instagram.com/cumberpacks/?hl=en" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / SCENEPACKS</span>
+                <h3 class="card-title">Cumberpacks</h3>
+                <p class="card-desc">Clips seleccionados de películas y shows de TV ideales para usar como B-Roll o edits pesados.</p>
+            </a>
+            <a href="https://tinyurl.com/yy6p249k" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / PELÍCULAS</span>
+                <h3 class="card-title">Full Movies Drive</h3>
+                <p class="card-desc">Enlace secreto a un repositorio donde podrás descargar películas completas limpias para sacar tus propios clips.</p>
+            </a>
+            <a href="https://docs.google.com/document/d/1mbjkqQql2--yq9jaiMzrX6T-YsUtrWuwQvNpqxtOf58/edit?mode=html" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / DOCS</span>
+                <h3 class="card-title">More Full Movies</h3>
+                <p class="card-desc">Documento gigante de Google con cientos de enlaces a películas completas preparadas para editores.</p>
+            </a>
+            <a href="https://docs.google.com/document/d/1uMr_mteUfFeN6UUZfSrgVPcFaPwd7SUfS08lZEThLQw/edit#heading=h.fqt9pnejceoc" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / DOCS</span>
+                <h3 class="card-title">TV/Movie Scenepacks</h3>
+                <p class="card-desc">El documento definitivo que recopila scenepacks de series de televisión y películas variadas.</p>
+            </a>
+
+            <a href="https://www.4kdownload.com/-53" target="_blank" class="resource-card" data-category="utilidad youtube">
+                <span class="card-tag">UTILIDAD / DOWNLOADER</span>
+                <h3 class="card-title">4K Video Downloader</h3>
+                <p class="card-desc">Programa de escritorio legendario para descargar videos de YouTube en 4K real y listas de reproducción enteras.</p>
+            </a>
+            <a href="https://www.y2mate.com/en856" target="_blank" class="resource-card" data-category="utilidad youtube">
+                <span class="card-tag">UTILIDAD / DOWNLOADER</span>
+                <h3 class="card-title">Y2Mate</h3>
+                <p class="card-desc">Web súper rápida y sin instalación para convertir y descargar cualquier enlace de YouTube a MP4 o MP3.</p>
+            </a>
+            <a href="https://www.klickaud.co/" target="_blank" class="resource-card" data-category="audio utilidad">
+                <span class="card-tag">AUDIO / DOWNLOADER</span>
+                <h3 class="card-title">KlickAud</h3>
+                <p class="card-desc">Herramienta web especializada en descargar canciones e instrumentales en alta calidad directamente desde SoundCloud.</p>
+            </a>
+            <a href="https://snapinsta.app/" target="_blank" class="resource-card" data-category="utilidad">
+                <span class="card-tag">UTILIDAD / DOWNLOADER</span>
+                <h3 class="card-title">SnapInsta</h3>
+                <p class="card-desc">La mejor página para descargar Reels, fotos y videos directamente desde Instagram sin perder calidad.</p>
+            </a>
+            <a href="https://snaptik.app/" target="_blank" class="resource-card" data-category="utilidad">
+                <span class="card-tag">UTILIDAD / DOWNLOADER</span>
+                <h3 class="card-title">SnapTik</h3>
+                <p class="card-desc">Descarga videos de TikTok de forma instantánea y, lo más importante, eliminando la marca de agua de la app.</p>
+            </a>
+
             <a href="https://fmhy.net/adblockvpnguide" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">UTILIDAD / SEGURIDAD</span>
-                <h3 class="card-title">Guía Adblock y VPN</h3>
-                <p class="card-desc">¿Por qué aún no usas un bloqueador de anuncios? Guía esencial para navegar seguro y sin interrupciones.</p>
+                <h3 class="card-title">Guía Adblock/VPN</h3>
+                <p class="card-desc">¿Por qué aún no usas un bloqueador de anuncios? Guía esencial para navegar seguro y sin interrupciones molestas.</p>
             </a>
             <a href="https://fmhy.net/beginners-guide#torrenting" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">UTILIDAD / GUÍA</span>
                 <h3 class="card-title">Guía de Torrenting</h3>
-                <p class="card-desc">Guía completa para principiantes sobre cómo descargar torrents de forma totalmente segura.</p>
+                <p class="card-desc">Guía detallada para principiantes sobre cómo descargar torrents de forma totalmente segura y anónima.</p>
             </a>
             <a href="https://reddit.com/r/videoediting/wiki/codecsandcontainers" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / GUÍA</span>
-                <h3 class="card-title">Guía Códecs & Formatos</h3>
-                <p class="card-desc">Guía detallada de Reddit sobre formatos de video, códecs y contenedores para entender la exportación profesional.</p>
+                <h3 class="card-title">Códecs & Formatos</h3>
+                <p class="card-desc">Wiki indispensable de Reddit para entender la diferencia entre formatos, contenedores y códecs de video profesionales.</p>
             </a>
             <a href="https://hotkeycheatsheet.com/" target="_blank" class="resource-card" data-category="utilidad edicion">
                 <span class="card-tag">UTILIDAD / WORKFLOW</span>
                 <h3 class="card-title">Hotkey Cheatsheet</h3>
-                <p class="card-desc">Hoja de trucos con atajos de teclado para acelerar tu flujo de trabajo en diversos programas de diseño y edición.</p>
+                <p class="card-desc">Hoja de trucos interactiva con atajos de teclado para acelerar tu flujo de trabajo en cualquier software de edición.</p>
             </a>
             <a href="https://links.bentovid.com/" target="_blank" class="resource-card" data-category="edicion">
                 <span class="card-tag">EDICIÓN / LINKS</span>
                 <h3 class="card-title">BentoVid Links</h3>
-                <p class="card-desc">Repositorio masivo de recursos de edición, efectos, herramientas útiles y bases de datos para creadores.</p>
+                <p class="card-desc">Un repositorio completísimo de recursos de edición, herramientas técnicas y bases de datos para creadores.</p>
             </a>
             <a href="https://www.amv101.com/home" target="_blank" class="resource-card" data-category="amv edicion">
                 <span class="card-tag">AMV / TUTORIALES</span>
                 <h3 class="card-title">AMV 101</h3>
-                <p class="card-desc">Introducción detallada y guías súper completas para aprender a editar AMVs desde cero.</p>
+                <p class="card-desc">Introducción detallada, software y guías súper completas para aprender a editar AMVs desde cero.</p>
+            </a>
+            <a href="https://viddertips.tumblr.com/links-new" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / TIPS</span>
+                <h3 class="card-title">VidderTips</h3>
+                <p class="card-desc">Blog legendario en Tumblr lleno de consejos, técnicas narrativas y tutoriales específicos para editores.</p>
+            </a>
+            <a href="https://effectscollective.com/" target="_blank" class="resource-card" data-category="edicion diseño">
+                <span class="card-tag">EDICIÓN / FX</span>
+                <h3 class="card-title">Effects Collective</h3>
+                <p class="card-desc">Comunidad y portal dedicado al aprendizaje de efectos visuales, diseño de sonido y motion graphics avanzado.</p>
+            </a>
+            <a href="https://tinyurl.com/2sy2ray3" target="_blank" class="resource-card" data-category="edicion">
+                <span class="card-tag">EDICIÓN / GUÍA</span>
+                <h3 class="card-title">Guía de Edición</h3>
+                <p class="card-desc">Enlace directo a un documento curado con tips de narrativa visual y sincronización para exprimir tus videos.</p>
             </a>
 
             <a href="https://github.com/l33tmeatwad/AMVtool" target="_blank" class="resource-card" data-category="amv edicion">
                 <span class="card-tag">AMV / SOFTWARE</span>
                 <h3 class="card-title">AMVtool</h3>
-                <p class="card-desc">Software de codificación rápido y fácil. La opción ideal para convertir archivos MKV a MP4 sin perder calidad.</p>
+                <p class="card-desc">Software de codificación rápido y ligero. La opción ideal para convertir raws MKV a MP4 de forma nativa.</p>
             </a>
             <a href="https://nmkd.itch.io/flowframes" target="_blank" class="resource-card" data-category="edicion ia">
                 <span class="card-tag">EDICIÓN / IA</span>
                 <h3 class="card-title">Flowframes</h3>
-                <p class="card-desc">Aumenta los FPS de tus videos o haz interpolación (cámara lenta) súper fluida mediante inteligencia artificial.</p>
+                <p class="card-desc">Programa que aumenta los FPS de tus videos y realiza interpolaciones (cámaras lentas fluidas) utilizando IA local.</p>
             </a>
             <a href="https://handbrake.fr" target="_blank" class="resource-card" data-category="utilidad edicion">
                 <span class="card-tag">UTILIDAD / SOFTWARE</span>
                 <h3 class="card-title">HandBrake</h3>
-                <p class="card-desc">Convierte videos de casi cualquier formato a una amplia selección de códecs modernos. Un clásico indispensable.</p>
+                <p class="card-desc">Convierte videos de casi cualquier formato a una amplia selección de códecs modernos para aligerar peso sin perder calidad.</p>
             </a>
             <a href="https://www.videolan.org" target="_blank" class="resource-card" data-category="utilidad">
                 <span class="card-tag">UTILIDAD / SOFTWARE</span>
                 <h3 class="card-title">VLC Media Player</h3>
-                <p class="card-desc">Reproductor de video de código abierto y gratuito que soporta casi cualquier formato sin necesidad de códecs extra.</p>
-            </a>
-            <a href="https://obsproject.com" target="_blank" class="resource-card" data-category="streaming">
-                <span class="card-tag">STREAMING / SOFTWARE</span>
-                <h3 class="card-title">OBS Studio</h3>
-                <p class="card-desc">El rey absoluto de código abierto para grabación de pantalla y streaming profesional.</p>
+                <p class="card-desc">Reproductor de video definitivo de código abierto. Soporta cualquier formato que le arrojes sin instalar códecs extra.</p>
             </a>
 
-            <a href="https://tineye.com/" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / BÚSQUEDA</span>
-                <h3 class="card-title">TinEye</h3>
-                <p class="card-desc">Buscador de imágenes inverso. Perfecto para encontrar la fuente original o versiones en mayor resolución de un fanart.</p>
-            </a>
-            <a href="https://github.com/0x90d/videoduplicatefinder" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / LIMPIEZA</span>
-                <h3 class="card-title">Video Duplicate Finder</h3>
-                <p class="card-desc">Herramienta brutal para escanear tu disco duro y encontrar archivos de video duplicados para liberar espacio valioso.</p>
-            </a>
-            <a href="https://getyarn.io/" target="_blank" class="resource-card" data-category="edicion youtube">
-                <span class="card-tag">EDICIÓN / CLIPS</span>
-                <h3 class="card-title">Yarn</h3>
-                <p class="card-desc">Encuentra y descarga clips exactos de películas o series buscando directamente por el texto del diálogo.</p>
-            </a>
-            <a href="https://trace.moe/" target="_blank" class="resource-card" data-category="amv utilidad">
-                <span class="card-tag">AMV / BÚSQUEDA</span>
-                <h3 class="card-title">Trace.moe</h3>
-                <p class="card-desc">Sube un pantallazo de un anime y esta web te dirá exactamente qué serie es, el episodio y el minuto de la escena.</p>
-            </a>
-
-            <a href="https://www.remove.bg/" target="_blank" class="resource-card" data-category="diseño ia">
-                <span class="card-tag">DISEÑO / IA</span>
-                <h3 class="card-title">Remove.bg</h3>
-                <p class="card-desc">Elimina el fondo de cualquier imagen de forma totalmente automática y conviértela en PNG con transparencia perfecta.</p>
-            </a>
-            <a href="https://github.com/AaronFeng753/Waifu2x-Extension-GUI" target="_blank" class="resource-card" data-category="ia edicion">
-                <span class="card-tag">IA / ENHANCE</span>
-                <h3 class="card-title">Waifu2x GUI</h3>
-                <p class="card-desc">Mejora la calidad y escala fotos, videos y GIFs eliminando el ruido visual usando redes neuronales profundas.</p>
-            </a>
-            <a href="https://ezgif.com/" target="_blank" class="resource-card" data-category="utilidad edicion">
-                <span class="card-tag">UTILIDAD / GIF</span>
-                <h3 class="card-title">EZGIF</h3>
-                <p class="card-desc">La navaja suiza online para convertir videos a GIF, optimizarlos, cortarlos, redimensionarlos y editarlos fácilmente.</p>
-            </a>
-            <a href="https://8mb.video/" target="_blank" class="resource-card" data-category="utilidad discord">
-                <span class="card-tag">UTILIDAD / COMPRESS</span>
-                <h3 class="card-title">8MB.video</h3>
-                <p class="card-desc">Comprime automáticamente cualquier archivo de video para que pese justo por debajo de los 8MB. Ideal para enviarlo por Discord.</p>
-            </a>
-
-            <a href="https://eyecannndy.com/" target="_blank" class="resource-card" data-category="edicion diseño">
-                <span class="card-tag">EDICIÓN / INSPIRACIÓN</span>
-                <h3 class="card-title">Eyecannndy</h3>
-                <p class="card-desc">Librería visual increíble con cientos de ejemplos de técnicas de cámara y estilos de edición para inspirar tus proyectos.</p>
-            </a>
-            <a href="https://greasyfork.org/en/scripts/420604-bypass-instagram-login-redirects" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / SCRIPT</span>
-                <h3 class="card-title">Bypass IG Login</h3>
-                <p class="card-desc">Script súper útil para saltarte los molestos bloqueos de inicio de sesión de Instagram al buscar referencias desde la web.</p>
-            </a>
-
-            <a href="https://jdownloader.org/jdownloader2" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / DOWNLOADER</span>
-                <h3 class="card-title">JDownloader 2</h3>
-                <p class="card-desc">Gestor de descargas masivas de código abierto. Imprescindible para descargar lotes grandes de material o paquetes de recursos.</p>
-            </a>
-            <a href="https://github.com/yt-dlp/yt-dlp" target="_blank" class="resource-card" data-category="utilidad youtube">
-                <span class="card-tag">UTILIDAD / SCRIPT</span>
-                <h3 class="card-title">yt-dlp</h3>
-                <p class="card-desc">Herramienta por consola repleta de funciones para descargar audio y video en la mejor calidad de miles de sitios web.</p>
-            </a>
-            <a href="https://stacher.io/" target="_blank" class="resource-card" data-category="utilidad youtube">
-                <span class="card-tag">UTILIDAD / DOWNLOADER</span>
-                <h3 class="card-title">Stacher</h3>
-                <p class="card-desc">Interfaz gráfica moderna (GUI) para usar el potente motor de yt-dlp sin tener que tocar la consola de comandos.</p>
-            </a>
-
-            <a href="https://catbox.moe" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / HOSTING</span>
-                <h3 class="card-title">Catbox.moe</h3>
-                <p class="card-desc">Sube y comparte archivos de hasta 200MB de forma totalmente gratuita y sin fecha de expiración. Enlaces directos y limpios.</p>
-            </a>
-            <a href="https://pixeldrain.com" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / HOSTING</span>
-                <h3 class="card-title">Pixeldrain</h3>
-                <p class="card-desc">Comparte archivos gigantes de hasta 10GB. Los enlaces caducan automáticamente 120 días después de la última descarga.</p>
-            </a>
-            <a href="https://gofile.io" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / HOSTING</span>
-                <h3 class="card-title">Gofile</h3>
-                <p class="card-desc">Comparte archivos gratis y sin límite de tamaño (hasta 100GB/mes). Los archivos caducan 10 días tras su última descarga.</p>
-            </a>
-            <a href="https://streamable.com" target="_blank" class="resource-card" data-category="utilidad streaming">
-                <span class="card-tag">UTILIDAD / HOSTING</span>
-                <h3 class="card-title">Streamable</h3>
-                <p class="card-desc">Comparte videos rápidamente; ideal para subir vistas previas rápidas. Los videos subidos gratis expiran a los 90 días.</p>
-            </a>
-            <a href="https://imgbb.com" target="_blank" class="resource-card" data-category="diseño utilidad">
-                <span class="card-tag">UTILIDAD / IMÁGENES</span>
-                <h3 class="card-title">ImgBB</h3>
-                <p class="card-desc">Comparte y aloja imágenes de hasta 64MB de forma súper sencilla, segura y sin fecha de caducidad en sus servidores.</p>
-            </a>
-
-            <a href="https://drive.google.com/" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / CLOUD</span>
-                <h3 class="card-title">Google Drive</h3>
-                <p class="card-desc">15GB de almacenamiento gratuito en la nube. Sincronización perfecta y rápida con toda la suite de herramientas de Google.</p>
-            </a>
-            <a href="https://www.dropbox.com" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / CLOUD</span>
-                <h3 class="card-title">Dropbox</h3>
-                <p class="card-desc">2GB de almacenamiento gratuito en la nube, ideal para sincronizar proyectos rápidos, scripts o pequeños archivos de configuración.</p>
-            </a>
-            <a href="https://mega.io" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / CLOUD</span>
-                <h3 class="card-title">MEGA</h3>
-                <p class="card-desc">20GB de almacenamiento en la nube gratuito. Excelente velocidad y máxima seguridad gracias a su encriptación de extremo a extremo.</p>
-            </a>
-
-            <a href="https://www.myfonts.com/WhatTheFont" target="_blank" class="resource-card" data-category="diseño">
-                <span class="card-tag">DISEÑO / FONTS</span>
-                <h3 class="card-title">WhatTheFont</h3>
-                <p class="card-desc">Encuentra el nombre exacto de cualquier fuente tipográfica subiendo una imagen del texto que quieres replicar.</p>
-            </a>
-            <a href="https://www.dafont.com/" target="_blank" class="resource-card" data-category="diseño">
-                <span class="card-tag">DISEÑO / FONTS</span>
-                <h3 class="card-title">DaFont</h3>
-                <p class="card-desc">Directorio gigante y mítico para explorar y descargar miles de fuentes tipográficas creativas y gratuitas.</p>
-            </a>
-            <a href="https://fontesk.com/" target="_blank" class="resource-card" data-category="diseño">
-                <span class="card-tag">DISEÑO / FONTS</span>
-                <h3 class="card-title">Fontesk</h3>
-                <p class="card-desc">Otra enorme biblioteca visual para descubrir y descargar fuentes comerciales y gratuitas de muy alta calidad.</p>
-            </a>
-
-            <a href="https://fmhy.net/unsafesites" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / SEGURIDAD</span>
-                <h3 class="card-title">Sitios Inseguros (FMHY)</h3>
-                <p class="card-desc">Lista negra actualizada de sitios web peligrosos, engañosos o llenos de malware que debes evitar a toda costa.</p>
-            </a>
-            <a href="https://rentry.co/megathread-unsafe-sites" target="_blank" class="resource-card" data-category="utilidad">
-                <span class="card-tag">UTILIDAD / SEGURIDAD</span>
-                <h3 class="card-title">Megathread de Peligros</h3>
-                <p class="card-desc">Registro comunitario actualizado que advierte sobre webs con virus o que ofrecen falsos recursos de edición.</p>
-            </a>
-            
         </div>
     </div>
 
@@ -837,7 +964,6 @@
 
     <div class="nav-container">
         <div class="floating-pill">
-            <a href="#inicio">Inicio</a>
             <a href="#recursos">Recursos</a>
             <a href="https://vgen.co/SoyNavvy" target="_blank">Portafolio</a>
             <a href="https://discord.gg/SDjSfmhhsH" target="_blank" class="btn-discord">Neuro Edit</a>
